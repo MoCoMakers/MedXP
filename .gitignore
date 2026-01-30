@@ -177,3 +177,5 @@ malpractice_agent/output/
 # OS
 .DS_Store
 Thumbs.db
+
+.audio/

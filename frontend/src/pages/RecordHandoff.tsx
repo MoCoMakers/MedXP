@@ -6,35 +6,84 @@ import { PatientSelector } from "@/components/record/PatientSelector";
 import { RecordingControls } from "@/components/record/RecordingControls";
 import { TranscriptPreview } from "@/components/record/TranscriptPreview";
 import { RecordTimer } from "@/components/record/RecordTimer";
-import { mockPatients, mockTranscript } from "@/data/mockData";
+import { mockPatients } from "@/data/mockData";
 import { IncomingRole, ShiftContext } from "@/types/handoff";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useAudioRecorder } from "@/hooks/use-audio-recorder";
+import { useToast } from "@/hooks/use-toast";
+import { transcriptionApi } from "@/lib/api";
 
 export default function RecordHandoff() {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [selectedPatientId, setSelectedPatientId] = React.useState<string | null>(null);
   const [incomingRole, setIncomingRole] = React.useState<IncomingRole>("RN");
   const [shiftContext, setShiftContext] = React.useState<ShiftContext>("ED → Floor");
-  const [isRecording, setIsRecording] = React.useState(false);
   const [isProcessing, setIsProcessing] = React.useState(false);
   const [transcript, setTranscript] = React.useState("");
+  
+  const { isRecording, audioBlob, startRecording, stopRecording, error } = useAudioRecorder();
 
-  const handleRecordStart = () => {
+  // Handle recording errors
+  React.useEffect(() => {
+    if (error) {
+      toast({
+        title: "Recording Error",
+        description: error,
+        variant: "destructive",
+      });
+    }
+  }, [error, toast]);
+
+  // Send audio to backend when recording stops
+  React.useEffect(() => {
+    if (audioBlob && !isRecording) {
+      console.log("Recording complete! Audio blob size:", audioBlob.size, "bytes");
+      console.log("Audio blob type:", audioBlob.type);
+      
+      // Send to backend for saving and transcription
+      transcribeAudio(audioBlob);
+    }
+  }, [audioBlob, isRecording]);
+
+  const transcribeAudio = async (blob: Blob) => {
+    setIsProcessing(true);
+    
+    try {
+      const data = await transcriptionApi.transcribe({
+        audio: blob,
+        patientId: selectedPatientId || undefined,
+        incomingRole,
+        shiftContext,
+      });
+
+      if (data.success && data.transcript) {
+        setTranscript(data.transcript);
+        
+        toast({
+          title: "Success",
+          description: `Audio saved as ${data.audio_file}. Transcription complete.`,
+        });
+      } else {
+        // Silently log error without showing toast
+        console.error("Transcription failed:", data.message || data.error);
+      }
+    } catch (err) {
+      console.error("Transcription error:", err);
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  const handleRecordStart = async () => {
     if (!selectedPatientId) return;
-    setIsRecording(true);
     setTranscript("");
+    await startRecording();
   };
 
   const handleRecordStop = () => {
-    setIsRecording(false);
-    setIsProcessing(true);
-    
-    // Simulate processing
-    setTimeout(() => {
-      setIsProcessing(false);
-      setTranscript(mockTranscript);
-    }, 2000);
+    stopRecording();
   };
 
   const handleContinue = () => {
