@@ -151,9 +151,10 @@ coverage/
 *.sqlite3
 *.db
 
-# Outputs (generated reports)
-!**/config/*.json
-malpractice_agent/output/
+# # Outputs (generated reports)
+# *.json
+# !**/config/*.json
+# malpractice_agent/output/
 
 # Audio files (large, use Git LFS)
 *.wav

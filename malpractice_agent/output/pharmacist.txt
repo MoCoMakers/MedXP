@@ -1,0 +1,60 @@
+## 📋 Pharmacovigilance Assessment
+
+### ⚠️ CRITICAL SAFETY FLAGS IDENTIFIED
+
+#### 1. **INCOMPLETE MEDICATION ORDER — ACTION REQUIRED**
+The handoff notes "administer PRN opioid if pain >6/10," but **no specific opioid agent, dose, or route is prescribed**. This is an incomplete order that requires clarification before administration.
+
+**Concerns:**
+- **Respiratory depression risk:** SpO2 93% on RA + RR 22/min suggests early respiratory compromise; opioids could precipitate decompensation
+- **Bleeding risk with enoxaparin:** Most opioids are acceptable, but concurrent anticoagulation requires monitoring
+- **Standard of care:** PRN orders must be specific
+
+**→ RECOMMENDATION:** Verify specific opioid order (e.g., morphine, oxycodone, hydromorphone) with prescriber before administration.
+
+---
+
+#### 2. **ELEVATED TROPONIN + ANTICOAGULATION MONITORING**
+- **Troponin:** 0.11 ng/mL (Elevated) — possible cardiac injury, NSTEMI, or demand ischemia
+- **Enoxaparin:** 40mg SC daily active
+
+**Concerns:**
+- Elevated troponin in cancer patients may indicate true ACS, demand ischemia, or pulmonary embolism (higher risk in lung cancer)
+- Anticoagulation requires close monitoring for bleeding signs, especially if intervention needed
+
+**→ RECOMMENDATION:** Hold enoxaparin pending cardiology review if ACS suspected; monitor for bleeding.
+
+---
+
+#### 3. **ENOXAPARIN DUPLICATION CONFIRMED**
+As noted by Refiner: Two entries for Enoxaparin 40mg daily in source documentation.
+
+**→ RECOMMENDATION:** Verify against MAR. If order is truly duplicated, discontinue duplicate entry to avoid accidental extra dosing.
+
+---
+
+#### 4. **CHEMORADIATION + ANTICOAGULATION = ELEVATED BLEED RISK**
+- Myelosuppression from chemoradiation increases bleeding susceptibility
+- Daily enoxaparin compounding risk
+
+**→ RECOMMENDATION:** Monitor CBC trends (hemoglobin currently stable at 9.7 g/dL); assess for signs of bleeding with each shift.
+
+---
+
+### ✅ NO DRUG-DRUG INTERACTIONS FLAGGED
+- NKDA documented
+- No identified direct contraindications with current active meds
+
+---
+
+### 📝 SUMMARY ACTION ITEMS
+| Priority | Action |
+|----------|--------|
+| 🔴 HIGH | Verify specific PRN opioid order (agent, dose, route) before administration |
+| 🔴 HIGH | Assess enoxaparin necessity vs. bleeding risk given elevated troponin |
+| 🟡 MED | Resolve enoxaparin duplication in MAR |
+| 🟡 MED | Monitor CBC, bleeding signs q4–6h given anticoagulation + chemo |
+
+---
+
+*Assessment complete. Awaiting clarification on incomplete opioid order before full clearance.*

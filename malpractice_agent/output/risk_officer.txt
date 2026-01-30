@@ -1,0 +1,92 @@
+# Risk Evaluation: Maria Chen Handoff Report
+
+## Summary Risk Classification: **MODERATE-HIGH LIABILITY EXPOSURE**
+
+---
+
+## 1. Informed Consent Gap ⚠️ **HIGH RISK**
+
+**Finding:** The patient is receiving chemoradiation therapy for Stage IIIB NSCLC—a high-risk treatment regimen with significant potential toxicities (esophagitis, pneumonitis, myelosuppression, cardiac effects, radiation dermatitis, fatigue). The handoff report contains no documentation confirming that the patient received informed consent counseling regarding **risks, benefits, and alternatives (RBAs)**.
+
+**Liability Exposure:** Oncology treatments carry substantial morbidity and mortality risks. Absence of documented consent discussions creates:
+- Prima facie evidence of no consent in malpractice litigation
+- Vulnerability to claims of battery or negligence
+- Difficulty defending against patient/family assertions they were inadequately informed
+
+**Recommended Action:** Flag for retrospective chart review. Document any consent discussion found in provider notes. If none exists, risk management should be consulted immediately.
+
+---
+
+## 2. Documentation Gaps Requiring Triage
+
+### Elevated Troponin (0.11 ng/mL)
+**Finding:** This mild elevation is flag "H" (High) but lacks accompanying clinical action plan in the handoff. While the task list mentions following up CT results, there's no specific cardiac monitoring protocol or provider notification documented.
+
+**Concern:** Elevated troponin in a patient with lung cancer, hypoxia risk, and elevated BP may indicate cardiotoxicity from treatment, demand ischemia, or concurrent cardiac pathology. The absence of a defined response protocol creates triage liability.
+
+### Blood Pressure 167/79 mmHg
+**Finding:** Significant hypertension recorded without antihypertensive intervention or monitoring plan.
+
+**Concern:** Uncontrolled hypertension increases stroke and cardiac risk. In context of elevated troponin, this creates an actionable clinical picture with no documented management strategy.
+
+### Pain Assessment
+**Finding:** Current pain level not documented. Task list instructs assessment for next shift only.
+
+**Concern:** Under-treatment of cancer pain is a common liability claim vector. If patient is experiencing pain >6/10, delaying assessment creates suffering and documentation deficiency.
+
+---
+
+## 3. Code Status Confirmation Pending ⚠️ **SIGNIFICANT CONCERN**
+
+**Finding:** "Confirm code status with patient and family" is listed as a task for the next shift. This suggests code status has **not yet been confirmed** despite:
+- Stage IIIB terminal diagnosis
+- Active chemoradiation with complication risks
+- Current clinical instability (fever, hypoxia, elevated troponin)
+
+**Liability Exposure:** Failure to timely address code status in high-risk oncology patients creates exposure to:
+- Resuscitation contrary to patient wishes (if patient would have declined)
+- Family distress from unaddressed goals-of-care discussions
+- Emergency code situations without documented advance directives
+
+**Recommendation:** Elevate to priority. Goals-of-care conversation should occur during this admission, not be deferred.
+
+---
+
+## 4. Medication Safety Note
+
+**Finding:** Enoxaparin duplication noted in source documentation.
+
+**Assessment:** The handoff appropriately flags this for verification. No adverse event appears to have occurred. Good catch.
+
+---
+
+## 5. Sentiment & Tone Review
+
+**Finding:** No dismissive, aggressive, or condescending language identified in the handoff documentation.
+
+**"I'm Sorry" / Admissions of Fault:** None detected.
+
+---
+
+## Priority Action Items for Next Shift
+
+| Priority | Action | Rationale |
+|----------|--------|-----------|
+| 🔴 HIGH | Confirm code status with patient/family | Terminal diagnosis, unstable—goals of care must be established |
+| 🔴 HIGH | Review chart for informed consent documentation | Major liability gap if absent |
+| 🟠 MODERATE | Assess pain level NOW (not later) | Patient comfort, liability protection |
+| 🟠 MODERATE | Follow up troponin trend and notify provider of elevation | Unaddressed cardiac marker |
+| 🟡 STANDARD | Address BP elevation per hypertension protocol | Preventable complication risk |
+
+---
+
+## Overall Liability Assessment
+
+**Current Exposure Level:** Moderate-High
+
+**Key Vulnerabilities:**
+1. Absent informed consent documentation for chemoradiation
+2. Unconfirmed code status in Stage IIIB cancer with instability
+3. Multiple abnormal findings (troponin, BP, SpO2) without integrated action plan
+
+**Risk Mitigation Priority:** Immediate retrospective consent review and goals-of-care discussion. This patient population represents high-malpractice-risk oncology care requiring defensible documentation.

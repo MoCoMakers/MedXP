@@ -1,9 +1,8 @@
 {
   "generated_at": "2026-01-30T12:00:00",
   "cohort": "Simulated Lung Cancer Inpatient/ED Cohort",
-  "Patients": [
-    {
-      "PatientID": "P001",
+  "Patients": {
+    "P001": {
       "PatientName": "Maria Chen",
       "Age": 62,
       "Gender": "Female",
@@ -301,8 +300,8 @@
         }
       ]
     },
-    {
-      "PatientID": "P002",
+
+    "P002": {
       "PatientName": "James Walker",
       "Age": 71,
       "Gender": "Male",
@@ -623,8 +622,8 @@
         }
       ]
     },
-    {
-      "PatientID": "P003",
+
+    "P003": {
       "PatientName": "Aisha Patel",
       "Age": 55,
       "Gender": "Female",
@@ -943,8 +942,8 @@
         }
       ]
     },
-    {
-      "PatientID": "P004",
+
+    "P004": {
       "PatientName": "Robert Kim",
       "Age": 66,
       "Gender": "Male",
@@ -1311,8 +1310,8 @@
         }
       ]
     },
-    {
-      "PatientID": "P005",
+
+    "P005": {
       "PatientName": "Elena Garcia",
       "Age": 59,
       "Gender": "Female",
@@ -1641,8 +1640,8 @@
         }
       ]
     },
-    {
-      "PatientID": "P006",
+
+    "P006": {
       "PatientName": "Thomas Nguyen",
       "Age": 73,
       "Gender": "Male",
@@ -2002,8 +2001,8 @@
         }
       ]
     },
-    {
-      "PatientID": "P007",
+
+    "P007": {
       "PatientName": "Fatima Hassan",
       "Age": 48,
       "Gender": "Female",
@@ -2358,8 +2357,8 @@
         }
       ]
     },
-    {
-      "PatientID": "P008",
+
+    "P008": {
       "PatientName": "David Brooks",
       "Age": 64,
       "Gender": "Male",
@@ -2701,5 +2700,5 @@
         }
       ]
     }
-  ]
+  }
 }

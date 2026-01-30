@@ -1,0 +1,17 @@
+{
+  "risk_level": "High",
+  "executive_summary": "Multiple high-risk clinical and compliance issues identified including an incomplete PRN opioid order requiring verification, unconfirmed code status in a Stage IIIB terminal patient, absent informed consent documentation for chemoradiation, and unaddressed elevated troponin with hypertension. Compliance score of 55 reflects significant documentation and protocol gaps.",
+  "compliance_score": 55,
+  "key_concerns": [
+    "Incomplete PRN opioid order (no agent, dose, or route specified) - respiratory depression risk with SpO2 93% on room air",
+    "Missing informed consent documentation for chemoradiation therapy creates major liability exposure",
+    "Code status remains unconfirmed despite Stage IIIB NSCLC diagnosis and current clinical instability",
+    "Elevated troponin (0.11 ng/mL) lacks cardiac monitoring protocol or provider notification",
+    "Uncontrolled hypertension (167/79 mmHg) without documented management plan",
+    "Enoxaparin duplication in MAR requires verification to prevent accidental extra dosing",
+    "Missing 'Three Checks' verbal confirmation documentation for anticoagulant administration",
+    "Missing hand hygiene and wristband verification documentation before injection",
+    "Bleeding risk elevated by concurrent enoxaparin and chemoradiation-induced myelosuppression"
+  ],
+  "recommended_action": "Immediately verify specific opioid order with prescriber, confirm code status with patient/family, and initiate retrospective informed consent chart review while addressing cardiac marker elevation and hypertension per protocol."
+}
