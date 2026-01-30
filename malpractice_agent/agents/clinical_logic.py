@@ -86,16 +86,28 @@ class MalpracticeAgentSystem:
             prompts[key] = body
         return prompts
 
-    def run_analysis(self, raw_transcript):
-        # 1. First, clean the transcript (Sequential)
+    def run_analysis(self, raw_transcript, output_dir: Path | str | None = None):
+        output_path = Path(output_dir) if output_dir else None
+        if output_path:
+            output_path.mkdir(parents=True, exist_ok=True)
+
+        def _save(role: str, content: str) -> None:
+            if output_path:
+                (output_path / f"{role}.txt").write_text(content, encoding="utf-8")
+
+        logger.info("Starting analysis: cleaning transcript (scribe)")
         clean_transcript = self._call_agent("scribe", raw_transcript)
+        _save("scribe", clean_transcript)
 
-        # 2. Run Risk Analyses (Parallel - simulated here)
+        logger.info("Running risk analyses: pharmacist, watchdog, risk_officer")
         pharm_report = self._call_agent("pharmacist", clean_transcript)
+        _save("pharmacist", pharm_report)
         audit_report = self._call_agent("watchdog", clean_transcript)
+        _save("watchdog", audit_report)
         risk_report = self._call_agent("risk_officer", clean_transcript)
+        _save("risk_officer", risk_report)
 
-        # 3. Synthesize (Final Orchestration)
+        logger.info("Synthesizing reports (lead_orchestrator)")
         return self._synthesize(pharm_report, audit_report, risk_report)
 
     def _synthesize(
@@ -116,6 +128,7 @@ class MalpracticeAgentSystem:
             sections.extend(["", "## Risk Officer Report", risk_report])
         content = "\n".join(sections)
         raw = self._call_agent("lead_orchestrator", content)
+        logger.info("Parsing orchestrator JSON and validating")
         json_str = _extract_json(raw)
         data = json.loads(json_str)
         try:
@@ -128,6 +141,7 @@ class MalpracticeAgentSystem:
             raise
 
     def _call_agent(self, agent_role, content):
+        logger.info("Calling agent: %s (input length: %d chars)", agent_role, len(content))
         kwargs = {
             "model": self.model,
             "messages": [
@@ -140,4 +154,6 @@ class MalpracticeAgentSystem:
             kwargs["extra_body"] = {"reasoning_split": True}
         response = self.client.chat.completions.create(**kwargs)
         msg = response.choices[0].message
-        return msg.content or ""
+        out = msg.content or ""
+        logger.info("Completed agent: %s (output length: %d chars)", agent_role, len(out))
+        return out

@@ -1,907 +1,547 @@
 {
-  "generated_at": "2026-01-30T12:00:00",
-  "cohort": "Simulated Lung Cancer Inpatient/ED Cohort",
-  "Scenarios": [
-    {
-      "PatientID": "P001",
-      "PatientName": "Maria Chen",
-      "Room": "3E-12",
-      "Age": 62,
-      "Gender": "Female",
-      "Transcript": "Maria Chen in 3E-12, 62 y/o with Stage IIIB non-small cell lung cancer (NSCLC), on chemoradiation. Currently\non Enoxaparin (40 mg SQ daily) and Enoxaparin (40 mg SQ daily). Most recent vitals at 02:50: T 38.5C, HR 78,\nRR 22, BP 167/79, SpO2 93%. Latest labs: Hgb 9.7g/dL (N), Troponin 0.11ng/mL (H). Pending: CT chest read;\nblood cultures still pending. Allergies: NKDA. Code status: Full Code. Tasks for next shift: Follow up CT\nchest result when available; Assess pain and give PRN opioid if >6/10; Confirm code status with\npatient/family. Risks to watch: Arrhythmia risk with hypoxia, Respiratory decompensation.",
-      "RecordedBy": {
-        "StaffID": "N04",
-        "Name": "Nurse Sofia Martinez"
+  "_meta": {
+    "generated_at": "2026-01-30T12:00:00",
+    "cohort": "Simulated Lung Cancer Inpatient/ED Cohort"
+  },
+  "P001": {
+    "PatientName": "Maria Chen",
+    "Room": "3E-12",
+    "Age": 62,
+    "Gender": "Female",
+    "Scenarios": [
+      {
+        "Transcript": "Maria Chen in 3E-12, 62 y/o with Stage IIIB non-small cell lung cancer (NSCLC), on chemoradiation. Currently\non Enoxaparin (40 mg SQ daily) and Enoxaparin (40 mg SQ daily). Most recent vitals at 02:50: T 38.5C, HR 78,\nRR 22, BP 167/79, SpO2 93%. Latest labs: Hgb 9.7g/dL (N), Troponin 0.11ng/mL (H). Pending: CT chest read;\nblood cultures still pending. Allergies: NKDA. Code status: Full Code. Tasks for next shift: Follow up CT\nchest result when available; Assess pain and give PRN opioid if >6/10; Confirm code status with\npatient/family. Risks to watch: Arrhythmia risk with hypoxia, Respiratory decompensation.",
+        "RecordedBy": { "StaffID": "N04", "Name": "Nurse Sofia Martinez" },
+        "IncomingRole": "Intern",
+        "Timestamp": "02:50:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->ICU",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Intern",
-      "Timestamp": "02:50:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->ICU",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P001",
-      "PatientName": "Maria Chen",
-      "Room": "3E-12",
-      "Age": 62,
-      "Gender": "Female",
-      "Transcript": "Maria Chen in 3E-12, 62 y/o with Stage IIIB non-small cell lung cancer (NSCLC), on chemoradiation. Currently\non Levetiracetam (500 mg PO BID) and Enoxaparin (40 mg SQ daily). Most recent vitals at 03:00: T 38.2C, HR\n107, RR 17, BP 149/74, SpO2 96%. Latest labs: Na 136.3mmol/L (H), WBC 5.1K/uL (N). Pending: CT chest read;\nblood cultures still pending. Allergies: NKDA. Code status: Full Code. Tasks for next shift: Call RT for\nbreathing treatment if wheezing; Hold anticoagulation if hemoptysis worsens; Monitor chest tube output and\ndressing. Risks to watch: Delirium/falls risk, Arrhythmia risk with hypoxia.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
+      {
+        "Transcript": "Maria Chen in 3E-12, 62 y/o with Stage IIIB non-small cell lung cancer (NSCLC), on chemoradiation. Currently\non Levetiracetam (500 mg PO BID) and Enoxaparin (40 mg SQ daily). Most recent vitals at 03:00: T 38.2C, HR\n107, RR 17, BP 149/74, SpO2 96%. Latest labs: Na 136.3mmol/L (H), WBC 5.1K/uL (N). Pending: CT chest read;\nblood cultures still pending. Allergies: NKDA. Code status: Full Code. Tasks for next shift: Call RT for\nbreathing treatment if wheezing; Hold anticoagulation if hemoptysis worsens; Monitor chest tube output and\ndressing. Risks to watch: Delirium/falls risk, Arrhythmia risk with hypoxia.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "RN",
+        "Timestamp": "03:00:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ED->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "RN",
-      "Timestamp": "03:00:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ED->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P001",
-      "PatientName": "Maria Chen",
-      "Room": "3E-12",
-      "Age": 62,
-      "Gender": "Female",
-      "Transcript": "Maria Chen in 3E-12, 62 y/o with Stage IIIB non-small cell lung cancer (NSCLC), on chemoradiation. Currently\non Levetiracetam (500 mg PO BID) and Enoxaparin (40 mg SQ daily). Most recent vitals at 11:00: T 37.4C, HR 81,\nRR 19, BP 163/79, SpO2 94%. Latest labs: Procalcitonin 6.14ng/mL (N), Troponin 0.11ng/mL (H). Pending: CT\nchest read; blood cultures still pending. Tasks for next shift: Encourage incentive spirometry q1h while\nawake; Recheck vitals in 1 hour; Recheck vitals in 1 hour. Risks to watch: AKI risk from dehydration/contrast,\nSepsis risk, Delirium/falls risk. They were on oxygen earlier; I didn\u2019t note the current device.",
-      "RecordedBy": {
-        "StaffID": "N04",
-        "Name": "Nurse Sofia Martinez"
+      {
+        "Transcript": "Maria Chen in 3E-12, 62 y/o with Stage IIIB non-small cell lung cancer (NSCLC), on chemoradiation. Currently\non Levetiracetam (500 mg PO BID) and Enoxaparin (40 mg SQ daily). Most recent vitals at 11:00: T 37.4C, HR 81,\nRR 19, BP 163/79, SpO2 94%. Latest labs: Procalcitonin 6.14ng/mL (N), Troponin 0.11ng/mL (H). Pending: CT\nchest read; blood cultures still pending. Tasks for next shift: Encourage incentive spirometry q1h while\nawake; Recheck vitals in 1 hour; Recheck vitals in 1 hour. Risks to watch: AKI risk from dehydration/contrast,\nSepsis risk, Delirium/falls risk. They were on oxygen earlier; I didn\u2019t note the current device.",
+        "RecordedBy": { "StaffID": "N04", "Name": "Nurse Sofia Martinez" },
+        "IncomingRole": "Attending",
+        "Timestamp": "11:00:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->ICU",
+        "ScenarioType": "worst_case"
       },
-      "IncomingRole": "Attending",
-      "Timestamp": "11:00:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->ICU",
-      "ScenarioType": "worst_case"
-    },
-    {
-      "PatientID": "P001",
-      "PatientName": "Maria Chen",
-      "Room": "3E-12",
-      "Age": 62,
-      "Gender": "Female",
-      "Transcript": "Maria Chen in 3E-12, 62 y/o with Stage IIIB non-small cell lung cancer (NSCLC), on chemoradiation. Currently\non Pembrolizumab (per oncology) and Enoxaparin (40 mg SQ daily). Most recent vitals at 14:40: T 37.4C, HR 81,\nRR 19, BP 163/79, SpO2 94%. Latest labs: Procalcitonin 1.94ng/mL (N), Procalcitonin 3.64ng/mL (N). Pending: CT\nchest read; blood cultures still pending. Allergies: NKDA. Code status: Full Code. Tasks for next shift: Draw\nrepeat CBC at 0400; Follow up CT chest result when available; Assess pain and give PRN opioid if >6/10. Risks\nto watch: Pain crisis, AKI risk from dehydration/contrast.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
+      {
+        "Transcript": "Maria Chen in 3E-12, 62 y/o with Stage IIIB non-small cell lung cancer (NSCLC), on chemoradiation. Currently\non Pembrolizumab (per oncology) and Enoxaparin (40 mg SQ daily). Most recent vitals at 14:40: T 37.4C, HR 81,\nRR 19, BP 163/79, SpO2 94%. Latest labs: Procalcitonin 1.94ng/mL (N), Procalcitonin 3.64ng/mL (N). Pending: CT\nchest read; blood cultures still pending. Allergies: NKDA. Code status: Full Code. Tasks for next shift: Draw\nrepeat CBC at 0400; Follow up CT chest result when available; Assess pain and give PRN opioid if >6/10. Risks\nto watch: Pain crisis, AKI risk from dehydration/contrast.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "Resident",
+        "Timestamp": "14:40:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->ICU",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Resident",
-      "Timestamp": "14:40:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->ICU",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P001",
-      "PatientName": "Maria Chen",
-      "Room": "3E-12",
-      "Age": 62,
-      "Gender": "Female",
-      "Transcript": "Maria Chen in 3E-12, 62 y/o with Stage IIIB non-small cell lung cancer (NSCLC), on chemoradiation. Currently\non Oxycodone (5-10 mg PO q4h PRN) and Enoxaparin (40 mg SQ daily). Most recent vitals at 18:40: T 37.4C, HR\n81, RR 19, BP 163/79, SpO2 94%. Latest labs: Cr 0.61mg/dL (L), Procalcitonin 6.14ng/mL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: NKDA. Code status: Full Code. Tasks for next shift: Confirm\ncode status with patient/family; Recheck vitals in 1 hour; Hold anticoagulation if hemoptysis worsens. Risks\nto watch: Sepsis risk, Respiratory decompensation.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
+      {
+        "Transcript": "Maria Chen in 3E-12, 62 y/o with Stage IIIB non-small cell lung cancer (NSCLC), on chemoradiation. Currently\non Oxycodone (5-10 mg PO q4h PRN) and Enoxaparin (40 mg SQ daily). Most recent vitals at 18:40: T 37.4C, HR\n81, RR 19, BP 163/79, SpO2 94%. Latest labs: Cr 0.61mg/dL (L), Procalcitonin 6.14ng/mL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: NKDA. Code status: Full Code. Tasks for next shift: Confirm\ncode status with patient/family; Recheck vitals in 1 hour; Hold anticoagulation if hemoptysis worsens. Risks\nto watch: Sepsis risk, Respiratory decompensation.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "Resident",
+        "Timestamp": "18:40:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ICU->Floor",
+        "ScenarioType": "best_case"
+      }
+    ]
+  },
+  "P002": {
+    "PatientName": "James Walker",
+    "Room": "3E-15",
+    "Age": 71,
+    "Gender": "Male",
+    "Scenarios": [
+      {
+        "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on\nPiperacillin-tazobactam (3.375 g IV q6h) and Dexamethasone (4 mg IV q12h). Most recent vitals at 12:10: T\n39.2C, HR 104, RR 26, BP 91/52, SpO2 94%. Latest labs: Lactate 0.97mmol/L (N), WBC 16.0K/uL (N). Pending: CT\nchest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: Full Code. Tasks for next\nshift: Hold anticoagulation if hemoptysis worsens; Follow up CT chest result when available; Assess pain and\ngive PRN opioid if >6/10. Risks to watch: Delirium/falls risk, AKI risk from dehydration/contrast.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "RN",
+        "Timestamp": "12:10:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->ICU",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Resident",
-      "Timestamp": "18:40:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ICU->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P002",
-      "PatientName": "James Walker",
-      "Room": "3E-15",
-      "Age": 71,
-      "Gender": "Male",
-      "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on\nPiperacillin-tazobactam (3.375 g IV q6h) and Dexamethasone (4 mg IV q12h). Most recent vitals at 12:10: T\n39.2C, HR 104, RR 26, BP 91/52, SpO2 94%. Latest labs: Lactate 0.97mmol/L (N), WBC 16.0K/uL (N). Pending: CT\nchest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: Full Code. Tasks for next\nshift: Hold anticoagulation if hemoptysis worsens; Follow up CT chest result when available; Assess pain and\ngive PRN opioid if >6/10. Risks to watch: Delirium/falls risk, AKI risk from dehydration/contrast.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
+      {
+        "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on Ondansetron\n(4 mg IV q8h PRN) and Piperacillin-tazobactam (3.375 g IV q6h). Most recent vitals at 15:40: T 39.2C, HR 104,\nRR 26, BP 91/52, SpO2 94%. Latest labs: Troponin 0.04ng/mL (N), Lactate 4.6mmol/L (N). Pending: CT chest read;\nblood cultures still pending. Allergies: Penicillin (rash). Code status: Full Code. Tasks for next shift:\nRecheck vitals in 1 hour; Call RT for breathing treatment if wheezing; Monitor chest tube output and dressing.\nRisks to watch: Bleeding/hemoptysis, Delirium/falls risk.",
+        "RecordedBy": { "StaffID": "N04", "Name": "Nurse Sofia Martinez" },
+        "IncomingRole": "Attending",
+        "Timestamp": "15:40:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "RN",
-      "Timestamp": "12:10:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->ICU",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P002",
-      "PatientName": "James Walker",
-      "Room": "3E-15",
-      "Age": 71,
-      "Gender": "Male",
-      "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on Ondansetron\n(4 mg IV q8h PRN) and Piperacillin-tazobactam (3.375 g IV q6h). Most recent vitals at 15:40: T 39.2C, HR 104,\nRR 26, BP 91/52, SpO2 94%. Latest labs: Troponin 0.04ng/mL (N), Lactate 4.6mmol/L (N). Pending: CT chest read;\nblood cultures still pending. Allergies: Penicillin (rash). Code status: Full Code. Tasks for next shift:\nRecheck vitals in 1 hour; Call RT for breathing treatment if wheezing; Monitor chest tube output and dressing.\nRisks to watch: Bleeding/hemoptysis, Delirium/falls risk.",
-      "RecordedBy": {
-        "StaffID": "N04",
-        "Name": "Nurse Sofia Martinez"
+      {
+        "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on\nHydromorphone (0.5 mg IV q3h PRN) and Heparin infusion (per protocol). Most recent vitals at 16:10: T 39.2C,\nHR 104, RR 26, BP 91/52, SpO2 94%. Latest labs: WBC 16.0K/uL (N), K 5.1mmol/L (H). Code status: Full Code.\nTasks for next shift: Recheck vitals in 1 hour; Monitor chest tube output and dressing; Monitor chest tube\noutput and dressing. Risks to watch: Pain crisis, Neutropenia-related infection, Respiratory decompensation.\nThere was a discussion with family but I\u2019m not sure what was decided.",
+        "RecordedBy": { "StaffID": "N02", "Name": "Nurse Marcus Hill" },
+        "IncomingRole": "Attending",
+        "Timestamp": "16:10:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ED->Floor",
+        "ScenarioType": "worst_case"
       },
-      "IncomingRole": "Attending",
-      "Timestamp": "15:40:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P002",
-      "PatientName": "James Walker",
-      "Room": "3E-15",
-      "Age": 71,
-      "Gender": "Male",
-      "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on\nHydromorphone (0.5 mg IV q3h PRN) and Heparin infusion (per protocol). Most recent vitals at 16:10: T 39.2C,\nHR 104, RR 26, BP 91/52, SpO2 94%. Latest labs: WBC 16.0K/uL (N), K 5.1mmol/L (H). Code status: Full Code.\nTasks for next shift: Recheck vitals in 1 hour; Monitor chest tube output and dressing; Monitor chest tube\noutput and dressing. Risks to watch: Pain crisis, Neutropenia-related infection, Respiratory decompensation.\nThere was a discussion with family but I\u2019m not sure what was decided.",
-      "RecordedBy": {
-        "StaffID": "N02",
-        "Name": "Nurse Marcus Hill"
+      {
+        "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on\nPiperacillin-tazobactam (3.375 g IV q6h) and Heparin infusion (per protocol). Most recent vitals at 20:10: T\n39.2C, HR 75, RR 32, BP 109/91, SpO2 95%. Latest labs: Procalcitonin 3.23ng/mL (N), WBC 13.3K/uL (N). Pending:\nCT chest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: Full Code. Tasks for\nnext shift: Monitor chest tube output and dressing; Confirm code status with patient/family; Assess pain and\ngive PRN opioid if >6/10. Risks to watch: Pain crisis, Respiratory decompensation.",
+        "RecordedBy": { "StaffID": "N02", "Name": "Nurse Marcus Hill" },
+        "IncomingRole": "Attending",
+        "Timestamp": "20:10:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->ICU",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Attending",
-      "Timestamp": "16:10:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ED->Floor",
-      "ScenarioType": "worst_case"
-    },
-    {
-      "PatientID": "P002",
-      "PatientName": "James Walker",
-      "Room": "3E-15",
-      "Age": 71,
-      "Gender": "Male",
-      "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on\nPiperacillin-tazobactam (3.375 g IV q6h) and Heparin infusion (per protocol). Most recent vitals at 20:10: T\n39.2C, HR 75, RR 32, BP 109/91, SpO2 95%. Latest labs: Procalcitonin 3.23ng/mL (N), WBC 13.3K/uL (N). Pending:\nCT chest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: Full Code. Tasks for\nnext shift: Monitor chest tube output and dressing; Confirm code status with patient/family; Assess pain and\ngive PRN opioid if >6/10. Risks to watch: Pain crisis, Respiratory decompensation.",
-      "RecordedBy": {
-        "StaffID": "N02",
-        "Name": "Nurse Marcus Hill"
+      {
+        "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on\nDexamethasone (4 mg IV q12h) and Heparin infusion (per protocol). Most recent vitals at 23:40: T 37.2C, HR 85,\nRR 27, BP 113/61, SpO2 87%. Latest labs: Procalcitonin 3.23ng/mL (N), WBC 12.5K/uL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: Penicillin (rash). Code status: Full Code. Tasks for next\nshift: Monitor chest tube output and dressing; Maintain neutropenic precautions; Hold anticoagulation if\nhemoptysis worsens. Risks to watch: Delirium/falls risk, Arrhythmia risk with hypoxia.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "Resident",
+        "Timestamp": "23:40:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Attending",
-      "Timestamp": "20:10:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->ICU",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P002",
-      "PatientName": "James Walker",
-      "Room": "3E-15",
-      "Age": 71,
-      "Gender": "Male",
-      "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on\nDexamethasone (4 mg IV q12h) and Heparin infusion (per protocol). Most recent vitals at 23:40: T 37.2C, HR 85,\nRR 27, BP 113/61, SpO2 87%. Latest labs: Procalcitonin 3.23ng/mL (N), WBC 12.5K/uL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: Penicillin (rash). Code status: Full Code. Tasks for next\nshift: Monitor chest tube output and dressing; Maintain neutropenic precautions; Hold anticoagulation if\nhemoptysis worsens. Risks to watch: Delirium/falls risk, Arrhythmia risk with hypoxia.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
+      {
+        "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on Ondansetron\n(4 mg IV q8h PRN) and Piperacillin-tazobactam (3.375 g IV q6h). Most recent vitals at 00:20: T 37.2C, HR 85,\nRR 27, BP 113/61, SpO2 87%. Latest labs: K 5.3mmol/L (H), Troponin 0.04ng/mL (N). Tasks for next shift: Page\noncology with morning labs; Monitor chest tube output and dressing; Monitor chest tube output and dressing.\nRisks to watch: Pain crisis, Neutropenia-related infection, Bleeding/hemoptysis. Labs were drawn sometime\novernight\u2014please double-check timing.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "RN",
+        "Timestamp": "00:20:00",
+        "Date": "2026-01-31",
+        "ShiftContext": "Floor->ICU",
+        "ScenarioType": "worst_case"
       },
-      "IncomingRole": "Resident",
-      "Timestamp": "23:40:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P002",
-      "PatientName": "James Walker",
-      "Room": "3E-15",
-      "Age": 71,
-      "Gender": "Male",
-      "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on Ondansetron\n(4 mg IV q8h PRN) and Piperacillin-tazobactam (3.375 g IV q6h). Most recent vitals at 00:20: T 37.2C, HR 85,\nRR 27, BP 113/61, SpO2 87%. Latest labs: K 5.3mmol/L (H), Troponin 0.04ng/mL (N). Tasks for next shift: Page\noncology with morning labs; Monitor chest tube output and dressing; Monitor chest tube output and dressing.\nRisks to watch: Pain crisis, Neutropenia-related infection, Bleeding/hemoptysis. Labs were drawn sometime\novernight\u2014please double-check timing.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
+      {
+        "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on\nDexamethasone (4 mg IV q12h) and Heparin infusion (per protocol). Most recent vitals at 03:40: T 37.2C, HR 85,\nRR 27, BP 113/61, SpO2 87%. Latest labs: Plt 339.2K/uL (N), WBC 12.5K/uL (N). Pending: CT chest read; blood\ncultures still pending. Allergies: Penicillin (rash). Code status: Full Code. Tasks for next shift: Recheck\nvitals in 1 hour; Titrate O2 to keep SpO2 > 92%; Follow up CT chest result when available. Risks to watch:\nPain crisis, Neutropenia-related infection.",
+        "RecordedBy": { "StaffID": "N04", "Name": "Nurse Sofia Martinez" },
+        "IncomingRole": "Resident",
+        "Timestamp": "03:40:00",
+        "Date": "2026-01-31",
+        "ShiftContext": "ICU->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "RN",
-      "Timestamp": "00:20:00",
-      "Date": "2026-01-31",
-      "ShiftContext": "Floor->ICU",
-      "ScenarioType": "worst_case"
-    },
-    {
-      "PatientID": "P002",
-      "PatientName": "James Walker",
-      "Room": "3E-15",
-      "Age": 71,
-      "Gender": "Male",
-      "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on\nDexamethasone (4 mg IV q12h) and Heparin infusion (per protocol). Most recent vitals at 03:40: T 37.2C, HR 85,\nRR 27, BP 113/61, SpO2 87%. Latest labs: Plt 339.2K/uL (N), WBC 12.5K/uL (N). Pending: CT chest read; blood\ncultures still pending. Allergies: Penicillin (rash). Code status: Full Code. Tasks for next shift: Recheck\nvitals in 1 hour; Titrate O2 to keep SpO2 > 92%; Follow up CT chest result when available. Risks to watch:\nPain crisis, Neutropenia-related infection.",
-      "RecordedBy": {
-        "StaffID": "N04",
-        "Name": "Nurse Sofia Martinez"
+      {
+        "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on\nDexamethasone (4 mg IV q12h) and Heparin infusion (per protocol). Most recent vitals at 04:10: T 37.2C, HR 85,\nRR 27, BP 113/61, SpO2 87%. Latest labs: WBC 13.3K/uL (N), Procalcitonin 3.23ng/mL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: Penicillin (rash). Code status: Full Code. Tasks for next\nshift: Page oncology with morning labs; Titrate O2 to keep SpO2 > 92%; Draw repeat CBC at 0400. Risks to\nwatch: Respiratory decompensation, Delirium/falls risk.",
+        "RecordedBy": { "StaffID": "N02", "Name": "Nurse Marcus Hill" },
+        "IncomingRole": "Intern",
+        "Timestamp": "04:10:00",
+        "Date": "2026-01-31",
+        "ShiftContext": "Floor->Floor",
+        "ScenarioType": "best_case"
+      }
+    ]
+  },
+  "P003": {
+    "PatientName": "Aisha Patel",
+    "Room": "3W-08",
+    "Age": 55,
+    "Gender": "Female",
+    "Scenarios": [
+      {
+        "Transcript": "Aisha Patel in 3W-08, 55 y/o with Stage I adenocarcinoma s/p lobectomy, postop day 2. Currently on Oxycodone\n(5-10 mg PO q4h PRN) and Levetiracetam (500 mg PO BID). Most recent vitals at 01:00: T 38.4C, HR 113, RR 15,\nBP 121/74, SpO2 91%. Latest labs: WBC 17.6K/uL (H), Cr 1.58mg/dL (N). Pending: CT chest read; blood cultures\nstill pending. Allergies: NKDA. Code status: DNR (intubation OK). Tasks for next shift: Monitor chest tube\noutput and dressing; Hold anticoagulation if hemoptysis worsens; Maintain neutropenic precautions. Risks to\nwatch: Delirium/falls risk, Bleeding/hemoptysis.",
+        "RecordedBy": { "StaffID": "N02", "Name": "Nurse Marcus Hill" },
+        "IncomingRole": "Resident",
+        "Timestamp": "01:00:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ED->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Resident",
-      "Timestamp": "03:40:00",
-      "Date": "2026-01-31",
-      "ShiftContext": "ICU->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P002",
-      "PatientName": "James Walker",
-      "Room": "3E-15",
-      "Age": 71,
-      "Gender": "Male",
-      "Transcript": "James Walker in 3E-15, 71 y/o with Stage IV NSCLC with brain mets, on immunotherapy. Currently on\nDexamethasone (4 mg IV q12h) and Heparin infusion (per protocol). Most recent vitals at 04:10: T 37.2C, HR 85,\nRR 27, BP 113/61, SpO2 87%. Latest labs: WBC 13.3K/uL (N), Procalcitonin 3.23ng/mL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: Penicillin (rash). Code status: Full Code. Tasks for next\nshift: Page oncology with morning labs; Titrate O2 to keep SpO2 > 92%; Draw repeat CBC at 0400. Risks to\nwatch: Respiratory decompensation, Delirium/falls risk.",
-      "RecordedBy": {
-        "StaffID": "N02",
-        "Name": "Nurse Marcus Hill"
+      {
+        "Transcript": "Aisha Patel in 3W-08, 55 y/o with Stage I adenocarcinoma s/p lobectomy, postop day 2. Currently on\nHydromorphone (0.5 mg IV q3h PRN) and Heparin infusion (per protocol). Most recent vitals at 08:30: T 36.4C,\nHR 86, RR 19, BP 114/74, SpO2 87%. Latest labs: Troponin 0.08ng/mL (N), WBC 11.8K/uL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: NKDA. Code status: DNR (intubation OK). Tasks for next shift:\nPage oncology with morning labs; Recheck vitals in 1 hour; Draw repeat CBC at 0400. Risks to watch: AKI risk\nfrom dehydration/contrast, Arrhythmia risk with hypoxia.",
+        "RecordedBy": { "StaffID": "N01", "Name": "Nurse Olivia Reed" },
+        "IncomingRole": "Intern",
+        "Timestamp": "08:30:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ED->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Intern",
-      "Timestamp": "04:10:00",
-      "Date": "2026-01-31",
-      "ShiftContext": "Floor->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P003",
-      "PatientName": "Aisha Patel",
-      "Room": "3W-08",
-      "Age": 55,
-      "Gender": "Female",
-      "Transcript": "Aisha Patel in 3W-08, 55 y/o with Stage I adenocarcinoma s/p lobectomy, postop day 2. Currently on Oxycodone\n(5-10 mg PO q4h PRN) and Levetiracetam (500 mg PO BID). Most recent vitals at 01:00: T 38.4C, HR 113, RR 15,\nBP 121/74, SpO2 91%. Latest labs: WBC 17.6K/uL (H), Cr 1.58mg/dL (N). Pending: CT chest read; blood cultures\nstill pending. Allergies: NKDA. Code status: DNR (intubation OK). Tasks for next shift: Monitor chest tube\noutput and dressing; Hold anticoagulation if hemoptysis worsens; Maintain neutropenic precautions. Risks to\nwatch: Delirium/falls risk, Bleeding/hemoptysis.",
-      "RecordedBy": {
-        "StaffID": "N02",
-        "Name": "Nurse Marcus Hill"
+      {
+        "Transcript": "Aisha Patel in 3W-08, 55 y/o with Stage I adenocarcinoma s/p lobectomy, postop day 2. Currently on\nLevetiracetam (500 mg PO BID) and Ondansetron (4 mg IV q8h PRN). Most recent vitals at 17:20: T 37.0C, HR 84,\nRR 27, BP 149/73, SpO2 94%. Latest labs: Hgb 12.9g/dL (N), WBC 14.1K/uL (N). Pending: CT chest read; blood\ncultures still pending. Allergies: NKDA. Tasks for next shift: Recheck vitals in 1 hour; Page oncology with\nmorning labs; Page oncology with morning labs. Risks to watch: Delirium/falls risk, Arrhythmia risk with\nhypoxia, AKI risk from dehydration/contrast. There was a discussion with family but I\u2019m not sure what was\ndecided.",
+        "RecordedBy": { "StaffID": "N04", "Name": "Nurse Sofia Martinez" },
+        "IncomingRole": "Attending",
+        "Timestamp": "17:20:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->Floor",
+        "ScenarioType": "worst_case"
       },
-      "IncomingRole": "Resident",
-      "Timestamp": "01:00:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ED->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P003",
-      "PatientName": "Aisha Patel",
-      "Room": "3W-08",
-      "Age": 55,
-      "Gender": "Female",
-      "Transcript": "Aisha Patel in 3W-08, 55 y/o with Stage I adenocarcinoma s/p lobectomy, postop day 2. Currently on\nHydromorphone (0.5 mg IV q3h PRN) and Heparin infusion (per protocol). Most recent vitals at 08:30: T 36.4C,\nHR 86, RR 19, BP 114/74, SpO2 87%. Latest labs: Troponin 0.08ng/mL (N), WBC 11.8K/uL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: NKDA. Code status: DNR (intubation OK). Tasks for next shift:\nPage oncology with morning labs; Recheck vitals in 1 hour; Draw repeat CBC at 0400. Risks to watch: AKI risk\nfrom dehydration/contrast, Arrhythmia risk with hypoxia.",
-      "RecordedBy": {
-        "StaffID": "N01",
-        "Name": "Nurse Olivia Reed"
+      {
+        "Transcript": "Aisha Patel in 3W-08, 55 y/o with Stage I adenocarcinoma s/p lobectomy, postop day 2. Currently on Oxycodone\n(5-10 mg PO q4h PRN) and Ondansetron (4 mg IV q8h PRN). Most recent vitals at 00:30: T 36.3C, HR 109, RR 17,\nBP 125/50, SpO2 90%. Latest labs: WBC 11.8K/uL (N), Hgb 11.4g/dL (N). Pending: CT chest read; blood cultures\nstill pending. Allergies: NKDA. Code status: DNR (intubation OK). Tasks for next shift: Draw repeat CBC at\n0400; Monitor chest tube output and dressing; Titrate O2 to keep SpO2 > 92%. Risks to watch:\nBleeding/hemoptysis, Sepsis risk.",
+        "RecordedBy": { "StaffID": "N04", "Name": "Nurse Sofia Martinez" },
+        "IncomingRole": "Resident",
+        "Timestamp": "00:30:00",
+        "Date": "2026-01-31",
+        "ShiftContext": "OR->PACU",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Intern",
-      "Timestamp": "08:30:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ED->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P003",
-      "PatientName": "Aisha Patel",
-      "Room": "3W-08",
-      "Age": 55,
-      "Gender": "Female",
-      "Transcript": "Aisha Patel in 3W-08, 55 y/o with Stage I adenocarcinoma s/p lobectomy, postop day 2. Currently on\nLevetiracetam (500 mg PO BID) and Ondansetron (4 mg IV q8h PRN). Most recent vitals at 17:20: T 37.0C, HR 84,\nRR 27, BP 149/73, SpO2 94%. Latest labs: Hgb 12.9g/dL (N), WBC 14.1K/uL (N). Pending: CT chest read; blood\ncultures still pending. Allergies: NKDA. Tasks for next shift: Recheck vitals in 1 hour; Page oncology with\nmorning labs; Page oncology with morning labs. Risks to watch: Delirium/falls risk, Arrhythmia risk with\nhypoxia, AKI risk from dehydration/contrast. There was a discussion with family but I\u2019m not sure what was\ndecided.",
-      "RecordedBy": {
-        "StaffID": "N04",
-        "Name": "Nurse Sofia Martinez"
+      {
+        "Transcript": "Aisha Patel in 3W-08, 55 y/o with Stage I adenocarcinoma s/p lobectomy, postop day 2. Currently on\nLevetiracetam (500 mg PO BID) and Oxycodone (5-10 mg PO q4h PRN). Most recent vitals at 04:40: T 36.3C, HR\n109, RR 17, BP 125/50, SpO2 90%. Latest labs: WBC 14.1K/uL (N), Na 140.9mmol/L (H). Pending: CT chest read;\nblood cultures still pending. Allergies: NKDA. Code status: DNR (intubation OK). Tasks for next shift: Assess\npain and give PRN opioid if >6/10; Confirm code status with patient/family; Encourage incentive spirometry q1h\nwhile awake. Risks to watch: Respiratory decompensation, Neutropenia-related infection.",
+        "RecordedBy": { "StaffID": "N02", "Name": "Nurse Marcus Hill" },
+        "IncomingRole": "RN",
+        "Timestamp": "04:40:00",
+        "Date": "2026-01-31",
+        "ShiftContext": "Floor->Floor",
+        "ScenarioType": "best_case"
+      }
+    ]
+  },
+  "P004": {
+    "PatientName": "Robert Kim",
+    "Room": "4ICU-02",
+    "Age": 66,
+    "Gender": "Male",
+    "Scenarios": [
+      {
+        "Transcript": "Robert Kim in 4ICU-02, 66 y/o with Stage IV small cell lung cancer (SCLC), on platinum/etoposide; neutropenic\nfever. Currently on Hydromorphone (0.5 mg IV q3h PRN) and Ondansetron (4 mg IV q8h PRN). Most recent vitals at\n09:30: T 38.6C, HR 104, RR 20, BP 98/81, SpO2 95%. Latest labs: Procalcitonin 1.09ng/mL (N), Plt 158.1K/uL\n(N). Pending: CT chest read; blood cultures still pending. Allergies: Latex (itching). Code status: DNR/DNI.\nTasks for next shift: Maintain neutropenic precautions; Recheck vitals in 1 hour; Follow up CT chest result\nwhen available. Risks to watch: Arrhythmia risk with hypoxia, Bleeding/hemoptysis.",
+        "RecordedBy": { "StaffID": "N01", "Name": "Nurse Olivia Reed" },
+        "IncomingRole": "Intern",
+        "Timestamp": "09:30:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ICU->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Attending",
-      "Timestamp": "17:20:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->Floor",
-      "ScenarioType": "worst_case"
-    },
-    {
-      "PatientID": "P003",
-      "PatientName": "Aisha Patel",
-      "Room": "3W-08",
-      "Age": 55,
-      "Gender": "Female",
-      "Transcript": "Aisha Patel in 3W-08, 55 y/o with Stage I adenocarcinoma s/p lobectomy, postop day 2. Currently on Oxycodone\n(5-10 mg PO q4h PRN) and Ondansetron (4 mg IV q8h PRN). Most recent vitals at 00:30: T 36.3C, HR 109, RR 17,\nBP 125/50, SpO2 90%. Latest labs: WBC 11.8K/uL (N), Hgb 11.4g/dL (N). Pending: CT chest read; blood cultures\nstill pending. Allergies: NKDA. Code status: DNR (intubation OK). Tasks for next shift: Draw repeat CBC at\n0400; Monitor chest tube output and dressing; Titrate O2 to keep SpO2 > 92%. Risks to watch:\nBleeding/hemoptysis, Sepsis risk.",
-      "RecordedBy": {
-        "StaffID": "N04",
-        "Name": "Nurse Sofia Martinez"
+      {
+        "Transcript": "Robert Kim in 4ICU-02, 66 y/o with Stage IV small cell lung cancer (SCLC), on platinum/etoposide; neutropenic\nfever. Currently on Levetiracetam (500 mg PO BID) and Ondansetron (4 mg IV q8h PRN). Most recent vitals at\n10:00: T 38.6C, HR 104, RR 20, BP 98/81, SpO2 95%. Latest labs: Procalcitonin 3.72ng/mL (N), Plt 158.1K/uL\n(N). Pending: CT chest read; blood cultures still pending. Allergies: Latex (itching). Code status: DNR/DNI.\nTasks for next shift: Call RT for breathing treatment if wheezing; Maintain neutropenic precautions; Hold\nanticoagulation if hemoptysis worsens. Risks to watch: Bleeding/hemoptysis, Neutropenia-related infection.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "Intern",
+        "Timestamp": "10:00:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ICU->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Resident",
-      "Timestamp": "00:30:00",
-      "Date": "2026-01-31",
-      "ShiftContext": "OR->PACU",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P003",
-      "PatientName": "Aisha Patel",
-      "Room": "3W-08",
-      "Age": 55,
-      "Gender": "Female",
-      "Transcript": "Aisha Patel in 3W-08, 55 y/o with Stage I adenocarcinoma s/p lobectomy, postop day 2. Currently on\nLevetiracetam (500 mg PO BID) and Oxycodone (5-10 mg PO q4h PRN). Most recent vitals at 04:40: T 36.3C, HR\n109, RR 17, BP 125/50, SpO2 90%. Latest labs: WBC 14.1K/uL (N), Na 140.9mmol/L (H). Pending: CT chest read;\nblood cultures still pending. Allergies: NKDA. Code status: DNR (intubation OK). Tasks for next shift: Assess\npain and give PRN opioid if >6/10; Confirm code status with patient/family; Encourage incentive spirometry q1h\nwhile awake. Risks to watch: Respiratory decompensation, Neutropenia-related infection.",
-      "RecordedBy": {
-        "StaffID": "N02",
-        "Name": "Nurse Marcus Hill"
+      {
+        "Transcript": "Robert Kim in 4ICU-02, 66 y/o with Stage IV small cell lung cancer (SCLC), on platinum/etoposide; neutropenic\nfever. Currently on Ondansetron (4 mg IV q8h PRN) and Levetiracetam (500 mg PO BID). Most recent vitals at\n13:50: T 38.6C, HR 104, RR 20, BP 98/81, SpO2 95%. Latest labs: Hgb 14.3g/dL (H), Procalcitonin 6.61ng/mL (N).\nTasks for next shift: Confirm code status with patient/family; Hold anticoagulation if hemoptysis worsens;\nHold anticoagulation if hemoptysis worsens. Risks to watch: Neutropenia-related infection, AKI risk from\ndehydration/contrast, Respiratory decompensation. There was a discussion with family but I\u2019m not sure what was\ndecided.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "Attending",
+        "Timestamp": "13:50:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->ICU",
+        "ScenarioType": "worst_case"
       },
-      "IncomingRole": "RN",
-      "Timestamp": "04:40:00",
-      "Date": "2026-01-31",
-      "ShiftContext": "Floor->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P004",
-      "PatientName": "Robert Kim",
-      "Room": "4ICU-02",
-      "Age": 66,
-      "Gender": "Male",
-      "Transcript": "Robert Kim in 4ICU-02, 66 y/o with Stage IV small cell lung cancer (SCLC), on platinum/etoposide; neutropenic\nfever. Currently on Hydromorphone (0.5 mg IV q3h PRN) and Ondansetron (4 mg IV q8h PRN). Most recent vitals at\n09:30: T 38.6C, HR 104, RR 20, BP 98/81, SpO2 95%. Latest labs: Procalcitonin 1.09ng/mL (N), Plt 158.1K/uL\n(N). Pending: CT chest read; blood cultures still pending. Allergies: Latex (itching). Code status: DNR/DNI.\nTasks for next shift: Maintain neutropenic precautions; Recheck vitals in 1 hour; Follow up CT chest result\nwhen available. Risks to watch: Arrhythmia risk with hypoxia, Bleeding/hemoptysis.",
-      "RecordedBy": {
-        "StaffID": "N01",
-        "Name": "Nurse Olivia Reed"
+      {
+        "Transcript": "Robert Kim in 4ICU-02, 66 y/o with Stage IV small cell lung cancer (SCLC), on platinum/etoposide; neutropenic\nfever. Currently on Oxycodone (5-10 mg PO q4h PRN) and Levetiracetam (500 mg PO BID). Most recent vitals at\n14:00: T 38.6C, HR 104, RR 20, BP 98/81, SpO2 95%. Latest labs: Procalcitonin 3.72ng/mL (N), Troponin\n0.12ng/mL (H). Pending: CT chest read; blood cultures still pending. Allergies: Latex (itching). Code status:\nDNR/DNI. Tasks for next shift: Confirm code status with patient/family; Page oncology with morning labs;\nMaintain neutropenic precautions. Risks to watch: Bleeding/hemoptysis, Respiratory decompensation.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "Resident",
+        "Timestamp": "14:00:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->ICU",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Intern",
-      "Timestamp": "09:30:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ICU->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P004",
-      "PatientName": "Robert Kim",
-      "Room": "4ICU-02",
-      "Age": 66,
-      "Gender": "Male",
-      "Transcript": "Robert Kim in 4ICU-02, 66 y/o with Stage IV small cell lung cancer (SCLC), on platinum/etoposide; neutropenic\nfever. Currently on Levetiracetam (500 mg PO BID) and Ondansetron (4 mg IV q8h PRN). Most recent vitals at\n10:00: T 38.6C, HR 104, RR 20, BP 98/81, SpO2 95%. Latest labs: Procalcitonin 3.72ng/mL (N), Plt 158.1K/uL\n(N). Pending: CT chest read; blood cultures still pending. Allergies: Latex (itching). Code status: DNR/DNI.\nTasks for next shift: Call RT for breathing treatment if wheezing; Maintain neutropenic precautions; Hold\nanticoagulation if hemoptysis worsens. Risks to watch: Bleeding/hemoptysis, Neutropenia-related infection.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
+      {
+        "Transcript": "Robert Kim in 4ICU-02, 66 y/o with Stage IV small cell lung cancer (SCLC), on platinum/etoposide; neutropenic\nfever. Currently on Ondansetron (4 mg IV q8h PRN) and Oxycodone (5-10 mg PO q4h PRN). Most recent vitals at\n14:10: T 38.6C, HR 104, RR 20, BP 98/81, SpO2 95%. Latest labs: Procalcitonin 3.72ng/mL (N), Plt 165.3K/uL\n(N). Pending: CT chest read; blood cultures still pending. Allergies: Latex (itching). Code status: DNR/DNI.\nTasks for next shift: Confirm code status with patient/family; Monitor chest tube output and dressing; Recheck\nvitals in 1 hour. Risks to watch: Arrhythmia risk with hypoxia, Respiratory decompensation.",
+        "RecordedBy": { "StaffID": "N04", "Name": "Nurse Sofia Martinez" },
+        "IncomingRole": "Attending",
+        "Timestamp": "14:10:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ICU->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Intern",
-      "Timestamp": "10:00:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ICU->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P004",
-      "PatientName": "Robert Kim",
-      "Room": "4ICU-02",
-      "Age": 66,
-      "Gender": "Male",
-      "Transcript": "Robert Kim in 4ICU-02, 66 y/o with Stage IV small cell lung cancer (SCLC), on platinum/etoposide; neutropenic\nfever. Currently on Ondansetron (4 mg IV q8h PRN) and Levetiracetam (500 mg PO BID). Most recent vitals at\n13:50: T 38.6C, HR 104, RR 20, BP 98/81, SpO2 95%. Latest labs: Hgb 14.3g/dL (H), Procalcitonin 6.61ng/mL (N).\nTasks for next shift: Confirm code status with patient/family; Hold anticoagulation if hemoptysis worsens;\nHold anticoagulation if hemoptysis worsens. Risks to watch: Neutropenia-related infection, AKI risk from\ndehydration/contrast, Respiratory decompensation. There was a discussion with family but I\u2019m not sure what was\ndecided.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
+      {
+        "Transcript": "Robert Kim in 4ICU-02, 66 y/o with Stage IV small cell lung cancer (SCLC), on platinum/etoposide; neutropenic\nfever. Currently on Levetiracetam (500 mg PO BID) and Hydromorphone (0.5 mg IV q3h PRN). Most recent vitals at\n01:50: T 37.3C, HR 132, RR 25, BP 116/70, SpO2 89%. Latest labs: Procalcitonin 6.61ng/mL (N), Troponin\n0.01ng/mL (N). Pending: CT chest read; blood cultures still pending. Tasks for next shift: Recheck vitals in 1\nhour; Assess pain and give PRN opioid if >6/10; Assess pain and give PRN opioid if >6/10. Risks to watch:\nDelirium/falls risk, AKI risk from dehydration/contrast, Sepsis risk. Labs were drawn sometime\novernight\u2014please double-check timing.",
+        "RecordedBy": { "StaffID": "N01", "Name": "Nurse Olivia Reed" },
+        "IncomingRole": "RN",
+        "Timestamp": "01:50:00",
+        "Date": "2026-01-31",
+        "ShiftContext": "Floor->ICU",
+        "ScenarioType": "worst_case"
+      }
+    ]
+  },
+  "P005": {
+    "PatientName": "Elena Garcia",
+    "Room": "4ICU-07",
+    "Age": 59,
+    "Gender": "Female",
+    "Scenarios": [
+      {
+        "Transcript": "Elena Garcia in 4ICU-07, 59 y/o with Stage IIIA squamous cell carcinoma, receiving concurrent chemo; COPD\nexacerbation. Currently on Albuterol-ipratropium neb (q4h PRN) and Ondansetron (4 mg IV q8h PRN). Most recent\nvitals at 22:50: T 36.5C, HR 108, RR 15, BP 151/50, SpO2 90%. Latest labs: WBC 17.5K/uL (H), Cr 1.89mg/dL (N).\nPending: CT chest read; blood cultures still pending. Allergies: NKDA. Code status: Full Code. Tasks for next\nshift: Hold anticoagulation if hemoptysis worsens; Page oncology with morning labs; Confirm code status with\npatient/family. Risks to watch: Bleeding/hemoptysis, Pain crisis.",
+        "RecordedBy": { "StaffID": "N04", "Name": "Nurse Sofia Martinez" },
+        "IncomingRole": "Resident",
+        "Timestamp": "22:50:00",
+        "Date": "2026-01-29",
+        "ShiftContext": "ED->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Attending",
-      "Timestamp": "13:50:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->ICU",
-      "ScenarioType": "worst_case"
-    },
-    {
-      "PatientID": "P004",
-      "PatientName": "Robert Kim",
-      "Room": "4ICU-02",
-      "Age": 66,
-      "Gender": "Male",
-      "Transcript": "Robert Kim in 4ICU-02, 66 y/o with Stage IV small cell lung cancer (SCLC), on platinum/etoposide; neutropenic\nfever. Currently on Oxycodone (5-10 mg PO q4h PRN) and Levetiracetam (500 mg PO BID). Most recent vitals at\n14:00: T 38.6C, HR 104, RR 20, BP 98/81, SpO2 95%. Latest labs: Procalcitonin 3.72ng/mL (N), Troponin\n0.12ng/mL (H). Pending: CT chest read; blood cultures still pending. Allergies: Latex (itching). Code status:\nDNR/DNI. Tasks for next shift: Confirm code status with patient/family; Page oncology with morning labs;\nMaintain neutropenic precautions. Risks to watch: Bleeding/hemoptysis, Respiratory decompensation.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
+      {
+        "Transcript": "Elena Garcia in 4ICU-07, 59 y/o with Stage IIIA squamous cell carcinoma, receiving concurrent chemo; COPD\nexacerbation. Currently on Levetiracetam (500 mg PO BID) and Hydromorphone (0.5 mg IV q3h PRN). Most recent\nvitals at 03:00: T 36.5C, HR 108, RR 15, BP 151/50, SpO2 90%. Latest labs: WBC 17.5K/uL (H), Cr 1.89mg/dL (N).\nPending: CT chest read; blood cultures still pending. Allergies: NKDA. Code status: Full Code. Tasks for next\nshift: Recheck vitals in 1 hour; Titrate O2 to keep SpO2 > 92%; Monitor chest tube output and dressing. Risks\nto watch: AKI risk from dehydration/contrast, Delirium/falls risk.",
+        "RecordedBy": { "StaffID": "N02", "Name": "Nurse Marcus Hill" },
+        "IncomingRole": "Attending",
+        "Timestamp": "03:00:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Resident",
-      "Timestamp": "14:00:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->ICU",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P004",
-      "PatientName": "Robert Kim",
-      "Room": "4ICU-02",
-      "Age": 66,
-      "Gender": "Male",
-      "Transcript": "Robert Kim in 4ICU-02, 66 y/o with Stage IV small cell lung cancer (SCLC), on platinum/etoposide; neutropenic\nfever. Currently on Ondansetron (4 mg IV q8h PRN) and Oxycodone (5-10 mg PO q4h PRN). Most recent vitals at\n14:10: T 38.6C, HR 104, RR 20, BP 98/81, SpO2 95%. Latest labs: Procalcitonin 3.72ng/mL (N), Plt 165.3K/uL\n(N). Pending: CT chest read; blood cultures still pending. Allergies: Latex (itching). Code status: DNR/DNI.\nTasks for next shift: Confirm code status with patient/family; Monitor chest tube output and dressing; Recheck\nvitals in 1 hour. Risks to watch: Arrhythmia risk with hypoxia, Respiratory decompensation.",
-      "RecordedBy": {
-        "StaffID": "N04",
-        "Name": "Nurse Sofia Martinez"
+      {
+        "Transcript": "Elena Garcia in 4ICU-07, 59 y/o with Stage IIIA squamous cell carcinoma, receiving concurrent chemo; COPD\nexacerbation. Currently on Ondansetron (4 mg IV q8h PRN) and Enoxaparin (40 mg SQ daily). Most recent vitals\nat 07:20: T 38.4C, HR 110, RR 31, BP 156/89, SpO2 90%. Latest labs: Hgb 10.6g/dL (N), WBC 17.5K/uL (H). Tasks\nfor next shift: Maintain neutropenic precautions; Follow up CT chest result when available; Follow up CT chest\nresult when available. Risks to watch: Sepsis risk, AKI risk from dehydration/contrast, Pain crisis. Not\ntotally sure if the last dose of antibiotics was given or held.",
+        "RecordedBy": { "StaffID": "N02", "Name": "Nurse Marcus Hill" },
+        "IncomingRole": "Intern",
+        "Timestamp": "07:20:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->Floor",
+        "ScenarioType": "worst_case"
       },
-      "IncomingRole": "Attending",
-      "Timestamp": "14:10:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ICU->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P004",
-      "PatientName": "Robert Kim",
-      "Room": "4ICU-02",
-      "Age": 66,
-      "Gender": "Male",
-      "Transcript": "Robert Kim in 4ICU-02, 66 y/o with Stage IV small cell lung cancer (SCLC), on platinum/etoposide; neutropenic\nfever. Currently on Levetiracetam (500 mg PO BID) and Hydromorphone (0.5 mg IV q3h PRN). Most recent vitals at\n01:50: T 37.3C, HR 132, RR 25, BP 116/70, SpO2 89%. Latest labs: Procalcitonin 6.61ng/mL (N), Troponin\n0.01ng/mL (N). Pending: CT chest read; blood cultures still pending. Tasks for next shift: Recheck vitals in 1\nhour; Assess pain and give PRN opioid if >6/10; Assess pain and give PRN opioid if >6/10. Risks to watch:\nDelirium/falls risk, AKI risk from dehydration/contrast, Sepsis risk. Labs were drawn sometime\novernight\u2014please double-check timing.",
-      "RecordedBy": {
-        "StaffID": "N01",
-        "Name": "Nurse Olivia Reed"
+      {
+        "Transcript": "Elena Garcia in 4ICU-07, 59 y/o with Stage IIIA squamous cell carcinoma, receiving concurrent chemo; COPD\nexacerbation. Currently on Hydromorphone (0.5 mg IV q3h PRN) and Heparin infusion (per protocol). Most recent\nvitals at 22:40: T 38.4C, HR 116, RR 15, BP 137/72, SpO2 98%. Latest labs: WBC 17.5K/uL (H), K 4.2mmol/L (N).\nPending: CT chest read; blood cultures still pending. Allergies: NKDA. Code status: Full Code. Tasks for next\nshift: Call RT for breathing treatment if wheezing; Hold anticoagulation if hemoptysis worsens; Recheck vitals\nin 1 hour. Risks to watch: Neutropenia-related infection, Pain crisis.",
+        "RecordedBy": { "StaffID": "N01", "Name": "Nurse Olivia Reed" },
+        "IncomingRole": "RN",
+        "Timestamp": "22:40:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ICU->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "RN",
-      "Timestamp": "01:50:00",
-      "Date": "2026-01-31",
-      "ShiftContext": "Floor->ICU",
-      "ScenarioType": "worst_case"
-    },
-    {
-      "PatientID": "P005",
-      "PatientName": "Elena Garcia",
-      "Room": "4ICU-07",
-      "Age": 59,
-      "Gender": "Female",
-      "Transcript": "Elena Garcia in 4ICU-07, 59 y/o with Stage IIIA squamous cell carcinoma, receiving concurrent chemo; COPD\nexacerbation. Currently on Albuterol-ipratropium neb (q4h PRN) and Ondansetron (4 mg IV q8h PRN). Most recent\nvitals at 22:50: T 36.5C, HR 108, RR 15, BP 151/50, SpO2 90%. Latest labs: WBC 17.5K/uL (H), Cr 1.89mg/dL (N).\nPending: CT chest read; blood cultures still pending. Allergies: NKDA. Code status: Full Code. Tasks for next\nshift: Hold anticoagulation if hemoptysis worsens; Page oncology with morning labs; Confirm code status with\npatient/family. Risks to watch: Bleeding/hemoptysis, Pain crisis.",
-      "RecordedBy": {
-        "StaffID": "N04",
-        "Name": "Nurse Sofia Martinez"
+      {
+        "Transcript": "Elena Garcia in 4ICU-07, 59 y/o with Stage IIIA squamous cell carcinoma, receiving concurrent chemo; COPD\nexacerbation. Currently on Levetiracetam (500 mg PO BID) and Hydromorphone (0.5 mg IV q3h PRN). Most recent\nvitals at 22:50: T 38.4C, HR 116, RR 15, BP 137/72, SpO2 98%. Latest labs: Hgb 10.6g/dL (N), Lactate\n3.66mmol/L (N). Pending: CT chest read; blood cultures still pending. Allergies: NKDA. Code status: Full Code.\nTasks for next shift: Draw repeat CBC at 0400; Confirm code status with patient/family; Titrate O2 to keep\nSpO2 > 92%. Risks to watch: Neutropenia-related infection, AKI risk from dehydration/contrast.",
+        "RecordedBy": { "StaffID": "N04", "Name": "Nurse Sofia Martinez" },
+        "IncomingRole": "Resident",
+        "Timestamp": "22:50:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->ICU",
+        "ScenarioType": "best_case"
+      }
+    ]
+  },
+  "P006": {
+    "PatientName": "Thomas Nguyen",
+    "Room": "2ED-05",
+    "Age": 73,
+    "Gender": "Male",
+    "Scenarios": [
+      {
+        "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Levetiracetam (500 mg PO BID) and Vancomycin (per pharmacy). Most recent vitals at 08:20: T\n36.8C, HR 113, RR 20, BP 115/48, SpO2 97%. Latest labs: Plt 330.4K/uL (N), Procalcitonin 6.68ng/mL (N).\nPending: CT chest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR\n(intubation OK). Tasks for next shift: Page oncology with morning labs; Assess pain and give PRN opioid if\n>6/10; Hold anticoagulation if hemoptysis worsens. Risks to watch: Bleeding/hemoptysis, Arrhythmia risk with\nhypoxia.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "Attending",
+        "Timestamp": "08:20:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Resident",
-      "Timestamp": "22:50:00",
-      "Date": "2026-01-29",
-      "ShiftContext": "ED->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P005",
-      "PatientName": "Elena Garcia",
-      "Room": "4ICU-07",
-      "Age": 59,
-      "Gender": "Female",
-      "Transcript": "Elena Garcia in 4ICU-07, 59 y/o with Stage IIIA squamous cell carcinoma, receiving concurrent chemo; COPD\nexacerbation. Currently on Levetiracetam (500 mg PO BID) and Hydromorphone (0.5 mg IV q3h PRN). Most recent\nvitals at 03:00: T 36.5C, HR 108, RR 15, BP 151/50, SpO2 90%. Latest labs: WBC 17.5K/uL (H), Cr 1.89mg/dL (N).\nPending: CT chest read; blood cultures still pending. Allergies: NKDA. Code status: Full Code. Tasks for next\nshift: Recheck vitals in 1 hour; Titrate O2 to keep SpO2 > 92%; Monitor chest tube output and dressing. Risks\nto watch: AKI risk from dehydration/contrast, Delirium/falls risk.",
-      "RecordedBy": {
-        "StaffID": "N02",
-        "Name": "Nurse Marcus Hill"
+      {
+        "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Albuterol-ipratropium neb (q4h PRN) and Oxygen via nasal cannula (2 L/min). Most recent vitals at\n15:30: T 39.1C, HR 71, RR 20, BP 113/53, SpO2 92%. Latest labs: Procalcitonin 6.68ng/mL (N), Plt 184.5K/uL\n(N). Pending: CT chest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR\n(intubation OK). Tasks for next shift: Monitor chest tube output and dressing; Recheck vitals in 1 hour;\nConfirm code status with patient/family. Risks to watch: AKI risk from dehydration/contrast, Neutropenia-\nrelated infection.",
+        "RecordedBy": { "StaffID": "N04", "Name": "Nurse Sofia Martinez" },
+        "IncomingRole": "Intern",
+        "Timestamp": "15:30:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ICU->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Attending",
-      "Timestamp": "03:00:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P005",
-      "PatientName": "Elena Garcia",
-      "Room": "4ICU-07",
-      "Age": 59,
-      "Gender": "Female",
-      "Transcript": "Elena Garcia in 4ICU-07, 59 y/o with Stage IIIA squamous cell carcinoma, receiving concurrent chemo; COPD\nexacerbation. Currently on Ondansetron (4 mg IV q8h PRN) and Enoxaparin (40 mg SQ daily). Most recent vitals\nat 07:20: T 38.4C, HR 110, RR 31, BP 156/89, SpO2 90%. Latest labs: Hgb 10.6g/dL (N), WBC 17.5K/uL (H). Tasks\nfor next shift: Maintain neutropenic precautions; Follow up CT chest result when available; Follow up CT chest\nresult when available. Risks to watch: Sepsis risk, AKI risk from dehydration/contrast, Pain crisis. Not\ntotally sure if the last dose of antibiotics was given or held.",
-      "RecordedBy": {
-        "StaffID": "N02",
-        "Name": "Nurse Marcus Hill"
+      {
+        "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Vancomycin (per pharmacy) and Vancomycin (per pharmacy). Most recent vitals at 15:40: T 39.1C, HR\n71, RR 20, BP 113/53, SpO2 92%. Latest labs: Hgb 7.3g/dL (L), Procalcitonin 6.68ng/mL (N). Pending: CT chest\nread; blood cultures still pending. Code status: DNR (intubation OK). Tasks for next shift: Monitor chest tube\noutput and dressing; Encourage incentive spirometry q1h while awake; Encourage incentive spirometry q1h while\nawake. Risks to watch: Respiratory decompensation, Delirium/falls risk, Pain crisis. There was a discussion\nwith family but I\u2019m not sure what was decided.",
+        "RecordedBy": { "StaffID": "N02", "Name": "Nurse Marcus Hill" },
+        "IncomingRole": "RN",
+        "Timestamp": "15:40:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ED->Floor",
+        "ScenarioType": "worst_case"
       },
-      "IncomingRole": "Intern",
-      "Timestamp": "07:20:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->Floor",
-      "ScenarioType": "worst_case"
-    },
-    {
-      "PatientID": "P005",
-      "PatientName": "Elena Garcia",
-      "Room": "4ICU-07",
-      "Age": 59,
-      "Gender": "Female",
-      "Transcript": "Elena Garcia in 4ICU-07, 59 y/o with Stage IIIA squamous cell carcinoma, receiving concurrent chemo; COPD\nexacerbation. Currently on Hydromorphone (0.5 mg IV q3h PRN) and Heparin infusion (per protocol). Most recent\nvitals at 22:40: T 38.4C, HR 116, RR 15, BP 137/72, SpO2 98%. Latest labs: WBC 17.5K/uL (H), K 4.2mmol/L (N).\nPending: CT chest read; blood cultures still pending. Allergies: NKDA. Code status: Full Code. Tasks for next\nshift: Call RT for breathing treatment if wheezing; Hold anticoagulation if hemoptysis worsens; Recheck vitals\nin 1 hour. Risks to watch: Neutropenia-related infection, Pain crisis.",
-      "RecordedBy": {
-        "StaffID": "N01",
-        "Name": "Nurse Olivia Reed"
+      {
+        "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Levetiracetam (500 mg PO BID) and Dexamethasone (4 mg IV q12h). Most recent vitals at 19:40: T\n36.5C, HR 100, RR 33, BP 91/86, SpO2 97%. Latest labs: Cr 1.73mg/dL (N), Plt 184.5K/uL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR (intubation OK). Tasks for\nnext shift: Monitor chest tube output and dressing; Maintain neutropenic precautions; Encourage incentive\nspirometry q1h while awake. Risks to watch: Delirium/falls risk, Sepsis risk.",
+        "RecordedBy": { "StaffID": "N02", "Name": "Nurse Marcus Hill" },
+        "IncomingRole": "Intern",
+        "Timestamp": "19:40:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "RN",
-      "Timestamp": "22:40:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ICU->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P005",
-      "PatientName": "Elena Garcia",
-      "Room": "4ICU-07",
-      "Age": 59,
-      "Gender": "Female",
-      "Transcript": "Elena Garcia in 4ICU-07, 59 y/o with Stage IIIA squamous cell carcinoma, receiving concurrent chemo; COPD\nexacerbation. Currently on Levetiracetam (500 mg PO BID) and Hydromorphone (0.5 mg IV q3h PRN). Most recent\nvitals at 22:50: T 38.4C, HR 116, RR 15, BP 137/72, SpO2 98%. Latest labs: Hgb 10.6g/dL (N), Lactate\n3.66mmol/L (N). Pending: CT chest read; blood cultures still pending. Allergies: NKDA. Code status: Full Code.\nTasks for next shift: Draw repeat CBC at 0400; Confirm code status with patient/family; Titrate O2 to keep\nSpO2 > 92%. Risks to watch: Neutropenia-related infection, AKI risk from dehydration/contrast.",
-      "RecordedBy": {
-        "StaffID": "N04",
-        "Name": "Nurse Sofia Martinez"
+      {
+        "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Dexamethasone (4 mg IV q12h) and Levetiracetam (500 mg PO BID). Most recent vitals at 23:50: T\n37.5C, HR 77, RR 27, BP 90/84, SpO2 88%. Latest labs: Lactate 1.0mmol/L (N), Na 130.9mmol/L (H). Pending: CT\nchest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR (intubation OK).\nTasks for next shift: Assess pain and give PRN opioid if >6/10; Maintain neutropenic precautions; Confirm code\nstatus with patient/family. Risks to watch: Pain crisis, AKI risk from dehydration/contrast.",
+        "RecordedBy": { "StaffID": "N01", "Name": "Nurse Olivia Reed" },
+        "IncomingRole": "Resident",
+        "Timestamp": "23:50:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ICU->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Resident",
-      "Timestamp": "22:50:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->ICU",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P006",
-      "PatientName": "Thomas Nguyen",
-      "Room": "2ED-05",
-      "Age": 73,
-      "Gender": "Male",
-      "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Levetiracetam (500 mg PO BID) and Vancomycin (per pharmacy). Most recent vitals at 08:20: T\n36.8C, HR 113, RR 20, BP 115/48, SpO2 97%. Latest labs: Plt 330.4K/uL (N), Procalcitonin 6.68ng/mL (N).\nPending: CT chest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR\n(intubation OK). Tasks for next shift: Page oncology with morning labs; Assess pain and give PRN opioid if\n>6/10; Hold anticoagulation if hemoptysis worsens. Risks to watch: Bleeding/hemoptysis, Arrhythmia risk with\nhypoxia.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
+      {
+        "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Vancomycin (per pharmacy) and Albuterol-ipratropium neb (q4h PRN). Most recent vitals at 00:10: T\n37.5C, HR 77, RR 27, BP 90/84, SpO2 88%. Latest labs: WBC 0.9K/uL (N), Plt 184.5K/uL (N). Tasks for next\nshift: Titrate O2 to keep SpO2 > 92%; Encourage incentive spirometry q1h while awake; Encourage incentive\nspirometry q1h while awake. Risks to watch: Arrhythmia risk with hypoxia, Neutropenia-related infection,\nSepsis risk. Labs were drawn sometime overnight\u2014please double-check timing.",
+        "RecordedBy": { "StaffID": "N04", "Name": "Nurse Sofia Martinez" },
+        "IncomingRole": "Intern",
+        "Timestamp": "00:10:00",
+        "Date": "2026-01-31",
+        "ShiftContext": "OR->PACU",
+        "ScenarioType": "worst_case"
       },
-      "IncomingRole": "Attending",
-      "Timestamp": "08:20:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P006",
-      "PatientName": "Thomas Nguyen",
-      "Room": "2ED-05",
-      "Age": 73,
-      "Gender": "Male",
-      "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Albuterol-ipratropium neb (q4h PRN) and Oxygen via nasal cannula (2 L/min). Most recent vitals at\n15:30: T 39.1C, HR 71, RR 20, BP 113/53, SpO2 92%. Latest labs: Procalcitonin 6.68ng/mL (N), Plt 184.5K/uL\n(N). Pending: CT chest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR\n(intubation OK). Tasks for next shift: Monitor chest tube output and dressing; Recheck vitals in 1 hour;\nConfirm code status with patient/family. Risks to watch: AKI risk from dehydration/contrast, Neutropenia-\nrelated infection.",
-      "RecordedBy": {
-        "StaffID": "N04",
-        "Name": "Nurse Sofia Martinez"
+      {
+        "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Dexamethasone (4 mg IV q12h) and Oxygen via nasal cannula (2 L/min). Most recent vitals at 03:30:\nT 37.5C, HR 77, RR 27, BP 90/84, SpO2 88%. Latest labs: K 5.3mmol/L (H), WBC 8.9K/uL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR (intubation OK). Tasks for\nnext shift: Recheck vitals in 1 hour; Titrate O2 to keep SpO2 > 92%; Confirm code status with patient/family.\nRisks to watch: AKI risk from dehydration/contrast, Bleeding/hemoptysis.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "Intern",
+        "Timestamp": "03:30:00",
+        "Date": "2026-01-31",
+        "ShiftContext": "Floor->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Intern",
-      "Timestamp": "15:30:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ICU->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P006",
-      "PatientName": "Thomas Nguyen",
-      "Room": "2ED-05",
-      "Age": 73,
-      "Gender": "Male",
-      "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Vancomycin (per pharmacy) and Vancomycin (per pharmacy). Most recent vitals at 15:40: T 39.1C, HR\n71, RR 20, BP 113/53, SpO2 92%. Latest labs: Hgb 7.3g/dL (L), Procalcitonin 6.68ng/mL (N). Pending: CT chest\nread; blood cultures still pending. Code status: DNR (intubation OK). Tasks for next shift: Monitor chest tube\noutput and dressing; Encourage incentive spirometry q1h while awake; Encourage incentive spirometry q1h while\nawake. Risks to watch: Respiratory decompensation, Delirium/falls risk, Pain crisis. There was a discussion\nwith family but I\u2019m not sure what was decided.",
-      "RecordedBy": {
-        "StaffID": "N02",
-        "Name": "Nurse Marcus Hill"
+      {
+        "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Dexamethasone (4 mg IV q12h) and Dexamethasone (4 mg IV q12h). Most recent vitals at 07:40: T\n37.5C, HR 77, RR 27, BP 90/84, SpO2 88%. Latest labs: Procalcitonin 6.68ng/mL (N), K 5.3mmol/L (H). Pending:\nCT chest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR (intubation OK).\nTasks for next shift: Confirm code status with patient/family; Hold anticoagulation if hemoptysis worsens;\nEncourage incentive spirometry q1h while awake. Risks to watch: Delirium/falls risk, AKI risk from\ndehydration/contrast.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "Attending",
+        "Timestamp": "07:40:00",
+        "Date": "2026-01-31",
+        "ShiftContext": "ICU->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "RN",
-      "Timestamp": "15:40:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ED->Floor",
-      "ScenarioType": "worst_case"
-    },
-    {
-      "PatientID": "P006",
-      "PatientName": "Thomas Nguyen",
-      "Room": "2ED-05",
-      "Age": 73,
-      "Gender": "Male",
-      "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Levetiracetam (500 mg PO BID) and Dexamethasone (4 mg IV q12h). Most recent vitals at 19:40: T\n36.5C, HR 100, RR 33, BP 91/86, SpO2 97%. Latest labs: Cr 1.73mg/dL (N), Plt 184.5K/uL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR (intubation OK). Tasks for\nnext shift: Monitor chest tube output and dressing; Maintain neutropenic precautions; Encourage incentive\nspirometry q1h while awake. Risks to watch: Delirium/falls risk, Sepsis risk.",
-      "RecordedBy": {
-        "StaffID": "N02",
-        "Name": "Nurse Marcus Hill"
+      {
+        "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Vancomycin (per pharmacy) and Oxygen via nasal cannula (2 L/min). Most recent vitals at 08:10: T\n37.5C, HR 77, RR 27, BP 90/84, SpO2 88%. Latest labs: K 3.4mmol/L (L), Lactate 1.0mmol/L (N). Tasks for next\nshift: Draw repeat CBC at 0400; Confirm code status with patient/family; Confirm code status with\npatient/family. Risks to watch: Arrhythmia risk with hypoxia, Respiratory decompensation, Delirium/falls risk.\nNot totally sure if the last dose of antibiotics was given or held.",
+        "RecordedBy": { "StaffID": "N04", "Name": "Nurse Sofia Martinez" },
+        "IncomingRole": "RN",
+        "Timestamp": "08:10:00",
+        "Date": "2026-01-31",
+        "ShiftContext": "ED->Floor",
+        "ScenarioType": "worst_case"
+      }
+    ]
+  },
+  "P007": {
+    "PatientName": "Fatima Hassan",
+    "Room": "3W-11",
+    "Age": 48,
+    "Gender": "Female",
+    "Scenarios": [
+      {
+        "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nAlbuterol-ipratropium neb (q4h PRN) and Pembrolizumab (per oncology). Most recent vitals at 01:10: T 37.6C, HR\n94, RR 28, BP 107/69, SpO2 89%. Latest labs: Lactate 4.84mmol/L (H), Troponin 0.01ng/mL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: Latex (itching). Code status: Full Code. Tasks for next shift:\nRecheck vitals in 1 hour; Confirm code status with patient/family; Titrate O2 to keep SpO2 > 92%. Risks to\nwatch: Delirium/falls risk, Sepsis risk.",
+        "RecordedBy": { "StaffID": "N01", "Name": "Nurse Olivia Reed" },
+        "IncomingRole": "Attending",
+        "Timestamp": "01:10:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Intern",
-      "Timestamp": "19:40:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P006",
-      "PatientName": "Thomas Nguyen",
-      "Room": "2ED-05",
-      "Age": 73,
-      "Gender": "Male",
-      "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Dexamethasone (4 mg IV q12h) and Levetiracetam (500 mg PO BID). Most recent vitals at 23:50: T\n37.5C, HR 77, RR 27, BP 90/84, SpO2 88%. Latest labs: Lactate 1.0mmol/L (N), Na 130.9mmol/L (H). Pending: CT\nchest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR (intubation OK).\nTasks for next shift: Assess pain and give PRN opioid if >6/10; Maintain neutropenic precautions; Confirm code\nstatus with patient/family. Risks to watch: Pain crisis, AKI risk from dehydration/contrast.",
-      "RecordedBy": {
-        "StaffID": "N01",
-        "Name": "Nurse Olivia Reed"
+      {
+        "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nPiperacillin-tazobactam (3.375 g IV q6h) and Hydromorphone (0.5 mg IV q3h PRN). Most recent vitals at 08:30: T\n39.1C, HR 93, RR 29, BP 142/51, SpO2 94%. Latest labs: Cr 0.64mg/dL (L), Na 141.5mmol/L (H). Pending: CT chest\nread; blood cultures still pending. Allergies: Latex (itching). Code status: Full Code. Tasks for next shift:\nCall RT for breathing treatment if wheezing; Confirm code status with patient/family; Titrate O2 to keep SpO2\n> 92%. Risks to watch: Pain crisis, Bleeding/hemoptysis.",
+        "RecordedBy": { "StaffID": "N01", "Name": "Nurse Olivia Reed" },
+        "IncomingRole": "Attending",
+        "Timestamp": "08:30:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ED->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Resident",
-      "Timestamp": "23:50:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ICU->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P006",
-      "PatientName": "Thomas Nguyen",
-      "Room": "2ED-05",
-      "Age": 73,
-      "Gender": "Male",
-      "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Vancomycin (per pharmacy) and Albuterol-ipratropium neb (q4h PRN). Most recent vitals at 00:10: T\n37.5C, HR 77, RR 27, BP 90/84, SpO2 88%. Latest labs: WBC 0.9K/uL (N), Plt 184.5K/uL (N). Tasks for next\nshift: Titrate O2 to keep SpO2 > 92%; Encourage incentive spirometry q1h while awake; Encourage incentive\nspirometry q1h while awake. Risks to watch: Arrhythmia risk with hypoxia, Neutropenia-related infection,\nSepsis risk. Labs were drawn sometime overnight\u2014please double-check timing.",
-      "RecordedBy": {
-        "StaffID": "N04",
-        "Name": "Nurse Sofia Martinez"
+      {
+        "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nPiperacillin-tazobactam (3.375 g IV q6h) and Hydromorphone (0.5 mg IV q3h PRN). Most recent vitals at 09:20: T\n39.1C, HR 93, RR 29, BP 142/51, SpO2 94%. Latest labs: Procalcitonin 1.22ng/mL (N), Lactate 1.34mmol/L (N).\nPending: CT chest read; blood cultures still pending. Code status: Full Code. Tasks for next shift: Titrate O2\nto keep SpO2 > 92%; Hold anticoagulation if hemoptysis worsens; Hold anticoagulation if hemoptysis worsens.\nRisks to watch: Respiratory decompensation, Pain crisis, AKI risk from dehydration/contrast. There was a\ndiscussion with family but I\u2019m not sure what was decided.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "Attending",
+        "Timestamp": "09:20:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ED->Floor",
+        "ScenarioType": "worst_case"
       },
-      "IncomingRole": "Intern",
-      "Timestamp": "00:10:00",
-      "Date": "2026-01-31",
-      "ShiftContext": "OR->PACU",
-      "ScenarioType": "worst_case"
-    },
-    {
-      "PatientID": "P006",
-      "PatientName": "Thomas Nguyen",
-      "Room": "2ED-05",
-      "Age": 73,
-      "Gender": "Male",
-      "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Dexamethasone (4 mg IV q12h) and Oxygen via nasal cannula (2 L/min). Most recent vitals at 03:30:\nT 37.5C, HR 77, RR 27, BP 90/84, SpO2 88%. Latest labs: K 5.3mmol/L (H), WBC 8.9K/uL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR (intubation OK). Tasks for\nnext shift: Recheck vitals in 1 hour; Titrate O2 to keep SpO2 > 92%; Confirm code status with patient/family.\nRisks to watch: AKI risk from dehydration/contrast, Bleeding/hemoptysis.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
+      {
+        "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nHydromorphone (0.5 mg IV q3h PRN) and Albuterol-ipratropium neb (q4h PRN). Most recent vitals at 12:30: T\n37.9C, HR 88, RR 30, BP 126/88, SpO2 90%. Latest labs: Na 141.5mmol/L (H), Cr 0.64mg/dL (L). Pending: CT chest\nread; blood cultures still pending. Allergies: Latex (itching). Code status: Full Code. Tasks for next shift:\nHold anticoagulation if hemoptysis worsens; Encourage incentive spirometry q1h while awake; Call RT for\nbreathing treatment if wheezing. Risks to watch: Respiratory decompensation, Delirium/falls risk.",
+        "RecordedBy": { "StaffID": "N01", "Name": "Nurse Olivia Reed" },
+        "IncomingRole": "RN",
+        "Timestamp": "12:30:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "Floor->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Intern",
-      "Timestamp": "03:30:00",
-      "Date": "2026-01-31",
-      "ShiftContext": "Floor->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P006",
-      "PatientName": "Thomas Nguyen",
-      "Room": "2ED-05",
-      "Age": 73,
-      "Gender": "Male",
-      "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Dexamethasone (4 mg IV q12h) and Dexamethasone (4 mg IV q12h). Most recent vitals at 07:40: T\n37.5C, HR 77, RR 27, BP 90/84, SpO2 88%. Latest labs: Procalcitonin 6.68ng/mL (N), K 5.3mmol/L (H). Pending:\nCT chest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR (intubation OK).\nTasks for next shift: Confirm code status with patient/family; Hold anticoagulation if hemoptysis worsens;\nEncourage incentive spirometry q1h while awake. Risks to watch: Delirium/falls risk, AKI risk from\ndehydration/contrast.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
+      {
+        "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nAlbuterol-ipratropium neb (q4h PRN) and Pembrolizumab (per oncology). Most recent vitals at 13:10: T 37.9C, HR\n88, RR 30, BP 126/88, SpO2 90%. Latest labs: Na 132.0mmol/L (H), Lactate 1.34mmol/L (N). Pending: CT chest\nread; blood cultures still pending. Allergies: Latex (itching). Code status: Full Code. Tasks for next shift:\nFollow up CT chest result when available; Hold anticoagulation if hemoptysis worsens; Titrate O2 to keep SpO2\n> 92%. Risks to watch: Sepsis risk, Respiratory decompensation.",
+        "RecordedBy": { "StaffID": "N02", "Name": "Nurse Marcus Hill" },
+        "IncomingRole": "Resident",
+        "Timestamp": "13:10:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ED->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Attending",
-      "Timestamp": "07:40:00",
-      "Date": "2026-01-31",
-      "ShiftContext": "ICU->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P006",
-      "PatientName": "Thomas Nguyen",
-      "Room": "2ED-05",
-      "Age": 73,
-      "Gender": "Male",
-      "Transcript": "Thomas Nguyen in 2ED-05, 73 y/o with Stage IV NSCLC, malignant pleural effusion with PleurX catheter.\nCurrently on Vancomycin (per pharmacy) and Oxygen via nasal cannula (2 L/min). Most recent vitals at 08:10: T\n37.5C, HR 77, RR 27, BP 90/84, SpO2 88%. Latest labs: K 3.4mmol/L (L), Lactate 1.0mmol/L (N). Tasks for next\nshift: Draw repeat CBC at 0400; Confirm code status with patient/family; Confirm code status with\npatient/family. Risks to watch: Arrhythmia risk with hypoxia, Respiratory decompensation, Delirium/falls risk.\nNot totally sure if the last dose of antibiotics was given or held.",
-      "RecordedBy": {
-        "StaffID": "N04",
-        "Name": "Nurse Sofia Martinez"
+      {
+        "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nAlbuterol-ipratropium neb (q4h PRN) and Vancomycin (per pharmacy). Most recent vitals at 04:30: T 37.7C, HR\n86, RR 22, BP 130/94, SpO2 96%. Latest labs: Lactate 4.84mmol/L (H), Plt 328.4K/uL (N). Pending: CT chest\nread; blood cultures still pending. Tasks for next shift: Titrate O2 to keep SpO2 > 92%; Draw repeat CBC at\n0400; Draw repeat CBC at 0400. Risks to watch: Neutropenia-related infection, Delirium/falls risk, Arrhythmia\nrisk with hypoxia. I think the patient might be DNR but I didn\u2019t confirm.",
+        "RecordedBy": { "StaffID": "N02", "Name": "Nurse Marcus Hill" },
+        "IncomingRole": "RN",
+        "Timestamp": "04:30:00",
+        "Date": "2026-01-31",
+        "ShiftContext": "Floor->ICU",
+        "ScenarioType": "worst_case"
       },
-      "IncomingRole": "RN",
-      "Timestamp": "08:10:00",
-      "Date": "2026-01-31",
-      "ShiftContext": "ED->Floor",
-      "ScenarioType": "worst_case"
-    },
-    {
-      "PatientID": "P007",
-      "PatientName": "Fatima Hassan",
-      "Room": "3W-11",
-      "Age": 48,
-      "Gender": "Female",
-      "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nAlbuterol-ipratropium neb (q4h PRN) and Pembrolizumab (per oncology). Most recent vitals at 01:10: T 37.6C, HR\n94, RR 28, BP 107/69, SpO2 89%. Latest labs: Lactate 4.84mmol/L (H), Troponin 0.01ng/mL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: Latex (itching). Code status: Full Code. Tasks for next shift:\nRecheck vitals in 1 hour; Confirm code status with patient/family; Titrate O2 to keep SpO2 > 92%. Risks to\nwatch: Delirium/falls risk, Sepsis risk.",
-      "RecordedBy": {
-        "StaffID": "N01",
-        "Name": "Nurse Olivia Reed"
+      {
+        "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nAlbuterol-ipratropium neb (q4h PRN) and Piperacillin-tazobactam (3.375 g IV q6h). Most recent vitals at 04:50:\nT 37.7C, HR 86, RR 22, BP 130/94, SpO2 96%. Latest labs: Cr 0.64mg/dL (L), Procalcitonin 3.41ng/mL (N).\nPending: CT chest read; blood cultures still pending. Allergies: Latex (itching). Code status: Full Code.\nTasks for next shift: Follow up CT chest result when available; Encourage incentive spirometry q1h while\nawake; Call RT for breathing treatment if wheezing. Risks to watch: AKI risk from dehydration/contrast,\nArrhythmia risk with hypoxia.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "Resident",
+        "Timestamp": "04:50:00",
+        "Date": "2026-01-31",
+        "ShiftContext": "ED->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Attending",
-      "Timestamp": "01:10:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P007",
-      "PatientName": "Fatima Hassan",
-      "Room": "3W-11",
-      "Age": 48,
-      "Gender": "Female",
-      "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nPiperacillin-tazobactam (3.375 g IV q6h) and Hydromorphone (0.5 mg IV q3h PRN). Most recent vitals at 08:30: T\n39.1C, HR 93, RR 29, BP 142/51, SpO2 94%. Latest labs: Cr 0.64mg/dL (L), Na 141.5mmol/L (H). Pending: CT chest\nread; blood cultures still pending. Allergies: Latex (itching). Code status: Full Code. Tasks for next shift:\nCall RT for breathing treatment if wheezing; Confirm code status with patient/family; Titrate O2 to keep SpO2\n> 92%. Risks to watch: Pain crisis, Bleeding/hemoptysis.",
-      "RecordedBy": {
-        "StaffID": "N01",
-        "Name": "Nurse Olivia Reed"
+      {
+        "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nPiperacillin-tazobactam (3.375 g IV q6h) and Oxygen via nasal cannula (2 L/min). Most recent vitals at 05:20:\nT 37.7C, HR 86, RR 22, BP 130/94, SpO2 96%. Latest labs: Cr 1.68mg/dL (N), Lactate 1.34mmol/L (N). Pending: CT\nchest read; blood cultures still pending. Allergies: Latex (itching). Code status: Full Code. Tasks for next\nshift: Confirm code status with patient/family; Assess pain and give PRN opioid if >6/10; Hold anticoagulation\nif hemoptysis worsens. Risks to watch: Bleeding/hemoptysis, Pain crisis.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "Attending",
+        "Timestamp": "05:20:00",
+        "Date": "2026-01-31",
+        "ShiftContext": "ED->Floor",
+        "ScenarioType": "best_case"
+      }
+    ]
+  },
+  "P008": {
+    "PatientName": "David Brooks",
+    "Room": "3E-09",
+    "Age": 64,
+    "Gender": "Male",
+    "Scenarios": [
+      {
+        "Transcript": "David Brooks in 3E-09, 64 y/o with Stage IV NSCLC, cachexia and uncontrolled pain; palliative consult.\nCurrently on Oxygen via nasal cannula (2 L/min) and Dexamethasone (4 mg IV q12h). Most recent vitals at 05:30:\nT 37.2C, HR 78, RR 28, BP 144/56, SpO2 90%. Latest labs: Procalcitonin 7.29ng/mL (H), Hgb 11.0g/dL (N).\nPending: CT chest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR/DNI.\nTasks for next shift: Draw repeat CBC at 0400; Assess pain and give PRN opioid if >6/10; Monitor chest tube\noutput and dressing. Risks to watch: AKI risk from dehydration/contrast, Sepsis risk.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "RN",
+        "Timestamp": "05:30:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ED->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Attending",
-      "Timestamp": "08:30:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ED->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P007",
-      "PatientName": "Fatima Hassan",
-      "Room": "3W-11",
-      "Age": 48,
-      "Gender": "Female",
-      "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nPiperacillin-tazobactam (3.375 g IV q6h) and Hydromorphone (0.5 mg IV q3h PRN). Most recent vitals at 09:20: T\n39.1C, HR 93, RR 29, BP 142/51, SpO2 94%. Latest labs: Procalcitonin 1.22ng/mL (N), Lactate 1.34mmol/L (N).\nPending: CT chest read; blood cultures still pending. Code status: Full Code. Tasks for next shift: Titrate O2\nto keep SpO2 > 92%; Hold anticoagulation if hemoptysis worsens; Hold anticoagulation if hemoptysis worsens.\nRisks to watch: Respiratory decompensation, Pain crisis, AKI risk from dehydration/contrast. There was a\ndiscussion with family but I\u2019m not sure what was decided.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
+      {
+        "Transcript": "David Brooks in 3E-09, 64 y/o with Stage IV NSCLC, cachexia and uncontrolled pain; palliative consult.\nCurrently on Heparin infusion (per protocol) and Ondansetron (4 mg IV q8h PRN). Most recent vitals at 10:20: T\n38.2C, HR 119, RR 15, BP 142/67, SpO2 92%. Latest labs: Procalcitonin 7.16ng/mL (N), Hgb 11.0g/dL (N).\nPending: CT chest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR/DNI.\nTasks for next shift: Encourage incentive spirometry q1h while awake; Assess pain and give PRN opioid if\n>6/10; Recheck vitals in 1 hour. Risks to watch: Delirium/falls risk, Neutropenia-related infection.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "Attending",
+        "Timestamp": "10:20:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ED->Floor",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Attending",
-      "Timestamp": "09:20:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ED->Floor",
-      "ScenarioType": "worst_case"
-    },
-    {
-      "PatientID": "P007",
-      "PatientName": "Fatima Hassan",
-      "Room": "3W-11",
-      "Age": 48,
-      "Gender": "Female",
-      "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nHydromorphone (0.5 mg IV q3h PRN) and Albuterol-ipratropium neb (q4h PRN). Most recent vitals at 12:30: T\n37.9C, HR 88, RR 30, BP 126/88, SpO2 90%. Latest labs: Na 141.5mmol/L (H), Cr 0.64mg/dL (L). Pending: CT chest\nread; blood cultures still pending. Allergies: Latex (itching). Code status: Full Code. Tasks for next shift:\nHold anticoagulation if hemoptysis worsens; Encourage incentive spirometry q1h while awake; Call RT for\nbreathing treatment if wheezing. Risks to watch: Respiratory decompensation, Delirium/falls risk.",
-      "RecordedBy": {
-        "StaffID": "N01",
-        "Name": "Nurse Olivia Reed"
+      {
+        "Transcript": "David Brooks in 3E-09, 64 y/o with Stage IV NSCLC, cachexia and uncontrolled pain; palliative consult.\nCurrently on Ondansetron (4 mg IV q8h PRN) and Hydromorphone (0.5 mg IV q3h PRN). Most recent vitals at 17:40:\nT 37.5C, HR 94, RR 25, BP 98/63, SpO2 86%. Latest labs: Procalcitonin 5.15ng/mL (N), Procalcitonin 7.29ng/mL\n(H). Code status: DNR/DNI. Tasks for next shift: Draw repeat CBC at 0400; Page oncology with morning labs;\nPage oncology with morning labs. Risks to watch: Delirium/falls risk, Bleeding/hemoptysis, AKI risk from\ndehydration/contrast. They were on oxygen earlier; I didn\u2019t note the current device.",
+        "RecordedBy": { "StaffID": "N02", "Name": "Nurse Marcus Hill" },
+        "IncomingRole": "Resident",
+        "Timestamp": "17:40:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "ICU->Floor",
+        "ScenarioType": "worst_case"
       },
-      "IncomingRole": "RN",
-      "Timestamp": "12:30:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "Floor->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P007",
-      "PatientName": "Fatima Hassan",
-      "Room": "3W-11",
-      "Age": 48,
-      "Gender": "Female",
-      "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nAlbuterol-ipratropium neb (q4h PRN) and Pembrolizumab (per oncology). Most recent vitals at 13:10: T 37.9C, HR\n88, RR 30, BP 126/88, SpO2 90%. Latest labs: Na 132.0mmol/L (H), Lactate 1.34mmol/L (N). Pending: CT chest\nread; blood cultures still pending. Allergies: Latex (itching). Code status: Full Code. Tasks for next shift:\nFollow up CT chest result when available; Hold anticoagulation if hemoptysis worsens; Titrate O2 to keep SpO2\n> 92%. Risks to watch: Sepsis risk, Respiratory decompensation.",
-      "RecordedBy": {
-        "StaffID": "N02",
-        "Name": "Nurse Marcus Hill"
+      {
+        "Transcript": "David Brooks in 3E-09, 64 y/o with Stage IV NSCLC, cachexia and uncontrolled pain; palliative consult.\nCurrently on Oxygen via nasal cannula (2 L/min) and Hydromorphone (0.5 mg IV q3h PRN). Most recent vitals at\n18:00: T 37.5C, HR 94, RR 25, BP 98/63, SpO2 86%. Latest labs: Plt 162.6K/uL (N), Procalcitonin 7.16ng/mL (N).\nPending: CT chest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR/DNI.\nTasks for next shift: Call RT for breathing treatment if wheezing; Page oncology with morning labs; Maintain\nneutropenic precautions. Risks to watch: Arrhythmia risk with hypoxia, Sepsis risk.",
+        "RecordedBy": { "StaffID": "N01", "Name": "Nurse Olivia Reed" },
+        "IncomingRole": "Intern",
+        "Timestamp": "18:00:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "OR->PACU",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "Resident",
-      "Timestamp": "13:10:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ED->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P007",
-      "PatientName": "Fatima Hassan",
-      "Room": "3W-11",
-      "Age": 48,
-      "Gender": "Female",
-      "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nAlbuterol-ipratropium neb (q4h PRN) and Vancomycin (per pharmacy). Most recent vitals at 04:30: T 37.7C, HR\n86, RR 22, BP 130/94, SpO2 96%. Latest labs: Lactate 4.84mmol/L (H), Plt 328.4K/uL (N). Pending: CT chest\nread; blood cultures still pending. Tasks for next shift: Titrate O2 to keep SpO2 > 92%; Draw repeat CBC at\n0400; Draw repeat CBC at 0400. Risks to watch: Neutropenia-related infection, Delirium/falls risk, Arrhythmia\nrisk with hypoxia. I think the patient might be DNR but I didn\u2019t confirm.",
-      "RecordedBy": {
-        "StaffID": "N02",
-        "Name": "Nurse Marcus Hill"
+      {
+        "Transcript": "David Brooks in 3E-09, 64 y/o with Stage IV NSCLC, cachexia and uncontrolled pain; palliative consult.\nCurrently on Heparin infusion (per protocol) and Hydromorphone (0.5 mg IV q3h PRN). Most recent vitals at\n21:30: T 37.5C, HR 94, RR 25, BP 98/63, SpO2 86%. Latest labs: WBC 9.6K/uL (N), Plt 162.6K/uL (N). Pending: CT\nchest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR/DNI. Tasks for next\nshift: Encourage incentive spirometry q1h while awake; Monitor chest tube output and dressing; Page oncology\nwith morning labs. Risks to watch: AKI risk from dehydration/contrast, Arrhythmia risk with hypoxia.",
+        "RecordedBy": { "StaffID": "N01", "Name": "Nurse Olivia Reed" },
+        "IncomingRole": "Intern",
+        "Timestamp": "21:30:00",
+        "Date": "2026-01-30",
+        "ShiftContext": "OR->PACU",
+        "ScenarioType": "best_case"
       },
-      "IncomingRole": "RN",
-      "Timestamp": "04:30:00",
-      "Date": "2026-01-31",
-      "ShiftContext": "Floor->ICU",
-      "ScenarioType": "worst_case"
-    },
-    {
-      "PatientID": "P007",
-      "PatientName": "Fatima Hassan",
-      "Room": "3W-11",
-      "Age": 48,
-      "Gender": "Female",
-      "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nAlbuterol-ipratropium neb (q4h PRN) and Piperacillin-tazobactam (3.375 g IV q6h). Most recent vitals at 04:50:\nT 37.7C, HR 86, RR 22, BP 130/94, SpO2 96%. Latest labs: Cr 0.64mg/dL (L), Procalcitonin 3.41ng/mL (N).\nPending: CT chest read; blood cultures still pending. Allergies: Latex (itching). Code status: Full Code.\nTasks for next shift: Follow up CT chest result when available; Encourage incentive spirometry q1h while\nawake; Call RT for breathing treatment if wheezing. Risks to watch: AKI risk from dehydration/contrast,\nArrhythmia risk with hypoxia.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
+      {
+        "Transcript": "David Brooks in 3E-09, 64 y/o with Stage IV NSCLC, cachexia and uncontrolled pain; palliative consult.\nCurrently on Oxygen via nasal cannula (2 L/min) and Hydromorphone (0.5 mg IV q3h PRN). Most recent vitals at\n01:50: T 37.5C, HR 94, RR 25, BP 98/63, SpO2 86%. Latest labs: Plt 277.5K/uL (N), WBC 2.2K/uL (N). Tasks for\nnext shift: Encourage incentive spirometry q1h while awake; Draw repeat CBC at 0400; Draw repeat CBC at 0400.\nRisks to watch: AKI risk from dehydration/contrast, Bleeding/hemoptysis, Arrhythmia risk with hypoxia. I think\nthe patient might be DNR but I didn\u2019t confirm.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "Resident",
+        "Timestamp": "01:50:00",
+        "Date": "2026-01-31",
+        "ShiftContext": "ICU->Floor",
+        "ScenarioType": "worst_case"
       },
-      "IncomingRole": "Resident",
-      "Timestamp": "04:50:00",
-      "Date": "2026-01-31",
-      "ShiftContext": "ED->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P007",
-      "PatientName": "Fatima Hassan",
-      "Room": "3W-11",
-      "Age": 48,
-      "Gender": "Female",
-      "Transcript": "Fatima Hassan in 3W-11, 48 y/o with Stage II NSCLC, admitted for hemoptysis on anticoagulation. Currently on\nPiperacillin-tazobactam (3.375 g IV q6h) and Oxygen via nasal cannula (2 L/min). Most recent vitals at 05:20:\nT 37.7C, HR 86, RR 22, BP 130/94, SpO2 96%. Latest labs: Cr 1.68mg/dL (N), Lactate 1.34mmol/L (N). Pending: CT\nchest read; blood cultures still pending. Allergies: Latex (itching). Code status: Full Code. Tasks for next\nshift: Confirm code status with patient/family; Assess pain and give PRN opioid if >6/10; Hold anticoagulation\nif hemoptysis worsens. Risks to watch: Bleeding/hemoptysis, Pain crisis.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
-      },
-      "IncomingRole": "Attending",
-      "Timestamp": "05:20:00",
-      "Date": "2026-01-31",
-      "ShiftContext": "ED->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P008",
-      "PatientName": "David Brooks",
-      "Room": "3E-09",
-      "Age": 64,
-      "Gender": "Male",
-      "Transcript": "David Brooks in 3E-09, 64 y/o with Stage IV NSCLC, cachexia and uncontrolled pain; palliative consult.\nCurrently on Oxygen via nasal cannula (2 L/min) and Dexamethasone (4 mg IV q12h). Most recent vitals at 05:30:\nT 37.2C, HR 78, RR 28, BP 144/56, SpO2 90%. Latest labs: Procalcitonin 7.29ng/mL (H), Hgb 11.0g/dL (N).\nPending: CT chest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR/DNI.\nTasks for next shift: Draw repeat CBC at 0400; Assess pain and give PRN opioid if >6/10; Monitor chest tube\noutput and dressing. Risks to watch: AKI risk from dehydration/contrast, Sepsis risk.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
-      },
-      "IncomingRole": "RN",
-      "Timestamp": "05:30:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ED->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P008",
-      "PatientName": "David Brooks",
-      "Room": "3E-09",
-      "Age": 64,
-      "Gender": "Male",
-      "Transcript": "David Brooks in 3E-09, 64 y/o with Stage IV NSCLC, cachexia and uncontrolled pain; palliative consult.\nCurrently on Heparin infusion (per protocol) and Ondansetron (4 mg IV q8h PRN). Most recent vitals at 10:20: T\n38.2C, HR 119, RR 15, BP 142/67, SpO2 92%. Latest labs: Procalcitonin 7.16ng/mL (N), Hgb 11.0g/dL (N).\nPending: CT chest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR/DNI.\nTasks for next shift: Encourage incentive spirometry q1h while awake; Assess pain and give PRN opioid if\n>6/10; Recheck vitals in 1 hour. Risks to watch: Delirium/falls risk, Neutropenia-related infection.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
-      },
-      "IncomingRole": "Attending",
-      "Timestamp": "10:20:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ED->Floor",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P008",
-      "PatientName": "David Brooks",
-      "Room": "3E-09",
-      "Age": 64,
-      "Gender": "Male",
-      "Transcript": "David Brooks in 3E-09, 64 y/o with Stage IV NSCLC, cachexia and uncontrolled pain; palliative consult.\nCurrently on Ondansetron (4 mg IV q8h PRN) and Hydromorphone (0.5 mg IV q3h PRN). Most recent vitals at 17:40:\nT 37.5C, HR 94, RR 25, BP 98/63, SpO2 86%. Latest labs: Procalcitonin 5.15ng/mL (N), Procalcitonin 7.29ng/mL\n(H). Code status: DNR/DNI. Tasks for next shift: Draw repeat CBC at 0400; Page oncology with morning labs;\nPage oncology with morning labs. Risks to watch: Delirium/falls risk, Bleeding/hemoptysis, AKI risk from\ndehydration/contrast. They were on oxygen earlier; I didn\u2019t note the current device.",
-      "RecordedBy": {
-        "StaffID": "N02",
-        "Name": "Nurse Marcus Hill"
-      },
-      "IncomingRole": "Resident",
-      "Timestamp": "17:40:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "ICU->Floor",
-      "ScenarioType": "worst_case"
-    },
-    {
-      "PatientID": "P008",
-      "PatientName": "David Brooks",
-      "Room": "3E-09",
-      "Age": 64,
-      "Gender": "Male",
-      "Transcript": "David Brooks in 3E-09, 64 y/o with Stage IV NSCLC, cachexia and uncontrolled pain; palliative consult.\nCurrently on Oxygen via nasal cannula (2 L/min) and Hydromorphone (0.5 mg IV q3h PRN). Most recent vitals at\n18:00: T 37.5C, HR 94, RR 25, BP 98/63, SpO2 86%. Latest labs: Plt 162.6K/uL (N), Procalcitonin 7.16ng/mL (N).\nPending: CT chest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR/DNI.\nTasks for next shift: Call RT for breathing treatment if wheezing; Page oncology with morning labs; Maintain\nneutropenic precautions. Risks to watch: Arrhythmia risk with hypoxia, Sepsis risk.",
-      "RecordedBy": {
-        "StaffID": "N01",
-        "Name": "Nurse Olivia Reed"
-      },
-      "IncomingRole": "Intern",
-      "Timestamp": "18:00:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "OR->PACU",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P008",
-      "PatientName": "David Brooks",
-      "Room": "3E-09",
-      "Age": 64,
-      "Gender": "Male",
-      "Transcript": "David Brooks in 3E-09, 64 y/o with Stage IV NSCLC, cachexia and uncontrolled pain; palliative consult.\nCurrently on Heparin infusion (per protocol) and Hydromorphone (0.5 mg IV q3h PRN). Most recent vitals at\n21:30: T 37.5C, HR 94, RR 25, BP 98/63, SpO2 86%. Latest labs: WBC 9.6K/uL (N), Plt 162.6K/uL (N). Pending: CT\nchest read; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR/DNI. Tasks for next\nshift: Encourage incentive spirometry q1h while awake; Monitor chest tube output and dressing; Page oncology\nwith morning labs. Risks to watch: AKI risk from dehydration/contrast, Arrhythmia risk with hypoxia.",
-      "RecordedBy": {
-        "StaffID": "N01",
-        "Name": "Nurse Olivia Reed"
-      },
-      "IncomingRole": "Intern",
-      "Timestamp": "21:30:00",
-      "Date": "2026-01-30",
-      "ShiftContext": "OR->PACU",
-      "ScenarioType": "best_case"
-    },
-    {
-      "PatientID": "P008",
-      "PatientName": "David Brooks",
-      "Room": "3E-09",
-      "Age": 64,
-      "Gender": "Male",
-      "Transcript": "David Brooks in 3E-09, 64 y/o with Stage IV NSCLC, cachexia and uncontrolled pain; palliative consult.\nCurrently on Oxygen via nasal cannula (2 L/min) and Hydromorphone (0.5 mg IV q3h PRN). Most recent vitals at\n01:50: T 37.5C, HR 94, RR 25, BP 98/63, SpO2 86%. Latest labs: Plt 277.5K/uL (N), WBC 2.2K/uL (N). Tasks for\nnext shift: Encourage incentive spirometry q1h while awake; Draw repeat CBC at 0400; Draw repeat CBC at 0400.\nRisks to watch: AKI risk from dehydration/contrast, Bleeding/hemoptysis, Arrhythmia risk with hypoxia. I think\nthe patient might be DNR but I didn\u2019t confirm.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
-      },
-      "IncomingRole": "Resident",
-      "Timestamp": "01:50:00",
-      "Date": "2026-01-31",
-      "ShiftContext": "ICU->Floor",
-      "ScenarioType": "worst_case"
-    },
-    {
-      "PatientID": "P008",
-      "PatientName": "David Brooks",
-      "Room": "3E-09",
-      "Age": 64,
-      "Gender": "Male",
-      "Transcript": "David Brooks in 3E-09, 64 y/o with Stage IV NSCLC, cachexia and uncontrolled pain; palliative consult.\nCurrently on Ondansetron (4 mg IV q8h PRN) and Dexamethasone (4 mg IV q12h). Most recent vitals at 02:20: T\n37.5C, HR 94, RR 25, BP 98/63, SpO2 86%. Latest labs: Cr 1.75mg/dL (N), WBC 9.6K/uL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR/DNI. Tasks for next shift:\nCall RT for breathing treatment if wheezing; Maintain neutropenic precautions; Page oncology with morning\nlabs. Risks to watch: Bleeding/hemoptysis, Pain crisis.",
-      "RecordedBy": {
-        "StaffID": "N03",
-        "Name": "Nurse Priya Nair"
-      },
-      "IncomingRole": "RN",
-      "Timestamp": "02:20:00",
-      "Date": "2026-01-31",
-      "ShiftContext": "ICU->Floor",
-      "ScenarioType": "best_case"
-    }
-  ]
+      {
+        "Transcript": "David Brooks in 3E-09, 64 y/o with Stage IV NSCLC, cachexia and uncontrolled pain; palliative consult.\nCurrently on Ondansetron (4 mg IV q8h PRN) and Dexamethasone (4 mg IV q12h). Most recent vitals at 02:20: T\n37.5C, HR 94, RR 25, BP 98/63, SpO2 86%. Latest labs: Cr 1.75mg/dL (N), WBC 9.6K/uL (N). Pending: CT chest\nread; blood cultures still pending. Allergies: Penicillin (rash). Code status: DNR/DNI. Tasks for next shift:\nCall RT for breathing treatment if wheezing; Maintain neutropenic precautions; Page oncology with morning\nlabs. Risks to watch: Bleeding/hemoptysis, Pain crisis.",
+        "RecordedBy": { "StaffID": "N03", "Name": "Nurse Priya Nair" },
+        "IncomingRole": "RN",
+        "Timestamp": "02:20:00",
+        "Date": "2026-01-31",
+        "ShiftContext": "ICU->Floor",
+        "ScenarioType": "best_case"
+      }
+    ]
+  }
 }
