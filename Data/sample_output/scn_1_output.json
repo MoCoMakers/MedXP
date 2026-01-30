@@ -1,0 +1,200 @@
+{
+  "session_id": "DR-20260130-0845",
+  "enriched_at": "2026-01-30T14:19:27.625851",
+  "patient_summary": {
+    "key_diagnoses": [
+      "Stage IIIB non-small cell lung cancer (NSCLC), on chemoradiation",
+      "Hemoptysis",
+      "Neutropenia",
+      "Hypoxia",
+      "COPD"
+    ],
+    "risk_factors": [
+      "Neutropenic - high infection risk",
+      "Active bleeding/hemoptysis - review anticoagulation",
+      "Hypoxia - monitor respiratory status closely",
+      "On anticoagulation therapy"
+    ],
+    "critical_values": [
+      {
+        "name": "SpO2",
+        "value": 89,
+        "unit": "%",
+        "flag": "L",
+        "reference_range": ">92%"
+      },
+      {
+        "name": "Temperature",
+        "value": 38.5,
+        "unit": "°C",
+        "flag": "H",
+        "reference_range": "36.5-38.0°C"
+      }
+    ]
+  },
+  "relevant_sops": [
+    {
+      "sop_id": "SOP-AC-001",
+      "title": "Anticoagulation Management with Active Bleeding",
+      "relevance_reason": "keyword:anticoagulation, diagnosis:hemoptysis, medication:enoxaparin",
+      "key_steps": [
+        "Immediately hold anticoagulation therapy",
+        "Notify attending physician and oncology team",
+        "Assess severity of bleeding (vital signs, hemoglobin trend)",
+        "Type and screen, consider crossmatch if severe",
+        "Consider reversal agents if life-threatening bleeding"
+      ],
+      "priority": "high"
+    },
+    {
+      "sop_id": "SOP-NF-001",
+      "title": "Neutropenic Fever Management",
+      "relevance_reason": "diagnosis:neutropenia, symptom:fever, diagnosis:ANC",
+      "key_steps": [
+        "Immediately obtain blood cultures (2 sets from different sites)",
+        "Start broad-spectrum antibiotics within 60 minutes of fever onset",
+        "Assess for source of infection (respiratory, urinary, skin, line)",
+        "Institute neutropenic precautions (private room, mask, hand hygiene)",
+        "Monitor vital signs every 4 hours minimum"
+      ],
+      "priority": "high"
+    },
+    {
+      "sop_id": "SOP-OX-001",
+      "title": "Oxygen Therapy Management for Hypoxia",
+      "relevance_reason": "diagnosis:hypoxia, keyword:oxygen, diagnosis:COPD",
+      "key_steps": [
+        "Assess airway, breathing, circulation (ABCs)",
+        "Apply supplemental oxygen to maintain SpO2 > 92% (or per patient-specific target)",
+        "Document oxygen delivery device and flow rate",
+        "Order arterial blood gas if severe hypoxia or COPD",
+        "Auscultate lungs, assess work of breathing"
+      ],
+      "priority": "high"
+    },
+    {
+      "sop_id": "SOP-PM-001",
+      "title": "Pain Management in Cancer Patients",
+      "relevance_reason": "symptom:pain, medication:oxycodone, keyword:cancer pain",
+      "key_steps": [
+        "Assess pain using validated scale (0-10 numeric rating)",
+        "Determine if pain is acute, chronic, or breakthrough",
+        "Review current pain regimen and recent doses given",
+        "For moderate-severe pain (>6/10), administer PRN opioid per orders",
+        "Reassess pain 30-60 minutes after intervention"
+      ],
+      "priority": "medium"
+    },
+    {
+      "sop_id": "SOP-CT-001",
+      "title": "Chemotherapy Administration Safety",
+      "relevance_reason": "medication:pembrolizumab, medication_trigger:pembrolizumab",
+      "key_steps": [
+        "Verify patient identity using two identifiers",
+        "Confirm informed consent documented",
+        "Review pre-chemotherapy labs (CBC, metabolic panel, LFTs)",
+        "Verify chemotherapy dose calculations",
+        "Administer pre-medications as ordered (antiemetics, steroids)"
+      ],
+      "priority": "high"
+    }
+  ],
+  "applicable_policies": [
+    {
+      "policy_id": "POL-NP-001",
+      "title": "Neutropenic Precautions",
+      "requirement": "Patients with ANC < 500 or severely immunocompromised require neutropenic precautions",
+      "compliance_status": null
+    },
+    {
+      "policy_id": "POL-PT-001",
+      "title": "Pain Assessment and Treatment",
+      "requirement": "Pain must be assessed on admission, with vital signs, and within 1 hour of pain intervention",
+      "compliance_status": null
+    }
+  ],
+  "treatment_guidelines": [
+    {
+      "guideline_id": "GL-NSCLC-001",
+      "source": "NCCN NSCLC Guidelines v1.2026",
+      "title": "NSCLC Stage-Based Treatment Overview",
+      "recommendation": "Systemic therapy based on molecular testing and PD-L1 status",
+      "evidence_level": "Category 1"
+    },
+    {
+      "guideline_id": "GL-NSCLC-006",
+      "source": "ASCO/ASH Guidelines",
+      "title": "Venous Thromboembolism in Cancer",
+      "recommendation": "Cancer patients have elevated VTE risk; prophylaxis and treatment differ from non-cancer patients",
+      "evidence_level": "Category 1"
+    },
+    {
+      "guideline_id": "GL-NSCLC-007",
+      "source": "ASCO/NCCN Guidelines",
+      "title": "Neutropenia Management in Chemotherapy",
+      "recommendation": "G-CSF prophylaxis recommended when febrile neutropenia risk >= 20%",
+      "evidence_level": "Category 1"
+    },
+    {
+      "guideline_id": "GL-NSCLC-009",
+      "source": "NCCN/ASCO Guidelines",
+      "title": "Brain Metastases in NSCLC",
+      "recommendation": "Management depends on number of metastases, symptoms, and systemic disease control",
+      "evidence_level": "Category 2A"
+    },
+    {
+      "guideline_id": "GL-NSCLC-003",
+      "source": "NCCN Guidelines",
+      "title": "Immunotherapy in NSCLC",
+      "recommendation": "Immunotherapy is first-line for metastatic NSCLC without driver mutations",
+      "evidence_level": "Category 1"
+    }
+  ],
+  "warnings": [
+    {
+      "type": "contraindication",
+      "severity": "high",
+      "message": "Patient on anticoagulation with active hemoptysis - review need for anticoagulation",
+      "evidence": "Active bleeding is a contraindication to anticoagulation",
+      "action_required": "Consult physician about holding anticoagulation"
+    },
+    {
+      "type": "clinical_alert",
+      "severity": "critical",
+      "message": "Neutropenic fever - requires immediate evaluation and antibiotics",
+      "evidence": "Temperature 38.5°C in neutropenic patient",
+      "action_required": "Blood cultures and broad-spectrum antibiotics within 60 minutes"
+    },
+    {
+      "type": "clinical_alert",
+      "severity": "high",
+      "message": "Hypoxia detected (SpO2 89%) - assess respiratory status",
+      "evidence": "SpO2 below target threshold",
+      "action_required": "Titrate oxygen, assess work of breathing, consider chest imaging"
+    },
+    {
+      "type": "protocol_trigger",
+      "severity": "medium",
+      "message": "Relevant protocol triggered: Anticoagulation Management with Active Bleeding",
+      "evidence": "keyword:anticoagulation, diagnosis:hemoptysis, medication:enoxaparin",
+      "action_required": "Review SOP SOP-AC-001 and ensure compliance"
+    },
+    {
+      "type": "protocol_trigger",
+      "severity": "medium",
+      "message": "Relevant protocol triggered: Neutropenic Fever Management",
+      "evidence": "diagnosis:neutropenia, symptom:fever, diagnosis:ANC",
+      "action_required": "Review SOP SOP-NF-001 and ensure compliance"
+    }
+  ],
+  "metadata": {
+    "processing_time_ms": 2031,
+    "sources_consulted": [
+      "nsclc_sops",
+      "hospital_policies",
+      "nsclc_guidelines"
+    ],
+    "llm_calls": 1,
+    "enrichment_version": "1.0"
+  }
+}
