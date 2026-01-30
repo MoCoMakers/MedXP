@@ -1,0 +1,223 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2026-01-15",
+    "hospital": "Simulated General Hospital",
+    "category": "Hospital Policies and Procedures"
+  },
+  "policies": [
+    {
+      "policy_id": "POL-CS-001",
+      "title": "Code Status Documentation Requirements",
+      "category": "Advance Directives",
+      "keywords": ["code status", "DNR", "DNI", "full code", "advance directive", "goals of care"],
+      "triggers": {
+        "fields": ["code_status"],
+        "events": ["admission", "status_change", "goals_of_care_discussion"]
+      },
+      "requirement": "Code status must be documented and verified within 24 hours of admission and after any goals of care discussion",
+      "compliance_criteria": [
+        "Code status documented in medical record",
+        "Discussion documented with patient/family",
+        "Physician order matches documented status",
+        "Bracelet/badge matches documented status"
+      ],
+      "responsible_parties": ["Attending Physician", "Primary Nurse", "Case Manager"],
+      "escalation": "Notify charge nurse and attending if code status unclear"
+    },
+    {
+      "policy_id": "POL-MR-001",
+      "title": "Medication Reconciliation Policy",
+      "category": "Medication Safety",
+      "keywords": ["medication", "reconciliation", "admission", "discharge", "transfer", "drug interaction"],
+      "triggers": {
+        "events": ["admission", "transfer", "discharge", "medication_change"]
+      },
+      "requirement": "Complete medication reconciliation within 24 hours of admission, at every transfer, and at discharge",
+      "compliance_criteria": [
+        "Home medications documented with doses and frequencies",
+        "Discrepancies identified and resolved",
+        "Allergies verified and documented",
+        "Medication list reviewed with patient/family",
+        "Discharge medications reconciled with pre-admission list"
+      ],
+      "responsible_parties": ["Admitting Physician", "Pharmacist", "Primary Nurse"],
+      "escalation": "Pharmacy consult for complex reconciliation issues"
+    },
+    {
+      "policy_id": "POL-CV-001",
+      "title": "Critical Lab Value Notification",
+      "category": "Patient Safety",
+      "keywords": ["critical value", "panic value", "lab", "notification", "potassium", "sodium", "hemoglobin"],
+      "triggers": {
+        "labs": {
+          "K": {"critical_low": 2.5, "critical_high": 6.5},
+          "Na": {"critical_low": 120, "critical_high": 160},
+          "Hgb": {"critical_low": 7.0, "critical_high": null},
+          "Plt": {"critical_low": 20, "critical_high": null},
+          "WBC": {"critical_low": 0.5, "critical_high": 30},
+          "Glucose": {"critical_low": 50, "critical_high": 500},
+          "Lactate": {"critical_low": null, "critical_high": 4.0},
+          "Troponin": {"critical_low": null, "critical_high": 0.5}
+        }
+      },
+      "requirement": "Critical lab values must be communicated to ordering provider within 30 minutes of result",
+      "compliance_criteria": [
+        "Lab calls floor/provider with critical value",
+        "Receiving nurse documents notification time",
+        "Provider acknowledges and documents response",
+        "Repeat labs ordered if clinically indicated"
+      ],
+      "responsible_parties": ["Laboratory", "Receiving Nurse", "Ordering Provider"],
+      "escalation": "If provider not reached in 30 minutes, escalate to charge nurse and supervisor"
+    },
+    {
+      "policy_id": "POL-FP-001",
+      "title": "Fall Prevention Protocol",
+      "category": "Patient Safety",
+      "keywords": ["fall", "falls risk", "safety", "bed alarm", "mobility", "delirium"],
+      "triggers": {
+        "diagnoses": ["falls risk", "delirium", "delirium risk"],
+        "demographics": {"age": {"threshold": 65, "operator": "gt"}},
+        "medications": ["opioid", "sedative", "benzodiazepine"]
+      },
+      "requirement": "All patients must be assessed for fall risk on admission and with status change; high-risk patients require fall precautions",
+      "compliance_criteria": [
+        "Fall risk assessment completed (Morse Fall Scale or equivalent)",
+        "Yellow fall risk bracelet applied if high risk",
+        "Bed alarm activated if indicated",
+        "Call light within reach",
+        "Non-slip footwear provided",
+        "Patient and family educated on fall prevention"
+      ],
+      "responsible_parties": ["Primary Nurse", "Patient Care Tech", "Physical Therapy"],
+      "escalation": "Notify charge nurse of any near-miss or actual fall event"
+    },
+    {
+      "policy_id": "POL-NP-001",
+      "title": "Neutropenic Precautions",
+      "category": "Infection Control",
+      "keywords": ["neutropenia", "infection control", "isolation", "immunocompromised", "ANC"],
+      "triggers": {
+        "diagnoses": ["neutropenia", "immunocompromised"],
+        "labs": {"ANC": {"threshold": 500, "operator": "lt"}, "WBC": {"threshold": 1.5, "operator": "lt"}}
+      },
+      "requirement": "Patients with ANC < 500 or severely immunocompromised require neutropenic precautions",
+      "compliance_criteria": [
+        "Private room assigned",
+        "Sign posted on door",
+        "Strict hand hygiene for all entering",
+        "No live plants or flowers in room",
+        "Masks for healthcare workers with respiratory symptoms",
+        "Low-microbial diet if ordered",
+        "Limit visitors, screen for illness"
+      ],
+      "responsible_parties": ["Primary Nurse", "Infection Control", "Environmental Services"],
+      "escalation": "Notify infection control for any suspected infection in neutropenic patient"
+    },
+    {
+      "policy_id": "POL-PI-001",
+      "title": "Patient Identification Policy",
+      "category": "Patient Safety",
+      "keywords": ["identification", "ID", "verification", "medication administration", "procedure"],
+      "triggers": {
+        "events": ["medication_administration", "procedure", "specimen_collection", "blood_transfusion"]
+      },
+      "requirement": "Two patient identifiers must be verified before any medication, procedure, or specimen collection",
+      "compliance_criteria": [
+        "Patient states full name (if able)",
+        "Check patient armband for name and DOB/MRN",
+        "Verify against medication/order/label",
+        "Document verification completed"
+      ],
+      "responsible_parties": ["All Clinical Staff"],
+      "escalation": "Stop procedure if identifiers do not match; notify charge nurse"
+    },
+    {
+      "policy_id": "POL-PT-001",
+      "title": "Pain Assessment and Treatment",
+      "category": "Patient Care",
+      "keywords": ["pain", "assessment", "treatment", "opioid", "comfort"],
+      "triggers": {
+        "events": ["admission", "pain_report", "post_procedure"],
+        "vitals": {"pain_score": {"threshold": 4, "operator": "gt"}}
+      },
+      "requirement": "Pain must be assessed on admission, with vital signs, and within 1 hour of pain intervention",
+      "compliance_criteria": [
+        "Pain assessed using appropriate validated scale",
+        "Pain documented in medical record",
+        "Treatment plan discussed with patient",
+        "Reassessment within 1 hour of intervention",
+        "Patient satisfaction with pain management evaluated"
+      ],
+      "responsible_parties": ["Primary Nurse", "Physician", "Pharmacist"],
+      "escalation": "Pain team or palliative consult for refractory pain >48 hours"
+    },
+    {
+      "policy_id": "POL-DP-001",
+      "title": "Discharge Planning Policy",
+      "category": "Care Coordination",
+      "keywords": ["discharge", "planning", "transition", "follow-up", "education"],
+      "triggers": {
+        "events": ["admission", "discharge_planning", "day_before_discharge"]
+      },
+      "requirement": "Discharge planning begins on admission; patient must receive written discharge instructions",
+      "compliance_criteria": [
+        "Discharge needs assessment within 24 hours of admission",
+        "Case manager notified for complex discharges",
+        "Medications reconciled and prescriptions provided",
+        "Follow-up appointments scheduled",
+        "Written instructions provided and reviewed with patient",
+        "Patient demonstrates understanding (teach-back)"
+      ],
+      "responsible_parties": ["Primary Nurse", "Case Manager", "Discharging Physician"],
+      "escalation": "Notify supervisor if barriers to safe discharge identified"
+    },
+    {
+      "policy_id": "POL-IS-001",
+      "title": "Isolation Precautions",
+      "category": "Infection Control",
+      "keywords": ["isolation", "contact", "droplet", "airborne", "infection", "PPE"],
+      "triggers": {
+        "fields": ["isolation"],
+        "diagnoses": ["infection", "MRSA", "C. diff", "influenza", "COVID", "tuberculosis"]
+      },
+      "requirement": "Appropriate isolation precautions must be implemented based on suspected/confirmed infection",
+      "compliance_criteria": [
+        "Isolation type ordered and documented",
+        "Sign posted on door with required PPE",
+        "PPE available outside room",
+        "Staff trained on donning/doffing",
+        "Patient and family educated",
+        "Environmental services notified"
+      ],
+      "responsible_parties": ["Primary Nurse", "Infection Control", "All Clinical Staff"],
+      "escalation": "Contact infection control for isolation guidance"
+    },
+    {
+      "policy_id": "POL-RS-001",
+      "title": "Rapid Response Team Activation",
+      "category": "Patient Safety",
+      "keywords": ["rapid response", "deterioration", "emergency", "RRT", "code"],
+      "triggers": {
+        "vitals": {
+          "HR": {"critical_low": 40, "critical_high": 130},
+          "RR": {"critical_low": 8, "critical_high": 30},
+          "BP_sys": {"critical_low": 90, "critical_high": 180},
+          "SpO2": {"threshold": 90, "operator": "lt"}
+        },
+        "events": ["clinical_deterioration", "staff_concern"]
+      },
+      "requirement": "Rapid Response Team must be activated for acute clinical deterioration or staff concern for patient safety",
+      "compliance_criteria": [
+        "RRT criteria recognized (see triggers)",
+        "RRT activated without delay",
+        "Bedside nurse remains with patient",
+        "Vital signs documented at time of call",
+        "Family notified of deterioration"
+      ],
+      "responsible_parties": ["Any Clinical Staff", "RRT Team", "Charge Nurse"],
+      "escalation": "Call Code Blue if patient arrests or airway compromise"
+    }
+  ]
+}

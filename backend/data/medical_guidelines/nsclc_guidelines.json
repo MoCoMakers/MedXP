@@ -1,0 +1,470 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2026-01-15",
+    "sources": ["NCCN Guidelines", "ASCO Guidelines", "ESMO Guidelines"],
+    "category": "Non-Small Cell Lung Cancer Treatment Guidelines"
+  },
+  "guidelines": [
+    {
+      "guideline_id": "GL-NSCLC-001",
+      "title": "NSCLC Stage-Based Treatment Overview",
+      "source": "NCCN NSCLC Guidelines v1.2026",
+      "category": "Treatment",
+      "keywords": [
+        "NSCLC",
+        "staging",
+        "treatment",
+        "surgery",
+        "radiation",
+        "chemotherapy"
+      ],
+      "stages": {
+        "Stage I-II": {
+          "recommendation": "Surgical resection is preferred for operable patients",
+          "alternatives": [
+            "SBRT for medically inoperable",
+            "Adjuvant chemotherapy for high-risk Stage II"
+          ]
+        },
+        "Stage III": {
+          "recommendation": "Concurrent chemoradiation for unresectable disease",
+          "alternatives": [
+            "Surgery followed by adjuvant therapy for resectable",
+            "Durvalumab consolidation after chemoRT"
+          ]
+        },
+        "Stage IV": {
+          "recommendation": "Systemic therapy based on molecular testing and PD-L1 status",
+          "alternatives": [
+            "Targeted therapy for driver mutations",
+            "Immunotherapy-chemotherapy combinations",
+            "Palliative radiation for symptoms"
+          ]
+        }
+      },
+      "evidence_level": "Category 1",
+      "references": ["NCCN NSCLC Guidelines 2026"]
+    },
+    {
+      "guideline_id": "GL-NSCLC-002",
+      "title": "Molecular Testing in Advanced NSCLC",
+      "source": "NCCN/ASCO Joint Guidelines",
+      "category": "Diagnostics",
+      "keywords": [
+        "molecular testing",
+        "EGFR",
+        "ALK",
+        "ROS1",
+        "BRAF",
+        "PD-L1",
+        "biomarker"
+      ],
+      "recommendation": "All patients with advanced NSCLC (Stage IIIB/IV) should undergo broad molecular testing",
+      "required_tests": [
+        {
+          "marker": "EGFR mutations",
+          "importance": "Essential - determines TKI eligibility"
+        },
+        {
+          "marker": "ALK rearrangements",
+          "importance": "Essential - determines ALK inhibitor eligibility"
+        },
+        {
+          "marker": "ROS1 rearrangements",
+          "importance": "Essential - determines crizotinib/entrectinib eligibility"
+        },
+        {
+          "marker": "BRAF V600E",
+          "importance": "Important - determines dabrafenib/trametinib eligibility"
+        },
+        {
+          "marker": "PD-L1 expression",
+          "importance": "Essential - helps guide immunotherapy selection"
+        },
+        {
+          "marker": "KRAS G12C",
+          "importance": "Important - determines sotorasib eligibility"
+        },
+        {
+          "marker": "MET exon 14 skipping",
+          "importance": "Important - determines capmatinib/tepotinib eligibility"
+        },
+        {
+          "marker": "RET fusions",
+          "importance": "Important - determines selpercatinib eligibility"
+        },
+        {
+          "marker": "NTRK fusions",
+          "importance": "Important - determines larotrectinib/entrectinib eligibility"
+        }
+      ],
+      "timing": "Before initiating first-line systemic therapy",
+      "evidence_level": "Category 1",
+      "references": [
+        "ASCO Molecular Testing Guidelines",
+        "NCCN NSCLC Guidelines"
+      ]
+    },
+    {
+      "guideline_id": "GL-NSCLC-003",
+      "title": "Immunotherapy in NSCLC",
+      "source": "NCCN Guidelines",
+      "category": "Treatment",
+      "keywords": [
+        "immunotherapy",
+        "pembrolizumab",
+        "nivolumab",
+        "atezolizumab",
+        "PD-1",
+        "PD-L1",
+        "checkpoint inhibitor"
+      ],
+      "recommendation": "Immunotherapy is first-line for metastatic NSCLC without driver mutations",
+      "regimens": [
+        {
+          "name": "Pembrolizumab monotherapy",
+          "indication": "PD-L1 >= 50%, no EGFR/ALK",
+          "monitoring": [
+            "irAE assessment every visit",
+            "Thyroid function q6-12 weeks"
+          ]
+        },
+        {
+          "name": "Pembrolizumab + platinum-based chemotherapy",
+          "indication": "Any PD-L1, no EGFR/ALK",
+          "monitoring": [
+            "irAE assessment",
+            "CBC with differential",
+            "Metabolic panel"
+          ]
+        },
+        {
+          "name": "Nivolumab + ipilimumab",
+          "indication": "PD-L1 >= 1%, alternative to pembrolizumab regimens",
+          "monitoring": ["irAE assessment - higher risk with combination"]
+        }
+      ],
+      "contraindications": [
+        "Active autoimmune disease requiring systemic immunosuppression",
+        "Prior organ transplant",
+        "Active infection"
+      ],
+      "evidence_level": "Category 1",
+      "references": ["KEYNOTE-024", "KEYNOTE-189", "CheckMate-227"]
+    },
+    {
+      "guideline_id": "GL-NSCLC-004",
+      "title": "EGFR-Mutant NSCLC Treatment",
+      "source": "NCCN Guidelines",
+      "category": "Treatment",
+      "keywords": [
+        "EGFR",
+        "mutation",
+        "osimertinib",
+        "TKI",
+        "targeted therapy"
+      ],
+      "recommendation": "Osimertinib is preferred first-line for EGFR-mutant advanced NSCLC",
+      "mutations_covered": ["Exon 19 deletion", "L858R", "T790M (resistance)"],
+      "regimens": [
+        {
+          "name": "Osimertinib",
+          "dose": "80 mg daily",
+          "indication": "First-line EGFR-mutant NSCLC",
+          "monitoring": [
+            "ECG for QTc",
+            "LFTs monthly initially",
+            "Ophthalmology if visual symptoms"
+          ]
+        }
+      ],
+      "resistance_management": "At progression, consider rebiopsy for resistance mechanisms",
+      "evidence_level": "Category 1",
+      "references": ["FLAURA trial"]
+    },
+    {
+      "guideline_id": "GL-NSCLC-005",
+      "title": "Chemotherapy-Induced Nausea and Vomiting (CINV) Prevention",
+      "source": "ASCO/NCCN Antiemesis Guidelines",
+      "category": "Supportive Care",
+      "keywords": [
+        "nausea",
+        "vomiting",
+        "CINV",
+        "antiemetic",
+        "ondansetron",
+        "dexamethasone"
+      ],
+      "recommendation": "Prophylactic antiemetics should be given based on emetogenic potential of chemotherapy",
+      "emetogenic_categories": {
+        "High": {
+          "agents": ["Cisplatin", "Cyclophosphamide (high dose)"],
+          "prophylaxis": [
+            "5-HT3 antagonist",
+            "NK1 antagonist",
+            "Dexamethasone",
+            "Consider olanzapine"
+          ]
+        },
+        "Moderate": {
+          "agents": ["Carboplatin", "Etoposide", "Cyclophosphamide (low dose)"],
+          "prophylaxis": [
+            "5-HT3 antagonist",
+            "Dexamethasone",
+            "+/- NK1 antagonist"
+          ]
+        },
+        "Low": {
+          "agents": ["Docetaxel", "Paclitaxel", "Pembrolizumab"],
+          "prophylaxis": ["Dexamethasone or 5-HT3 antagonist as needed"]
+        }
+      },
+      "evidence_level": "Category 1",
+      "references": ["ASCO Antiemesis Guidelines"]
+    },
+    {
+      "guideline_id": "GL-NSCLC-006",
+      "title": "Venous Thromboembolism in Cancer",
+      "source": "ASCO/ASH Guidelines",
+      "category": "Supportive Care",
+      "keywords": [
+        "DVT",
+        "PE",
+        "thrombosis",
+        "anticoagulation",
+        "enoxaparin",
+        "LMWH",
+        "DOAC"
+      ],
+      "recommendation": "Cancer patients have elevated VTE risk; prophylaxis and treatment differ from non-cancer patients",
+      "prophylaxis": {
+        "hospitalized": "LMWH or UFH recommended for most hospitalized cancer patients",
+        "ambulatory": "Consider in high-risk patients receiving chemotherapy (Khorana score >= 2)"
+      },
+      "treatment": {
+        "preferred": "LMWH or DOAC (rivaroxaban, edoxaban, apixaban)",
+        "duration": "Minimum 6 months; indefinite if ongoing cancer treatment",
+        "special_considerations": "Caution with DOACs in GI/GU malignancies due to bleeding risk"
+      },
+      "drug_interactions": [
+        {
+          "drugs": ["Enoxaparin", "Hemoptysis"],
+          "warning": "Hold anticoagulation if active bleeding"
+        },
+        {
+          "drugs": ["DOAC", "Strong CYP3A4 inhibitors"],
+          "warning": "Dose adjustment may be needed"
+        }
+      ],
+      "evidence_level": "Category 1",
+      "references": ["ASCO VTE Guidelines", "CLOT trial", "Hokusai VTE Cancer"]
+    },
+    {
+      "guideline_id": "GL-NSCLC-007",
+      "title": "Neutropenia Management in Chemotherapy",
+      "source": "ASCO/NCCN Guidelines",
+      "category": "Supportive Care",
+      "keywords": [
+        "neutropenia",
+        "G-CSF",
+        "filgrastim",
+        "pegfilgrastim",
+        "febrile neutropenia"
+      ],
+      "recommendation": "G-CSF prophylaxis recommended when febrile neutropenia risk >= 20%",
+      "risk_assessment": {
+        "high_risk_regimens": [
+          "Dose-dense regimens",
+          "Cisplatin/etoposide in SCLC"
+        ],
+        "patient_factors": [
+          "Age > 65",
+          "Prior febrile neutropenia",
+          "Poor performance status"
+        ]
+      },
+      "management": {
+        "primary_prophylaxis": "Pegfilgrastim or filgrastim starting day 2-4 after chemotherapy",
+        "secondary_prophylaxis": "After episode of febrile neutropenia",
+        "treatment": "Broad-spectrum antibiotics within 60 minutes if febrile and neutropenic"
+      },
+      "evidence_level": "Category 1",
+      "references": ["ASCO G-CSF Guidelines", "EORTC Guidelines"]
+    },
+    {
+      "guideline_id": "GL-NSCLC-008",
+      "title": "Malignant Pleural Effusion Management",
+      "source": "BTS/ASCO Guidelines",
+      "category": "Supportive Care",
+      "keywords": [
+        "pleural effusion",
+        "thoracentesis",
+        "pleurodesis",
+        "PleurX",
+        "dyspnea"
+      ],
+      "recommendation": "Symptomatic malignant pleural effusions should be drained; recurrent effusions may benefit from indwelling catheter or pleurodesis",
+      "management_options": [
+        {
+          "option": "Therapeutic thoracentesis",
+          "indication": "Initial drainage, diagnosis, symptom assessment",
+          "notes": "Limit to 1-1.5L per session to avoid re-expansion pulmonary edema"
+        },
+        {
+          "option": "Indwelling pleural catheter (PleurX)",
+          "indication": "Recurrent effusion, trapped lung, outpatient management preferred",
+          "notes": "Patient/caregiver can drain at home; spontaneous pleurodesis occurs in ~50%"
+        },
+        {
+          "option": "Chemical pleurodesis",
+          "indication": "Good lung expansion, life expectancy > 3 months",
+          "notes": "Talc most effective; requires chest tube"
+        }
+      ],
+      "evidence_level": "Category 2A",
+      "references": ["BTS Pleural Guidelines", "TIME2 trial"]
+    },
+    {
+      "guideline_id": "GL-NSCLC-009",
+      "title": "Brain Metastases in NSCLC",
+      "source": "NCCN/ASCO Guidelines",
+      "category": "Treatment",
+      "keywords": [
+        "brain metastases",
+        "CNS",
+        "radiation",
+        "SRS",
+        "WBRT",
+        "steroids"
+      ],
+      "recommendation": "Management depends on number of metastases, symptoms, and systemic disease control",
+      "management": {
+        "limited_mets": {
+          "option": "Stereotactic radiosurgery (SRS)",
+          "indication": "1-4 brain metastases, good performance status"
+        },
+        "multiple_mets": {
+          "option": "Whole brain radiation (WBRT) or best supportive care",
+          "indication": "Multiple metastases or poor prognosis"
+        },
+        "symptomatic": {
+          "management": [
+            "Dexamethasone 4-8mg daily for edema",
+            "Levetiracetam if seizures"
+          ]
+        },
+        "EGFR_mutant": {
+          "note": "Osimertinib has good CNS penetration - may defer radiation"
+        }
+      },
+      "evidence_level": "Category 2A",
+      "references": ["NCCN CNS Guidelines", "Alliance A071701"]
+    },
+    {
+      "guideline_id": "GL-NSCLC-010",
+      "title": "Pain Management in Advanced Cancer",
+      "source": "NCCN/WHO Guidelines",
+      "category": "Supportive Care",
+      "keywords": [
+        "pain",
+        "opioid",
+        "palliative",
+        "morphine",
+        "hydromorphone",
+        "WHO ladder"
+      ],
+      "recommendation": "Follow WHO analgesic ladder; around-the-clock dosing for continuous pain with PRN for breakthrough",
+      "principles": [
+        "Assess pain using validated scale (0-10)",
+        "By the mouth: oral route preferred when possible",
+        "By the clock: scheduled dosing for continuous pain",
+        "By the ladder: escalate from non-opioid to weak to strong opioids",
+        "Individualize: titrate to effect, no ceiling for opioids in cancer"
+      ],
+      "common_regimens": [
+        {
+          "medication": "Morphine",
+          "starting_dose": "5-10mg PO q4h (opioid-naive)",
+          "conversion": "Oral:IV = 3:1"
+        },
+        {
+          "medication": "Hydromorphone",
+          "starting_dose": "0.5-1mg PO q4h or 0.2-0.4mg IV q3h",
+          "conversion": "Oral:IV = 5:1"
+        },
+        {
+          "medication": "Oxycodone ",
+          "starting_dose": "5-10mg PO q4-6h",
+          "conversion": "Equianalgesic to 1.5x morphine"
+        }
+      ],
+      "adjuvants": [
+        "NSAIDs for bone pain",
+        "Gabapentin/pregabalin for neuropathic",
+        "Steroids for inflammation/edema"
+      ],
+      "evidence_level": "Category 2A",
+      "references": ["WHO Cancer Pain Guidelines", "NCCN Adult Cancer Pain"]
+    },
+    {
+      "guideline_id": "GL-DRUG-001",
+      "title": "Common Drug Interactions in Oncology",
+      "source": "Clinical Pharmacology References",
+      "category": "Drug Safety",
+      "keywords": [
+        "drug interaction",
+        "CYP450",
+        "warfarin",
+        "antifungal",
+        "anticonvulsant"
+      ],
+      "interactions": [
+        {
+          "drug1": "Pembrolizumab",
+          "drug2": "Systemic corticosteroids",
+          "severity": "moderate",
+          "effect": "High-dose steroids may reduce immunotherapy efficacy",
+          "recommendation": "Use lowest effective steroid dose; prednisone <10mg/day generally acceptable"
+        },
+        {
+          "drug1": "Enoxaparin",
+          "drug2": "NSAIDs",
+          "severity": "high",
+          "effect": "Increased bleeding risk",
+          "recommendation": "Avoid combination; use acetaminophen for pain if possible"
+        },
+        {
+          "drug1": "Opioids",
+          "drug2": "Benzodiazepines",
+          "severity": "high",
+          "effect": "Increased CNS depression, respiratory depression risk",
+          "recommendation": "Use caution; consider dose reduction of both agents"
+        },
+        {
+          "drug1": "Carboplatin",
+          "drug2": "Nephrotoxic drugs",
+          "severity": "moderate",
+          "effect": "Increased nephrotoxicity",
+          "recommendation": "Monitor renal function closely; avoid concurrent aminoglycosides if possible"
+        },
+        {
+          "drug1": "Osimertinib",
+          "drug2": "Strong CYP3A4 inducers",
+          "severity": "high",
+          "effect": "Reduced osimertinib levels",
+          "recommendation": "Avoid carbamazepine, phenytoin, rifampin; use levetiracetam for seizures"
+        },
+        {
+          "drug1": "Levetiracetam",
+          "drug2": "Chemotherapy",
+          "severity": "low",
+          "effect": "Minimal interactions - preferred anticonvulsant in oncology",
+          "recommendation": "First-line choice for seizure prophylaxis in brain metastases"
+        }
+      ],
+      "evidence_level": "Based on pharmacokinetic studies",
+      "references": ["UpToDate Drug Interactions", "Lexicomp"]
+    }
+  ]
+}

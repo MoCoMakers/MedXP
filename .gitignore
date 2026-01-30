@@ -152,7 +152,6 @@ coverage/
 *.db
 
 # Outputs (generated reports)
-*.json
 !**/config/*.json
 malpractice_agent/output/
 

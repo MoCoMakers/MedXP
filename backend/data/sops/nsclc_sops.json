@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2026-01-15",
+    "category": "NSCLC Standard Operating Procedures"
+  },
+  "sops": [
+    {
+      "sop_id": "SOP-NF-001",
+      "title": "Neutropenic Fever Management",
+      "category": "Oncology Emergency",
+      "keywords": ["neutropenia", "fever", "infection", "chemotherapy", "WBC", "ANC", "sepsis"],
+      "triggers": {
+        "diagnoses": ["neutropenia", "neutropenic fever", "febrile neutropenia"],
+        "labs": {"WBC": {"threshold": 1.5, "operator": "lt"}, "ANC": {"threshold": 500, "operator": "lt"}},
+        "vitals": {"Temp_C": {"threshold": 38.0, "operator": "gt"}}
+      },
+      "priority": "high",
+      "steps": [
+        "Immediately obtain blood cultures (2 sets from different sites)",
+        "Start broad-spectrum antibiotics within 60 minutes of fever onset",
+        "Assess for source of infection (respiratory, urinary, skin, line)",
+        "Institute neutropenic precautions (private room, mask, hand hygiene)",
+        "Monitor vital signs every 4 hours minimum",
+        "Notify oncology team and infectious disease if indicated",
+        "Consider G-CSF (filgrastim) if prolonged neutropenia expected",
+        "Hold myelosuppressive chemotherapy until ANC recovery"
+      ],
+      "contraindications": [],
+      "references": ["IDSA Guidelines for Neutropenic Fever", "NCCN NSCLC Guidelines"]
+    },
+    {
+      "sop_id": "SOP-AC-001",
+      "title": "Anticoagulation Management with Active Bleeding",
+      "category": "Hematology/Oncology",
+      "keywords": ["anticoagulation", "bleeding", "hemoptysis", "enoxaparin", "heparin", "warfarin", "DVT", "PE"],
+      "triggers": {
+        "diagnoses": ["hemoptysis", "bleeding", "hemorrhage"],
+        "medications": ["enoxaparin", "heparin", "warfarin", "rivaroxaban", "apixaban"]
+      },
+      "priority": "high",
+      "steps": [
+        "Immediately hold anticoagulation therapy",
+        "Notify attending physician and oncology team",
+        "Assess severity of bleeding (vital signs, hemoglobin trend)",
+        "Type and screen, consider crossmatch if severe",
+        "Consider reversal agents if life-threatening bleeding",
+        "Document decision-making regarding anticoagulation hold",
+        "Discuss with hematology regarding thrombosis risk vs bleeding risk",
+        "Plan for resumption timing based on bleeding resolution"
+      ],
+      "contraindications": ["Active life-threatening thrombosis requiring anticoagulation"],
+      "references": ["CHEST Guidelines for Anticoagulation Management"]
+    },
+    {
+      "sop_id": "SOP-OX-001",
+      "title": "Oxygen Therapy Management for Hypoxia",
+      "category": "Respiratory",
+      "keywords": ["hypoxia", "oxygen", "SpO2", "respiratory", "dyspnea", "COPD", "pleural effusion"],
+      "triggers": {
+        "vitals": {"SpO2": {"threshold": 92, "operator": "lt"}},
+        "diagnoses": ["hypoxia", "respiratory failure", "COPD exacerbation", "pleural effusion"]
+      },
+      "priority": "high",
+      "steps": [
+        "Assess airway, breathing, circulation (ABCs)",
+        "Apply supplemental oxygen to maintain SpO2 > 92% (or per patient-specific target)",
+        "Document oxygen delivery device and flow rate",
+        "Order arterial blood gas if severe hypoxia or COPD",
+        "Auscultate lungs, assess work of breathing",
+        "Consider chest X-ray if new or worsening hypoxia",
+        "Notify respiratory therapy for nebulizer treatments if wheezing",
+        "Escalate to higher level of care if not responding to supplemental O2"
+      ],
+      "contraindications": [],
+      "references": ["BTS Oxygen Guidelines", "GOLD COPD Guidelines"]
+    },
+    {
+      "sop_id": "SOP-PM-001",
+      "title": "Pain Management in Cancer Patients",
+      "category": "Palliative Care",
+      "keywords": ["pain", "opioid", "morphine", "hydromorphone", "oxycodone", "cancer pain", "palliative"],
+      "triggers": {
+        "diagnoses": ["cancer", "malignancy", "pain"],
+        "medications": ["morphine", "hydromorphone", "oxycodone", "fentanyl"]
+      },
+      "priority": "medium",
+      "steps": [
+        "Assess pain using validated scale (0-10 numeric rating)",
+        "Determine if pain is acute, chronic, or breakthrough",
+        "Review current pain regimen and recent doses given",
+        "For moderate-severe pain (>6/10), administer PRN opioid per orders",
+        "Reassess pain 30-60 minutes after intervention",
+        "Document pain assessment, intervention, and response",
+        "Consider palliative care consult for refractory pain",
+        "Address bowel regimen to prevent opioid-induced constipation"
+      ],
+      "contraindications": ["Respiratory depression", "Altered mental status without baseline"],
+      "references": ["NCCN Cancer Pain Guidelines", "WHO Analgesic Ladder"]
+    },
+    {
+      "sop_id": "SOP-CT-001",
+      "title": "Chemotherapy Administration Safety",
+      "category": "Oncology",
+      "keywords": ["chemotherapy", "cytotoxic", "carboplatin", "cisplatin", "etoposide", "pembrolizumab", "immunotherapy"],
+      "triggers": {
+        "medications": ["carboplatin", "cisplatin", "etoposide", "pembrolizumab", "docetaxel", "paclitaxel"]
+      },
+      "priority": "high",
+      "steps": [
+        "Verify patient identity using two identifiers",
+        "Confirm informed consent documented",
+        "Review pre-chemotherapy labs (CBC, metabolic panel, LFTs)",
+        "Verify chemotherapy dose calculations",
+        "Administer pre-medications as ordered (antiemetics, steroids)",
+        "Monitor for infusion reactions during administration",
+        "Educate patient on expected side effects",
+        "Schedule follow-up labs and next treatment"
+      ],
+      "contraindications": ["Active infection", "ANC < 1000", "Severe organ dysfunction per protocol"],
+      "references": ["ASCO/ONS Chemotherapy Safety Standards", "NCCN NSCLC Guidelines"]
+    },
+    {
+      "sop_id": "SOP-PE-001",
+      "title": "Pleural Effusion Management",
+      "category": "Pulmonology/Oncology",
+      "keywords": ["pleural effusion", "thoracentesis", "PleurX", "dyspnea", "chest tube"],
+      "triggers": {
+        "diagnoses": ["pleural effusion", "malignant effusion"],
+        "procedures": ["thoracentesis", "PleurX"]
+      },
+      "priority": "medium",
+      "steps": [
+        "Assess respiratory status and oxygen requirements",
+        "Review recent imaging (CXR, CT) for effusion size",
+        "If symptomatic, notify physician for drainage consideration",
+        "For PleurX catheter: drain per protocol (usually 1000mL max per session)",
+        "Monitor for complications (pneumothorax, hypotension, re-expansion pulmonary edema)",
+        "Document drainage amount, character, and patient tolerance",
+        "Send fluid for analysis if indicated (cytology, culture, chemistry)",
+        "Assess for symptom improvement post-drainage"
+      ],
+      "contraindications": ["Uncorrected coagulopathy", "Skin infection at insertion site"],
+      "references": ["BTS Pleural Disease Guidelines"]
+    },
+    {
+      "sop_id": "SOP-IM-001",
+      "title": "Immunotherapy Adverse Event Management",
+      "category": "Oncology",
+      "keywords": ["immunotherapy", "pembrolizumab", "nivolumab", "immune-related", "irAE", "colitis", "pneumonitis"],
+      "triggers": {
+        "medications": ["pembrolizumab", "nivolumab", "atezolizumab", "durvalumab"],
+        "diagnoses": ["immunotherapy", "checkpoint inhibitor"]
+      },
+      "priority": "high",
+      "steps": [
+        "Monitor for immune-related adverse events (irAEs)",
+        "Common irAEs: colitis (diarrhea), pneumonitis (cough, dyspnea), hepatitis (LFT elevation), thyroiditis",
+        "Grade severity using CTCAE criteria",
+        "For Grade 1: continue treatment with close monitoring",
+        "For Grade 2: consider holding immunotherapy, start steroids if indicated",
+        "For Grade 3-4: hold immunotherapy, start high-dose steroids",
+        "Notify oncology immediately for any suspected irAE",
+        "Document all symptoms and interventions"
+      ],
+      "contraindications": [],
+      "references": ["ASCO irAE Management Guidelines", "NCCN Immunotherapy Guidelines"]
+    },
+    {
+      "sop_id": "SOP-DL-001",
+      "title": "Delirium Prevention and Management",
+      "category": "Geriatrics/Oncology",
+      "keywords": ["delirium", "confusion", "altered mental status", "agitation", "falls risk"],
+      "triggers": {
+        "diagnoses": ["delirium", "delirium risk", "altered mental status", "falls risk"],
+        "demographics": {"age": {"threshold": 65, "operator": "gt"}}
+      },
+      "priority": "medium",
+      "steps": [
+        "Screen for delirium using CAM or equivalent tool",
+        "Identify and treat underlying causes (infection, medications, electrolytes)",
+        "Implement non-pharmacologic interventions first",
+        "Maintain sleep-wake cycle (lights on during day, minimize nighttime interruptions)",
+        "Ensure sensory aids available (glasses, hearing aids)",
+        "Encourage family presence and orientation cues",
+        "Minimize use of sedatives and anticholinergics",
+        "Consider low-dose antipsychotics only if severe agitation and safety concern"
+      ],
+      "contraindications": [],
+      "references": ["AGS Delirium Guidelines", "Hospital Elder Life Program (HELP)"]
+    },
+    {
+      "sop_id": "SOP-SH-001",
+      "title": "Shift Handoff Communication (SBAR)",
+      "category": "Patient Safety",
+      "keywords": ["handoff", "shift change", "SBAR", "communication", "transfer"],
+      "triggers": {
+        "events": ["shift_change", "transfer", "handoff"]
+      },
+      "priority": "medium",
+      "steps": [
+        "Situation: State patient name, room, and current status",
+        "Background: Provide relevant diagnosis, procedures, and history",
+        "Assessment: Share current vital signs, recent labs, and clinical assessment",
+        "Recommendation: Communicate pending tasks, anticipated needs, and concerns",
+        "Verify understanding with receiver (read-back)",
+        "Document handoff completion",
+        "Allow time for questions",
+        "Ensure access to patient chart and orders"
+      ],
+      "contraindications": [],
+      "references": ["Joint Commission Handoff Standards", "TeamSTEPPS"]
+    },
+    {
+      "sop_id": "SOP-AK-001",
+      "title": "Acute Kidney Injury Prevention",
+      "category": "Nephrology",
+      "keywords": ["AKI", "kidney", "creatinine", "nephrotoxic", "contrast", "dehydration"],
+      "triggers": {
+        "diagnoses": ["AKI", "acute kidney injury", "AKI risk"],
+        "labs": {"Cr": {"threshold": 1.5, "operator": "gt"}}
+      },
+      "priority": "medium",
+      "steps": [
+        "Review baseline and trend creatinine",
+        "Assess volume status (orthostatics, skin turgor, urine output)",
+        "Review medication list for nephrotoxins (NSAIDs, aminoglycosides, contrast)",
+        "Ensure adequate hydration, especially before/after contrast",
+        "Hold nephrotoxic medications if AKI developing",
+        "Renally adjust doses of cleared medications",
+        "Monitor urine output (notify if < 0.5 mL/kg/hr)",
+        "Consider nephrology consult if creatinine continues to rise"
+      ],
+      "contraindications": [],
+      "references": ["KDIGO AKI Guidelines"]
+    }
+  ]
+}
