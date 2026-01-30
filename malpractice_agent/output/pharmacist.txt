@@ -1,60 +1,97 @@
-## 📋 Pharmacovigilance Assessment
+## PHARMACOVIGILANCE ASSESSMENT
 
-### ⚠️ CRITICAL SAFETY FLAGS IDENTIFIED
-
-#### 1. **INCOMPLETE MEDICATION ORDER — ACTION REQUIRED**
-The handoff notes "administer PRN opioid if pain >6/10," but **no specific opioid agent, dose, or route is prescribed**. This is an incomplete order that requires clarification before administration.
-
-**Concerns:**
-- **Respiratory depression risk:** SpO2 93% on RA + RR 22/min suggests early respiratory compromise; opioids could precipitate decompensation
-- **Bleeding risk with enoxaparin:** Most opioids are acceptable, but concurrent anticoagulation requires monitoring
-- **Standard of care:** PRN orders must be specific
-
-**→ RECOMMENDATION:** Verify specific opioid order (e.g., morphine, oxycodone, hydromorphone) with prescriber before administration.
+### ⚠️ HIGH-PRIORITY SAFETY FLAGS IDENTIFIED
 
 ---
 
-#### 2. **ELEVATED TROPONIN + ANTICOAGULATION MONITORING**
-- **Troponin:** 0.11 ng/mL (Elevated) — possible cardiac injury, NSTEMI, or demand ischemia
-- **Enoxaparin:** 40mg SC daily active
+#### 1. ⚡ CRITICAL: Bleeding Risk - Hemoptysis + Anticoagulation
 
-**Concerns:**
-- Elevated troponin in cancer patients may indicate true ACS, demand ischemia, or pulmonary embolism (higher risk in lung cancer)
-- Anticoagulation requires close monitoring for bleeding signs, especially if intervention needed
+| Factor | Status |
+|--------|--------|
+| **Medication** | Enoxaparin 40mg SC Daily |
+| **Risk Factor** | Active Hemoptysis |
+| **Assessment** | **PROHIBITED COMBINATION** |
 
-**→ RECOMMENDATION:** Hold enoxaparin pending cardiology review if ACS suspected; monitor for bleeding.
+**CLINICAL ALERT:** This patient has **active hemoptysis** (flagged in Active Problems) while concurrently receiving **therapeutic anticoagulation with Enoxaparin**. This creates a significant risk of worsening pulmonary hemorrhage.
 
----
-
-#### 3. **ENOXAPARIN DUPLICATION CONFIRMED**
-As noted by Refiner: Two entries for Enoxaparin 40mg daily in source documentation.
-
-**→ RECOMMENDATION:** Verify against MAR. If order is truly duplicated, discontinue duplicate entry to avoid accidental extra dosing.
-
----
-
-#### 4. **CHEMORADIATION + ANTICOAGULATION = ELEVATED BLEED RISK**
-- Myelosuppression from chemoradiation increases bleeding susceptibility
-- Daily enoxaparin compounding risk
-
-**→ RECOMMENDATION:** Monitor CBC trends (hemoglobin currently stable at 9.7 g/dL); assess for signs of bleeding with each shift.
+**RECOMMENDATION:**
+- ⏸️ **HOLD Enoxaparin immediately** pending bleeding risk assessment
+- Consider if anticoagulation is essential (e.g., high VTE risk vs. active bleeding)
+- If anticoagulation must continue, ensure platelet count is adequate
+- Monitor hemoglobin trend closely (currently 9.7 g/dL)
 
 ---
 
-### ✅ NO DRUG-DRUG INTERACTIONS FLAGGED
-- NKDA documented
-- No identified direct contraindications with current active meds
+#### 2. 🚨 URGENT: Neutropenic Fever - Requires Immediate Antibiotic Intervention
+
+| Parameter | Value | Interpretation |
+|-----------|-------|----------------|
+| Temperature | 38.5°C (101.3°F) | Fever |
+| Procalcitonin | 6.05-6.99 ng/mL | **Significantly elevated** (suggests bacterial infection) |
+| Neutropenia | Implied | Chemoradiation context |
+| SpO2 | 93% (baseline low 90s) | Respiratory compromise |
+
+**CRITICAL GAP:** This patient meets criteria for **neutropenic sepsis**. With fever, documented pulmonary infiltrate, and severely elevated procalcitonin, broad-spectrum antibiotics should be initiated **immediately**—not held pending CT results.
+
+**RECOMMENDATION:**
+- 🧪 Obtain blood cultures (if not already done)
+- 💉 Initiate broad-spectrum antibiotics within **1 hour** of fever recognition
+- Coverage should include Pseudomonas and typical/atypical pathogens
+- Consider antifungal coverage if no improvement in 48-72 hours
 
 ---
 
-### 📝 SUMMARY ACTION ITEMS
+#### 3. ⚠️ WATCH: Cardiac Risk - Troponin Elevation + Hypoxemia
+
+| Factor | Concern |
+|--------|---------|
+| Troponin | 0.11 ng/mL (elevated) |
+| SpO2 | 93% with dips to mid-80s |
+| HR | Stable at 78 bpm |
+| BP | Hypertensive (167/79 mmHg) |
+
+**ASSESSMENT:** Elevated troponin likely represents **demand ischemia** secondary to:
+- Chronic hypoxemia
+- Respiratory distress
+- Fever-induced tachycardia (if present)
+
+**RECOMMENDATION:**
+- Serial troponin monitoring
+- Aggressive oxygen optimization (target SpO2 >92% given chronic hypoxemia baseline)
+- Avoid tachycardia-inducing medications
+- Ensure adequate pain control (pain/stress increases cardiac demand)
+
+---
+
+#### 4. 📋 MEDICATION VERIFICATION REQUIRED
+
+**Duplicate Entry Detected:**
+> *"[ACTION: Enoxaparin 40mg Subcutaneous Daily] *(Note: Entry appears duplicated in source)*"*
+
+**ACTION:** Verify that Enoxaparin is not being administered **twice daily** (double-dose error potential). If the duplicate entry represents a scheduled dose that was administered, this could constitute a **supratherapeutic anticoagulation state**.
+
+**RECOMMENDATION:** 
+- Clarify medication administration record
+- Confirm Enoxaparin frequency is truly **once daily**
+- Check anti-Xa levels if clinically indicated
+
+---
+
+### SUMMARY OF REQUIRED ACTIONS
+
 | Priority | Action |
 |----------|--------|
-| 🔴 HIGH | Verify specific PRN opioid order (agent, dose, route) before administration |
-| 🔴 HIGH | Assess enoxaparin necessity vs. bleeding risk given elevated troponin |
-| 🟡 MED | Resolve enoxaparin duplication in MAR |
-| 🟡 MED | Monitor CBC, bleeding signs q4–6h given anticoagulation + chemo |
+| 🔴 **IMMEDIATE** | Hold Enoxaparin due to hemoptysis |
+| 🔴 **IMMEDIATE** | Initiate broad-spectrum antibiotics for neutropenic fever |
+| 🟡 **THIS SHIFT** | Verify Enoxaparin dosing frequency |
+| 🟡 **THIS SHIFT** | Serial troponin monitoring |
+| 🟢 **FOLLOW-UP** | CT chest review when available |
 
 ---
 
-*Assessment complete. Awaiting clarification on incomplete opioid order before full clearance.*
+### DRUG INTERACTIONS: NONE IDENTIFIED
+
+No concurrent medications were listed in the current orders that would interact with:
+- Planned antibiotics
+- Analgesics (PRN opioids mentioned)
+- Chemotherapy agents (managed by oncology)

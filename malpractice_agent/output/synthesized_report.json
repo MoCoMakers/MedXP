@@ -1,17 +1,14 @@
 {
-  "risk_level": "High",
-  "executive_summary": "Multiple high-risk clinical and compliance issues identified including an incomplete PRN opioid order requiring verification, unconfirmed code status in a Stage IIIB terminal patient, absent informed consent documentation for chemoradiation, and unaddressed elevated troponin with hypertension. Compliance score of 55 reflects significant documentation and protocol gaps.",
-  "compliance_score": 55,
+  "risk_level": "Critical",
+  "executive_summary": "Maria Chen presents three concurrent life-threatening conditions requiring immediate intervention: active hemoptysis on therapeutic anticoagulation (Enoxaparin), neutropenic fever meeting sepsis criteria with significantly elevated procalcitonin, and unresolved code status creating significant liability exposure. Compliance score is critically low at 20/100 due to documentation gaps including missing medication verification protocols and unspecified oxygen delivery devices.",
+  "compliance_score": 20,
   "key_concerns": [
-    "Incomplete PRN opioid order (no agent, dose, or route specified) - respiratory depression risk with SpO2 93% on room air",
-    "Missing informed consent documentation for chemoradiation therapy creates major liability exposure",
-    "Code status remains unconfirmed despite Stage IIIB NSCLC diagnosis and current clinical instability",
-    "Elevated troponin (0.11 ng/mL) lacks cardiac monitoring protocol or provider notification",
-    "Uncontrolled hypertension (167/79 mmHg) without documented management plan",
-    "Enoxaparin duplication in MAR requires verification to prevent accidental extra dosing",
-    "Missing 'Three Checks' verbal confirmation documentation for anticoagulant administration",
-    "Missing hand hygiene and wristband verification documentation before injection",
-    "Bleeding risk elevated by concurrent enoxaparin and chemoradiation-induced myelosuppression"
+    "CRITICAL: Active hemoptysis on Enoxaparin - hold anticoagulation immediately per pharmacist; risk officer notes documentation gap in clinical decision-making",
+    "URGENT: Neutropenic fever (38.5°C, Procalcitonin 6.05-6.99) requires broad-spectrum antibiotics within 1 hour per sepsis protocols",
+    "HIGH LIABILITY: Code status remains unconfirmed despite Stage IIIB NSCLC, respiratory compromise, and neutropenia",
+    "MODERATE: Duplicate Enoxaparin entry requires verification to rule out double-dosing error",
+    "COMPLIANCE FAILURE: Zero documentation of 'Three Checks' medication verification for Enoxaparin",
+    "DOCUMENTATION GAP: O2 delivery device unspecified in vitals; EHR duplicate medication entry uncorrected"
   ],
-  "recommended_action": "Immediately verify specific opioid order with prescriber, confirm code status with patient/family, and initiate retrospective informed consent chart review while addressing cardiac marker elevation and hypertension per protocol."
+  "recommended_action": "Immediately hold Enoxaparin, initiate broad-spectrum antibiotics for neutropenic fever per sepsis protocol, confirm code status with patient/family today, and verify duplicate medication entry is not a dosing error."
 }

@@ -1,44 +1,49 @@
-# Patient Handoff Report
+**PATIENT SUMMARY**
 
-**Patient:** Maria Chen | **Room:** 3E-12 | **Age:** 62 y/o
+**Patient:** Maria Chen, Room 3E-12
+**Age:** 62 y/o
+**Primary Dx:** Stage IIIB Non-Small Cell Lung Cancer (NSCLC)
+**Current Treatment:** Concurrent chemoradiation
 
-## Diagnosis & Treatment
-- **Primary:** Stage IIIB non-small cell lung cancer (NSCLC)
-- **Current Treatment:** Chemoradiation therapy
+---
 
-## Active Medications
-- [ACTION: Enoxaparin 40mg subcutaneously daily] × 2 *(NOTE: Duplication in source—verify order)*
+**CURRENT MEDICATIONS:**
+[ACTION: Enoxaparin 40mg Subcutaneous Daily] *(Note: Entry appears duplicated in source)*
 
-## Vital Signs (02:50)
-- Temperature: 38.5°C (Elevated)
-- Heart Rate: 78 bpm
-- Respiratory Rate: 22 /min
-- Blood Pressure: 167/79 mmHg
-- SpO2: 93% on room air
+**ALLERGIES:** NKDA
+**CODE STATUS:** Full Code
 
-## Laboratory Results
-| Parameter | Value | Flag |
-|-----------|-------|------|
-| Hemoglobin | 9.7 g/dL | N (Normal) |
-| Troponin | 0.11 ng/mL | H (Elevated) |
-| Blood Cultures | Pending | — |
-| CT Chest | Pending | — |
+---
 
-## Clinical Allergies
-NKDA (No Known Drug Allergies)
+**MOST RECENT VITALS (02:50):**
+| Measure | Value |
+|---------|-------|
+| Temperature | 38.5°C (101.3°F) |
+| Heart Rate | 78 bpm |
+| Respiratory Rate | 22/min |
+| Blood Pressure | 167/79 mmHg |
+| SpO2 | 93% on [Unspecified O2 Delivery] |
 
-## Code Status
-Full Code
+---
 
-## Tasks for Next Shift
-- [ACTION: Follow up CT chest result when available]
-- [ACTION: Assess pain level; administer PRN opioid if pain >6/10]
-- [ACTION: Confirm code status with patient and family]
+**LABORATORY RESULTS:**
+- Hemoglobin: 9.7 g/dL (Normal)
+- Troponin: 0.11 ng/mL *(Elevated)*
+- **Pending:** CT chest, Blood cultures
 
-## Clinical Risks to Monitor
-- Arrhythmia risk secondary to hypoxia
+---
+
+**CLINICAL CONCERNS / WATCH FACTORS:**
+- Arrhythmia risk secondary to hypoxemia
 - Respiratory decompensation
 
 ---
 
-**Refiner Note:** Enoxaparin entry appears duplicated in source documentation—recommend verification with medication administration record (MAR).
+**OUTSTANDING TASKS:**
+1. Follow up CT chest result when available
+2. Assess pain; administer PRN opioid if pain score >6/10
+3. Confirm code status with patient/family
+
+---
+
+*Source document contains potential duplicate medication entry requiring verification.*

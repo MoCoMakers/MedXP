@@ -1,0 +1,29 @@
+### Patient Profile
+
+**Patient:** Maria Chen (62 y/o, Female, Room 3E-12)
+**MRN:** MRN100200
+**Primary Lens:** End-stage malignancy on active therapy with concurrent infectious/inflammatory process and respiratory compromise.
+
+#### 1. Physiological Baseline (Historical Norms)
+*   **Blood Pressure:** Patient typically runs **hypertensive**. Baseline systolic historically 140-150s. Current trend (Jan 30) is elevated (~159/79), likely stress or pain related. Note: One significant hypotensive dip occurred yesterday (100/56), but she has recovered to hypertensive levels.
+*   **Heart Rate:** Baseline typically 70-85 bpm. Reactive to stress; spiked to 132 bpm yesterday during a hypoxic event but has since stabilized in the 80s.
+*   **Respiratory Rate:** Baseline appears elevated (16-22 range), consistent with COPD.
+*   **Oxygen Saturation:** **Chronic Hypoxemia.** This is the most critical baseline parameter. Her "normal" is historically low 90s. She is currently hypoxic relative to her baseline, with persistent dips into the **mid-80s**.
+*   **Temperature:** Afebrile baseline. Currently febrile (38.5°C - 39.0°C).
+
+#### 2. Critical History & High-Alert Flags
+*   **Primary Diagnosis:** Stage IIIB Non-Small Cell Lung Cancer (NSCLC) on **Chemoradiation**.
+*   **Active Problems (Red Flags):**
+    *   **Respiratory:** New Right Lower Lobe (RLL) Infiltrate (Pneumonia vs. Radiation Pneumonitis), Pleural Effusion, and Hemoptysis.
+    *   **Infection/Sepsis:** Rising Procalcitonin trend (6.14 -> 6.99 -> 6.05) indicates significant inflammation or bacterial infection.
+    *   **Hematologic:** **Neutropenia** (implied by "Active Problems" and oncology context) and **Anemia** (Hgb dropped from 13.8 to 9.7).
+    *   **Bleeding Risk:** Concurrent **Hemoptysis** + **Anticoagulation** (Enoxaparin).
+    *   **Cardiac:** **Elevated Troponin** (0.11 ng/mL, flagged High) suggests demand ischemia or stress reaction.
+*   **Code Status:** Full Code.
+*   **Isolation:** Contact.
+
+#### 3. Telemetry Synthesis (Last 24 Hours)
+*   **SpO2 Trend:** **Worsening/Unstable.** Despite oxygen therapy, the trend shows persistent desaturation events. The patient is not maintaining her usual baseline; latest reading is 87% (Jan 30 19:56).
+*   **HR Trend:** **Stable.** Resolved the tachycardia seen on Jan 29. Current rhythm appears regular in the 80s.
+*   **BP Trend:** **Elevated/Stable.** Moved past the labile phase of yesterday. Currently维持在 hypertensive urgency range.
+*   **Overall Assessment:** The patient is stable hemodynamically (BP/HR) but deteriorating respiratory-wise (SpO2/RR). She is immunocompromised (Neutropenia) and fighting a presumptive infection (High Procalcitonin, Fever). Risk of respiratory failure and bleeding (lung + anticoagulation) remains high.

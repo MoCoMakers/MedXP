@@ -86,7 +86,34 @@ class MalpracticeAgentSystem:
             prompts[key] = body
         return prompts
 
-    def run_analysis(self, raw_transcript, output_dir: Path | str | None = None):
+    def _load_patient_ehr(self, ehr_path: Path, patient_key: str) -> str:
+        """Load patients_ehr.json and return the patient record for patient_key as a string."""
+        with open(ehr_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        patients = data.get("Patients", data)
+        if patient_key not in patients:
+            raise KeyError(
+                f"Patient key {patient_key!r} not found in {ehr_path}. "
+                f"Available keys: {list(patients.keys())}"
+            )
+        return json.dumps(patients[patient_key], indent=2, ensure_ascii=False)
+
+    def run_analysis(
+        self,
+        raw_transcript: str,
+        patient_key: str,
+        ehr_path: Path | str,
+        output_dir: Path | str | None = None,
+    ):
+        """
+        Run the full analysis pipeline.
+
+        Args:
+            raw_transcript: Raw handoff transcript.
+            patient_key: Patient identifier (e.g. "P001") used to look up EHR in patients_ehr.json.
+            ehr_path: Path to patients_ehr.json (e.g. Data/patients_ehr.json).
+            output_dir: Optional directory to write scribe, archivist, pharmacist, etc. outputs.
+        """
         output_path = Path(output_dir) if output_dir else None
         if output_path:
             output_path.mkdir(parents=True, exist_ok=True)
@@ -99,12 +126,21 @@ class MalpracticeAgentSystem:
         clean_transcript = self._call_agent("scribe", raw_transcript)
         _save("scribe", clean_transcript)
 
+        ehr_file = Path(ehr_path)
+        patient_ehr = self._load_patient_ehr(ehr_file, patient_key)
+        logger.info("Building context report (archivist) from EHR for patient %s", patient_key)
+        context_report = self._call_agent("archivist", patient_ehr)
+        _save("archivist", context_report)
+
+        # Combine context and transcript so risk agents have full picture
+        combined_input = self._format_combined_input(context_report, clean_transcript)
+
         logger.info("Running risk analyses: pharmacist, watchdog, risk_officer")
-        pharm_report = self._call_agent("pharmacist", clean_transcript)
+        pharm_report = self._call_agent("pharmacist", combined_input)
         _save("pharmacist", pharm_report)
-        audit_report = self._call_agent("watchdog", clean_transcript)
+        audit_report = self._call_agent("watchdog", combined_input)
         _save("watchdog", audit_report)
-        risk_report = self._call_agent("risk_officer", clean_transcript)
+        risk_report = self._call_agent("risk_officer", combined_input)
         _save("risk_officer", risk_report)
 
         logger.info("Synthesizing reports (lead_orchestrator)")
@@ -139,6 +175,16 @@ class MalpracticeAgentSystem:
                 e.errors(),
             )
             raise
+
+    def _format_combined_input(self, context_report: str, clean_transcript: str) -> str:
+        """Combine archivist context report and clean transcript for downstream agents."""
+        return "\n\n".join([
+            "## Patient Context (Archivist Report)",
+            context_report,
+            "",
+            "## Clean Transcript",
+            clean_transcript,
+        ])
 
     def _call_agent(self, agent_role, content):
         logger.info("Calling agent: %s (input length: %d chars)", agent_role, len(content))

@@ -23,16 +23,30 @@ if not api_key:
         "MINIMAX_API_KEY is not set. Add it to .env in the project root or export it."
     )
 
-scenarios_path = Path(__file__).resolve().parent.parent / "Data" / "scenarios.json"
+data_dir = Path(__file__).resolve().parent.parent / "Data"
+scenarios_path = data_dir / "scenarios.json"
+ehr_path = data_dir / "patients_ehr.json"
+
 with open(scenarios_path, encoding="utf-8") as f:
     scenarios = json.load(f)
 
-patient = scenarios["P001"]
+with open(ehr_path, encoding="utf-8") as f:
+    ehr_data = json.load(f)
+
+patient_key = "P001"
+patient = scenarios[patient_key]
 transcript = patient["Scenarios"][0]["Transcript"]
+patient_ehr = ehr_data["Patients"][patient_key]
+ehr_preview = json.dumps(patient_ehr, indent=2, ensure_ascii=False)
 
 print("Input (first lines) for run_analysis:")
 print("-" * 60)
 for line in transcript.splitlines()[:5]:
+    print(line)
+print("-" * 60)
+print("EHR data (first lines) for patient", patient_key + ":")
+print("-" * 60)
+for line in ehr_preview.splitlines()[:10]:
     print(line)
 print("-" * 60)
 
@@ -42,7 +56,9 @@ agent = MalpracticeAgentSystem(
     model="MiniMax-M2.1",  # or "MiniMax-M2.1-lightning", "MiniMax-M2"
 )
 output_dir = Path(__file__).resolve().parent / "output"
-report = agent.run_analysis(raw_transcript=transcript, output_dir=output_dir)
+report = agent.run_analysis(
+    transcript, patient_key, ehr_path=ehr_path, output_dir=output_dir
+)
 
 report_path = output_dir / "synthesized_report.json"
 with open(report_path, "w", encoding="utf-8") as f:
@@ -50,5 +66,5 @@ with open(report_path, "w", encoding="utf-8") as f:
 
 print(report.model_dump_json(indent=2))
 print(f"\nOutputs saved to {output_dir}/")
-print(f"  - scribe.txt, pharmacist.txt, watchdog.txt, risk_officer.txt")
+print(f"  - scribe.txt, archivist.txt, pharmacist.txt, watchdog.txt, risk_officer.txt")
 print(f"  - synthesized_report.json")
