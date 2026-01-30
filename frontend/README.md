@@ -89,5 +89,5 @@ If you encounter any issues:
 
 3. Make sure you're in the frontend directory:
    ```bash
-   cd /Users/jeevasaravanabhavanandam/Documents/MedXP/frontend
+   cd <path_to_folder>/MedXP/frontend
    ```
