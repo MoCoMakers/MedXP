@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Medical Handoff App Design System */
+
+@layer base {
+  :root {
+    /* Core palette - Clinical teal with warm accents */
+    --background: 200 20% 98%;
+    --foreground: 210 40% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 14%;
+
+    /* Primary: Deep medical teal */
+    --primary: 180 50% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Soft slate */
+    --secondary: 200 15% 94%;
+    --secondary-foreground: 210 40% 20%;
+
+    --muted: 200 15% 92%;
+    --muted-foreground: 210 15% 45%;
+
+    --accent: 200 20% 90%;
+    --accent-foreground: 180 50% 25%;
+
+    /* Alert colors */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Clinical semantic colors */
+    --risk: 0 85% 60%;
+    --risk-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 92% 15%;
+    --success: 142 71% 40%;
+    --success-foreground: 0 0% 100%;
+    --info: 200 95% 45%;
+    --info-foreground: 0 0% 100%;
+
+    /* Recording state */
+    --recording: 0 85% 60%;
+    --recording-glow: 0 85% 60%;
+
+    /* Entity highlights */
+    --entity-med: 280 60% 65%;
+    --entity-vital: 180 60% 45%;
+    --entity-lab: 35 90% 55%;
+    --entity-time: 210 80% 55%;
+
+    --border: 200 20% 88%;
+    --input: 200 20% 88%;
+    --ring: 180 50% 28%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 200 25% 97%;
+    --sidebar-foreground: 210 40% 20%;
+    --sidebar-primary: 180 50% 28%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 20% 92%;
+    --sidebar-accent-foreground: 180 50% 25%;
+    --sidebar-border: 200 20% 90%;
+    --sidebar-ring: 180 50% 28%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(180 50% 28%), hsl(190 60% 35%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(200 20% 98%));
+    --gradient-recording: linear-gradient(135deg, hsl(0 85% 55%), hsl(10 90% 60%));
+  }
+
+  .dark {
+    --background: 210 40% 8%;
+    --foreground: 200 20% 95%;
+
+    --card: 210 35% 12%;
+    --card-foreground: 200 20% 95%;
+
+    --popover: 210 35% 12%;
+    --popover-foreground: 200 20% 95%;
+
+    --primary: 175 60% 45%;
+    --primary-foreground: 210 40% 8%;
+
+    --secondary: 210 30% 18%;
+    --secondary-foreground: 200 20% 90%;
+
+    --muted: 210 30% 16%;
+    --muted-foreground: 200 15% 60%;
+
+    --accent: 210 30% 20%;
+    --accent-foreground: 175 60% 50%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --risk: 0 80% 55%;
+    --risk-foreground: 0 0% 100%;
+    --warning: 38 85% 45%;
+    --warning-foreground: 0 0% 100%;
+    --success: 142 65% 35%;
+    --success-foreground: 0 0% 100%;
+    --info: 200 85% 50%;
+    --info-foreground: 0 0% 100%;
+
+    --recording: 0 80% 55%;
+    --recording-glow: 0 80% 55%;
+
+    --entity-med: 280 55% 60%;
+    --entity-vital: 175 55% 50%;
+    --entity-lab: 35 85% 50%;
+    --entity-time: 210 75% 55%;
+
+    --border: 210 30% 20%;
+    --input: 210 30% 20%;
+    --ring: 175 60% 45%;
+
+    --sidebar-background: 210 35% 10%;
+    --sidebar-foreground: 200 20% 90%;
+    --sidebar-primary: 175 60% 45%;
+    --sidebar-primary-foreground: 210 40% 8%;
+    --sidebar-accent: 210 30% 18%;
+    --sidebar-accent-foreground: 175 60% 50%;
+    --sidebar-border: 210 30% 18%;
+    --sidebar-ring: 175 60% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* Custom animations */
+@keyframes pulse-recording {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes waveform {
+  0%, 100% { height: 20%; }
+  50% { height: 80%; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-pulse-recording {
+  animation: pulse-recording 1.5s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
