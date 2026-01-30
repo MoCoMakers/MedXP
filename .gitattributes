@@ -1,0 +1,48 @@
+# Git configuration for MedXP project
+
+# Ensure consistent line endings
+* text=auto eol=lf
+
+# Large binary files handled by Git LFS
+*.wav filter=lfs diff=lfs merge=lfs -text
+*.mp3 filter=lfs diff=lfs merge=lfs -text
+*.ogg filter=lfs diff=lfs merge=lfs -text
+*.flac filter=lfs diff=lfs merge=lfs -text
+*.m4a filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.avi filter=lfs diff=lfs merge=lfs -text
+*.mov filter=lfs diff=lfs merge=lfs -text
+*.mkv filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.gif filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text
+
+# Configuration files
+*.conf text
+*.json text
+*.yaml text
+*.yml text
+*.toml text
+
+# Documentation
+*.md text
+*.txt text
+*.rst text
+
+# Source code
+*.py text
+*.js text
+*.jsx text
+*.ts text
+*.tsx text
+*.css text
+*.scss text
+*.html text
+*.sql text
+
+# Dockerfile and docker-compose
+Dockerfile text
+docker-compose.yml text
+Dockerfile.* text
