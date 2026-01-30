@@ -1,0 +1,39 @@
+{
+  "session_id": "DR-20260130-2215",
+  "timestamp": "2026-01-30T22:15:00",
+  "patient": {
+    "patient_id": "P006",
+    "name": "Thomas Nguyen",
+    "age": 73,
+    "gender": "Male",
+    "room": "2ED-05",
+    "primary_diagnosis": "Stage IV NSCLC, malignant pleural effusion with PleurX catheter",
+    "active_problems": ["Neutropenia", "COPD", "Sepsis concern", "Hypoxia"],
+    "allergies": ["Penicillin (rash)"],
+    "code_status": "DNR (intubation OK)",
+    "current_medications": [
+      { "name": "Vancomycin", "dose": "per pharmacy", "status": "active" },
+      { "name": "Levofloxacin", "dose": "750 mg IV daily", "status": "active" },
+      { "name": "Dexamethasone", "dose": "4 mg IV q12h", "status": "active" }
+    ],
+    "recent_vitals": {
+      "Temp_C": 39.1,
+      "HR": 118,
+      "RR": 28,
+      "BP_sys": 92,
+      "BP_dia": 58,
+      "SpO2": 86
+    },
+    "recent_labs": [
+      { "name": "WBC", "value": 0.8, "unit": "K/uL", "flag": "L" },
+      { "name": "Lactate", "value": 4.2, "unit": "mmol/L", "flag": "H" },
+      { "name": "Procalcitonin", "value": 8.5, "unit": "ng/mL", "flag": "H" }
+    ]
+  },
+  "provider": {
+    "staff_id": "DR-055",
+    "name": "Dr. Jennifer Wu",
+    "role": "Attending"
+  },
+  "transcript": "Urgent note on Thomas Nguyen. Got called to the bedside, he's not looking good. 73 year old with stage 4 NSCLC, been here for malignant effusion management. He's spiking to 39.1, heart rate up to 118, pressure is soft at 92 over 58 and his sats dropped to 86 on 4 liters. He's neutropenic, white count is 0.8, and his lactate just came back at 4.2 which is very concerning for sepsis. Procalcitonin is through the roof at 8.5. He's already on vanc and levo but given the penicillin allergy we can't do pip-tazo. I'm going to add micafungin for fungal coverage. Starting a fluid bolus now, though we need to be careful given his effusion history. Going to transfer him to the ICU for closer monitoring. He's DNR but intubation okay per his wishes, though I want to have another goals of care conversation with the family tonight given how sick he is. His PleurX site looks clean, no obvious source there. Worried this might be a line infection or pneumonia. Getting blood cultures, urine culture, and a portable chest x-ray stat."
+}

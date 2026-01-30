@@ -1,0 +1,40 @@
+{
+  "session_id": "DR-20260130-0845",
+  "timestamp": "2026-01-30T08:45:00",
+  "patient": {
+    "patient_id": "P001",
+    "name": "Maria Chen",
+    "age": 62,
+    "gender": "Female",
+    "room": "3E-12",
+    "mrn": "MRN100200",
+    "primary_diagnosis": "Stage IIIB non-small cell lung cancer (NSCLC), on chemoradiation",
+    "active_problems": ["Hemoptysis", "Neutropenia", "Hypoxia", "COPD"],
+    "allergies": ["NKDA"],
+    "code_status": "Full Code",
+    "current_medications": [
+      { "name": "Enoxaparin", "dose": "40 mg SQ daily", "status": "active" },
+      { "name": "Oxycodone", "dose": "5-10 mg PO q4h PRN", "status": "active" },
+      { "name": "Pembrolizumab", "dose": "per oncology", "status": "active" }
+    ],
+    "recent_vitals": {
+      "Temp_C": 38.5,
+      "HR": 102,
+      "RR": 24,
+      "BP_sys": 118,
+      "BP_dia": 72,
+      "SpO2": 89
+    },
+    "recent_labs": [
+      { "name": "WBC", "value": 1.2, "unit": "K/uL", "flag": "L" },
+      { "name": "Hgb", "value": 9.8, "unit": "g/dL", "flag": "L" },
+      { "name": "Procalcitonin", "value": 2.4, "unit": "ng/mL", "flag": "H" }
+    ]
+  },
+  "provider": {
+    "staff_id": "DR-042",
+    "name": "Dr. Sarah Thompson",
+    "role": "Attending"
+  },
+  "transcript": "Rounding on Maria Chen, room 3E-12. She's a 62 year old female with stage 3B NSCLC currently on cycle 3 of chemoradiation. Overnight she spiked a fever to 38.5, and her white count came back at 1.2 which is down from 2.8 yesterday. She's definitely neutropenic now. Her sats are also running low, 89 percent on 3 liters. She mentioned some blood in her sputum this morning, which is concerning given she's on the enoxaparin. I want to hold the anticoagulation for now until we sort out the hemoptysis. We need to get blood cultures times two and start her on broad spectrum antibiotics, probably pip-tazo. Also need to bump up her oxygen and get a chest x-ray to rule out pneumonia. I'll touch base with oncology about whether we need to delay her next treatment. Pain is controlled, she rated it 4 out of 10. Family is aware she's having a rough night."
+}

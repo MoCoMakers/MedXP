@@ -1,0 +1,42 @@
+{
+  "session_id": "DR-20260130-1420",
+  "timestamp": "2026-01-30T14:20:00",
+  "patient": {
+    "patient_id": "P003",
+    "name": "Aisha Patel",
+    "age": 55,
+    "gender": "Female",
+    "room": "3W-08",
+    "primary_diagnosis": "Stage I adenocarcinoma s/p lobectomy, postop day 2",
+    "active_problems": ["Nausea/vomiting", "AKI risk", "Falls risk"],
+    "allergies": ["NKDA"],
+    "code_status": "DNR (intubation OK)",
+    "current_medications": [
+      {
+        "name": "Hydromorphone",
+        "dose": "0.5 mg IV q3h PRN",
+        "status": "active"
+      },
+      { "name": "Ondansetron", "dose": "4 mg IV q8h PRN", "status": "active" },
+      { "name": "Heparin infusion", "dose": "per protocol", "status": "active" }
+    ],
+    "recent_vitals": {
+      "Temp_C": 37.2,
+      "HR": 88,
+      "RR": 18,
+      "BP_sys": 132,
+      "BP_dia": 78,
+      "SpO2": 94
+    },
+    "recent_labs": [
+      { "name": "Cr", "value": 1.4, "unit": "mg/dL", "flag": "H" },
+      { "name": "K", "value": 3.6, "unit": "mmol/L", "flag": "N" }
+    ]
+  },
+  "provider": {
+    "staff_id": "DR-018",
+    "name": "Dr. Michael Rodriguez",
+    "role": "Resident"
+  },
+  "transcript": "Post-op day 2 check on Aisha Patel, status post right upper lobectomy for stage 1 adenocarcinoma. She's doing okay overall. Her chest tube output has decreased to about 150 mLs over the last 8 hours, which is good. Lungs are clear on the left, diminished on the right which is expected. She's having some nausea, gave her zofran about an hour ago and it's helping. Pain is better controlled today, using the dilaudid sparingly. Her creatinine bumped up a bit to 1.4, so I want to make sure we're pushing fluids and holding off on any nephrotoxic meds. She's at risk for AKI given the contrast from her CT two days ago. Let's recheck the creatinine in the morning. She's ambulating with PT, a bit unsteady so keeping fall precautions in place. Plan is to possibly pull the chest tube tomorrow if output stays low. Need to confirm her code status with the family since the chart says DNR but she mentioned wanting everything done - there may be some confusion there."
+}
