@@ -184,3 +184,4 @@ Thumbs.db
 
 # npm package (OS Specific)
 package-lock.json
+**/package-lock.json

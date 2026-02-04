@@ -36,26 +36,22 @@ MedXP streamlines clinical handoffs by recording audio notes and automatically t
 
 ## Quick Start (All Services – Recommended)
 
-**One-command launch** using the project venv:
+**Launch:**
 
 ```bash
-# 1. Install frontend deps (once)
-cd frontend && npm install && cd ..
+# 1. Copy .env.example to .env and add MINIMAX_API_KEY or OPENAI_API_KEY
 
-# 2. Copy .env.example to .env and add MINIMAX_API_KEY or OPENAI_API_KEY
-
-# 3. Start all services
+# 2. Start all services (creates .venv and runs npm install if needed)
 python start_all.py
 ```
 
-This creates a project `.venv` (if missing), installs Python deps from root/backend/middleware requirements, and starts:
 - **Backend** http://localhost:8000
 - **Middleware** http://localhost:5001
-- **Frontend** http://localhost:5173
+- **Frontend** http://localhost:8080
 
 Press Ctrl+C to stop all. Use `python stop_all.py` to kill services by port if needed.
 
-**Preflight:** The script checks for `frontend/node_modules` and `.venv` before starting.
+**Preflight:** `.env` must exist (errors and quits if missing). `.venv` and `frontend/node_modules` are created/installed automatically.
 
 ---
 
@@ -303,6 +299,7 @@ MedXP/
 ├── .venv/                   # Project Python venv (created by start_all.py)
 ├── start_all.py             # One-command launcher (preflight + venv)
 ├── stop_all.py              # Stop services by port
+├── clean_deps.py            # Remove .venv, frontend/node_modules, package-lock.json
 ├── docs/
 │   └── docs-for-ai/           # Project documentation for AI context
 ├── frontend/                   # React + TypeScript + Vite frontend
@@ -408,12 +405,8 @@ TRANSCRIPT_API_URL=http://127.0.0.1:8000
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-### Middleware (.env)
-```
-MINIMAX_API_KEY=your_minimax_api_key_here
-# or
-OPENAI_API_KEY=your_openai_api_key_here
-```
+### Middleware (project root .env)
+Middleware loads from project root `.env`. Set `MINIMAX_API_KEY` or `OPENAI_API_KEY`.
 
 ## Data
 

@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """MedXP - Start All Services (cross-platform)
 
-Brings up backend, middleware, and frontend using a project venv for Python services.
-Press Ctrl+C to stop all services; child processes are killed when this script exits.
+Brings up backend, middleware, and frontend. Requires .env (errors and quits if missing).
+Creates .venv and installs npm deps if needed. Press Ctrl+C to stop all services.
 
 Usage: python start_all.py
 """
 
 import os
+import shutil
 import signal
 import subprocess
 import sys
@@ -22,7 +23,7 @@ if sys.platform == "win32":
 else:
     VENV_PYTHON = VENV_DIR / "bin" / "python"
 
-# Requirement files to install into venv (order matters for deps)
+# Requirement files to install into venv (order matters)
 REQUIREMENTS_FILES = [
     PROJECT_ROOT / "requirements.txt",
     PROJECT_ROOT / "backend" / "requirements.txt",
@@ -47,20 +48,28 @@ def get_python_cmd(work_dir: Path, script: str) -> str:
     return f'"{py}" {script}'
 
 
+def check_env() -> bool:
+    """Check .env exists. Returns False and quits if missing."""
+    if not (PROJECT_ROOT / ".env").exists():
+        print("\033[31mPreflight failed: .env missing.\033[0m")
+        print("\033[31m  Copy .env.example to .env and set MINIMAX_API_KEY or OPENAI_API_KEY.\033[0m\n")
+        return False
+    return True
+
+
 def ensure_npm_deps() -> bool:
-    """Install frontend npm deps if node_modules missing or empty. Returns False on failure."""
+    """Install frontend npm deps if node_modules missing or empty."""
     frontend_dir = PROJECT_ROOT / "frontend"
     if not frontend_dir.exists() or not (frontend_dir / "package.json").exists():
         return True
     node_modules = frontend_dir / "node_modules"
     if node_modules.is_dir() and any(node_modules.iterdir()):
         return True
-    print("\033[36mInstalling frontend npm dependencies (streaming to terminal)...\033[0m")
-    result = subprocess.run(
-        ["npm", "install"],
-        cwd=frontend_dir,
-        shell=True,
-    )
+    if not shutil.which("npm"):
+        print("\033[31m  npm not found in PATH. Install Node.js/npm and retry.\033[0m")
+        return False
+    print("\033[36mInstalling frontend npm dependencies...\033[0m")
+    result = subprocess.run("npm install", cwd=frontend_dir, shell=True)
     if result.returncode != 0:
         print("\033[31m  npm install failed.\033[0m")
         return False
@@ -69,7 +78,7 @@ def ensure_npm_deps() -> bool:
 
 
 def ensure_venv_and_deps() -> bool:
-    """Create venv if needed and install requirements. Returns False on failure."""
+    """Create venv if needed and install requirements."""
     if not VENV_DIR.exists():
         print("\033[36mCreating project venv at .venv...\033[0m")
         result = subprocess.run(
@@ -79,14 +88,14 @@ def ensure_venv_and_deps() -> bool:
             text=True,
         )
         if result.returncode != 0:
-            print("\033[31mFailed to create venv:\033[0m", result.stderr)
+            print("\033[31m  Failed to create venv:\033[0m", result.stderr or result.stdout)
             return False
         print("\033[32m  Venv created.\033[0m")
     for req in REQUIREMENTS_FILES:
         if not req.exists():
             continue
         rel = req.relative_to(PROJECT_ROOT)
-        print(f"\033[36mInstalling {rel} into venv (streaming to terminal)...\033[0m")
+        print(f"\033[36mInstalling {rel} into venv...\033[0m")
         result = subprocess.run(
             [str(VENV_PYTHON), "-m", "pip", "install", "-r", str(req)],
             cwd=PROJECT_ROOT,
@@ -97,8 +106,9 @@ def ensure_venv_and_deps() -> bool:
 
 
 def run_preflight() -> bool:
-    """Install npm deps and venv+requirements. Returns False if any step fails."""
-    print("\033[36mPreflight: ensuring dependencies...\033[0m")
+    """Check .env (error and quit if missing), then ensure venv and npm deps."""
+    if not check_env():
+        return False
     if not ensure_npm_deps():
         return False
     if not ensure_venv_and_deps():
@@ -164,12 +174,13 @@ def main():
     if hasattr(signal, "SIGBREAK"):
         signal.signal(signal.SIGBREAK, handler)
 
+    # Preflight first; quit immediately if prerequisites missing
+    if not run_preflight():
+        sys.exit(1)
+
     print("\033[35m========================================\033[0m")
     print("\033[35m  MedXP - Starting All Services\033[0m")
     print("\033[35m========================================\033[0m")
-
-    if not run_preflight():
-        sys.exit(1)
 
     for name, work_dir, cmd in SERVICES:
         if not work_dir.exists():

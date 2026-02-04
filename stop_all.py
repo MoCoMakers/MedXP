@@ -7,17 +7,17 @@ Use when services were started manually or from another terminal.
 Usage: python stop_all.py
 """
 
+import re
 import subprocess
 import sys
 
-PORTS = [8000, 5001, 5173, 8080]  # backend, middleware, frontend (5173=Vite default, 8080=config override)
+PORTS = [8000, 5001, 8080]  # backend, middleware, frontend
 
 
 def kill_by_port(port: int) -> bool:
     """Kill process(es) listening on the given port. Returns True if any were killed."""
     killed = False
     if sys.platform == "win32":
-        # Get PIDs using the port
         result = subprocess.run(
             ["netstat", "-ano"],
             capture_output=True,
@@ -25,20 +25,18 @@ def kill_by_port(port: int) -> bool:
             timeout=10,
         )
         for line in result.stdout.splitlines():
-            if f":{port}" in line and "LISTENING" in line.upper():
-                parts = line.split()
-                if parts:
-                    try:
-                        pid = int(parts[-1])
-                        if pid > 0:
-                            subprocess.run(
-                                ["taskkill", "/PID", str(pid), "/T", "/F"],
-                                capture_output=True,
-                                timeout=5,
-                            )
-                            killed = True
-                    except (ValueError, IndexError):
-                        pass
+            if f":{port}" not in line or "LISTENING" not in line.upper():
+                continue
+            match = re.search(r"\s+(\d+)\s*$", line)
+            if match:
+                pid = int(match.group(1))
+                if pid > 0:
+                    subprocess.run(
+                        ["taskkill", "/PID", str(pid), "/T", "/F"],
+                        capture_output=True,
+                        timeout=5,
+                    )
+                    killed = True
     else:
         # lsof -ti:PORT
         result = subprocess.run(
