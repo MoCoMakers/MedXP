@@ -2,12 +2,21 @@
 
 MedXP is a proof-of-concept clinical handoff platform designed to reduce medical malpractice and shift-change issues in hospital nursing settings. The system features AI-powered audio recording, transcription, and agentic analysis against medical standards of care.
 
+The platform offers two frontend options:
+
+**Frontend (React)** - A modern web application with in-browser audio recording, real-time waveform visualization, and a comprehensive shift board for managing patient handoffs.
+
+**Frontend2 (Streamlit)** - A Python-based web interface providing audio upload, transcription, validation, and patient timeline visualization. This frontend connects to both the backend (for context enrichment) and middleware (for transcript validation and malpractice analysis).
+
+Both frontends help healthcare professionals create structured SBAR handoff documentation efficiently while monitoring interactions against patient data and medical standards.
+
 ## Overview
 
 MedXP streamlines clinical handoffs by recording audio notes and automatically transcribing them. The platform helps healthcare professionals create structured SBAR handoff documentation efficiently while monitoring interactions against patient data and medical standards.
 
 ## Features
 
+### Frontend (React)
 - 🎤 **Audio Recording**: Record clinical handoffs directly in the browser
 - 📝 **AI Transcription**: Automatic transcription using OpenAI Whisper API
 - 📋 **SBAR Format**: Structured handoff documentation
@@ -16,9 +25,37 @@ MedXP streamlines clinical handoffs by recording audio notes and automatically t
 - 🔔 **Notifications Portal**: Alerts for nurse managers when care gaps are detected
 - 🎨 **Modern UI**: Built with React, Tailwind CSS, and Shadcn/ui
 
-## Quick Start (Modern Audio Recording Setup)
+### Frontend2 (Streamlit)
+- 📁 **Audio Upload**: Upload audio files in multiple formats (WAV, MP3, M4A, WebM, OGG)
+- 🎙️ **Transcription**: Speech-to-text conversion using OpenAI Whisper
+- 💾 **Transcript Export**: Save transcripts as text files with timestamps
+- ⚠️ **Clinical Validation**: Validate against medical SOPs, policies, and guidelines
+- 📅 **Patient Timeline**: Visual timeline with warnings and events
+- ⚖️ **Risk Assessment**: Malpractice risk and compliance scoring
+- 📋 **SBAR Display**: Structured handoff card visualization
 
-### Frontend Setup
+## Quick Start (All Services – Recommended)
+
+**Launch:**
+
+```bash
+# 1. Copy .env.example to .env and add MINIMAX_API_KEY or OPENAI_API_KEY
+
+# 2. Start all services (creates .venv and runs npm install if needed)
+python start_all.py
+```
+
+- **Backend** http://localhost:8000
+- **Middleware** http://localhost:5001
+- **Frontend** http://localhost:8080
+
+Press Ctrl+C to stop all. Use `python stop_all.py` to kill services by port if needed.
+
+**Preflight:** `.env` must exist (errors and quits if missing). `.venv` and `frontend/node_modules` are created/installed automatically.
+
+---
+
+### Manual Frontend Setup
 
 1. Navigate to the frontend directory:
 ```bash
@@ -90,6 +127,116 @@ source venv/bin/activate
 python main.py
 ```
 
+## Complete System Setup (Backend + Middleware + Streamlit Frontend)
+
+This section describes the complete MedXP system with three interconnected services:
+
+1. **backend** - FastAPI server providing context enrichment and medical knowledge retrieval
+2. **middleware** - Flask API handling transcript validation and malpractice analysis
+3. **frontend2** - Streamlit web interface for recording and viewing handoffs
+
+### Architecture Overview
+
+```
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  frontend2  │────▶│  middleware │────▶│   backend   │
+│  (Streamlit)│     │   (Flask)   │     │  (FastAPI)  │
+└─────────────┘     └─────────────┘     └─────────────┘
+      │                   │                   │
+      │  Submit audio/    │  Enrich context   │  Retrieve
+      │  transcript       │  + risk analysis  │  SOPs/guidelines
+      │                   │                   │
+      │◀──────────────────│◀──────────────────│
+      │  Timeline with    │  Warnings +       │
+      │  warnings         │  risk assessment  │
+```
+
+### Service Endports
+
+| Service | Port | Description |
+|---------|------|-------------|
+| frontend2 | 8501 | Streamlit web UI |
+| middleware | 5001 | Transcript validation API |
+| backend | 8000 | Context enrichment API |
+
+### Starting All Services
+
+**Option A – Use `start_all.py` (recommended):** See [Quick Start](#quick-start-all-services--recommended) above. Uses a single project `.venv` at repo root.
+
+**Option B – Manual (multiple terminals):**
+
+**Terminal 1 - Backend (Context Enrichment):**
+```bash
+# Use project venv at repo root
+python -m venv .venv
+source .venv/bin/activate   # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt -r backend/requirements.txt -r middleware/requirements.txt
+
+cd backend
+python main.py
+```
+The backend will be available at http://localhost:8000
+
+**Terminal 2 - Middleware (Validation & Risk Analysis):**
+```bash
+source .venv/bin/activate   # (from project root)
+cd middleware
+PYTHONPATH=.. python app.py
+```
+The middleware will be available at http://localhost:5001
+
+**Terminal 3 - Frontend2 (Streamlit UI):**
+```bash
+cd frontend2
+# Create virtual environment if not exists
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+# Start the Streamlit app
+streamlit run app.py
+```
+The frontend will be available at http://localhost:8501
+
+### Using the System
+
+1. Open your browser to **http://localhost:8501**
+
+2. **New Handoff Flow:**
+   - Select a patient from the dropdown
+   - Upload an audio file (WAV, MP3, M4A, WebM, OGG)
+   - Click "Transcribe Audio" to convert speech to text
+   - Review and edit the transcript if needed
+   - Click "Save Transcript" to save as a text file
+   - Click "Validate & Analyze" to run validation
+
+3. **Validation Process:**
+   - Middleware receives the transcript
+   - Forwards to backend for context enrichment (SOPs, policies, guidelines)
+   - Backend generates clinical warnings
+   - Malpractice agent analyzes for risk/compliance issues
+   - Results are returned to frontend
+
+4. **View Results:**
+   - Clinical warnings are displayed with severity levels
+   - SBAR handoff card is shown
+   - Patient timeline is updated with warnings
+   - Risk assessment shows compliance score
+
+### Frontend2 Features
+
+- **📝 Record Handoff**: Upload audio files for transcription
+- **📅 Patient Timeline**: Visual timeline of events and warnings
+- **👥 Patient Overview**: View patient information and vitals
+
+### API Endpoints Used
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/transcribe` | Transcribe audio (backend-api) |
+| POST | `/api/v1/transcripts` | Validate transcript (middleware) |
+| GET | `/health` | Health check (all services) |
+
 ## Docker Setup (Alternative)
 
 ### Prerequisites
@@ -149,6 +296,10 @@ python main.py
 
 ```
 MedXP/
+├── .venv/                   # Project Python venv (created by start_all.py)
+├── start_all.py             # One-command launcher (preflight + venv)
+├── stop_all.py              # Stop services by port
+├── clean_deps.py            # Remove .venv, frontend/node_modules, package-lock.json
 ├── docs/
 │   └── docs-for-ai/           # Project documentation for AI context
 ├── frontend/                   # React + TypeScript + Vite frontend
@@ -157,18 +308,17 @@ MedXP/
 │       ├── hooks/             # Custom React hooks (audio recording)
 │       ├── pages/             # Page components
 │       └── lib/               # Utilities and API clients
+├── frontend2/                  # Streamlit Python frontend
+│   ├── app.py                # Main Streamlit application
+│   └── requirements.txt      # Python dependencies
 ├── backend-api/               # FastAPI backend with audio transcription
 │   ├── main.py               # FastAPI server with transcription endpoint
 │   └── requirements.txt      # Python dependencies
-├── middleware/                # Flask API layer (legacy)
-│   ├── app/
-│   │   ├── routes/           # API endpoints
-│   │   ├── models/           # Database models
-│   │   ├── services/         # Business logic
-│   │   └── utils/            # Utilities
-│   └── migrations/           # Database migrations
+├── middleware/                # Flask API layer for transcript validation
+│   ├── app.py               # Flask application
+│   └── requirements.txt      # Python dependencies
 ├── backend/                   # Agentic AI backend services
-│   ├── agents/               # AI agents
+│   ├── agents/               # AI agents (context enrichment, malpractice)
 │   └── services/             # AI services
 ├── audio/                     # Audio recordings storage
 ├── docker/                    # Docker configuration
@@ -180,7 +330,7 @@ MedXP/
 
 ## Technology Stack
 
-### Frontend
+### Frontend (React)
 - React 18 with TypeScript
 - Vite for development
 - Tailwind CSS
@@ -189,58 +339,74 @@ MedXP/
 - React Query
 - Custom audio recording hook
 
-### Backend API (Modern)
+### Frontend2 (Streamlit)
+- Streamlit for rapid Python UI development
+- httpx for HTTP client requests
+- Python 3.11+
+
+### Backend API (Modern - backend-api)
 - FastAPI
 - OpenAI Whisper API for transcription
 - Uvicorn
 - Python 3.11+
 
-### Middleware (Legacy)
+### Middleware (Validation Layer)
 - Flask (Python)
-- PostgreSQL
-- Redis (caching and Celery broker)
-- Celery for async processing
+- httpx for backend communication
+- Malpractice agent integration
 
-### Backend (Agentic)
+### Backend (Agentic - backend)
 - Python-based AI agents
-- Local LLM integration (siloed instance)
-- Medical standards database
+- Context enrichment with medical knowledge
+- Medical standards database (SOPs, policies, guidelines)
 
 ## API Documentation
 
-### FastAPI (Audio Transcription)
+### FastAPI (Audio Transcription - backend-api)
 Once the backend-api is running, visit:
 - Interactive API docs: http://localhost:8000/docs
 - Alternative docs: http://localhost:8000/redoc
 
-### Flask Middleware
-The middleware API documentation is available at `/api/docs` when running the middleware server, or see the detailed documentation in `docs/docs-for-ai/middleware-plan.md`.
+### Flask Middleware (Validation & Risk Analysis)
+The middleware API handles transcript validation and forwards to the backend for enrichment.
 
 #### Key Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /api/transcribe | Transcribe audio using OpenAI Whisper |
-| POST | /api/transcripts/process | Submit transcript for processing |
-| GET | /api/transcripts/{id}/classification | Get classification results |
-| GET | /api/notifications | List notifications |
-| GET | /api/dashboard/stats | Get dashboard statistics |
+| Method | Endpoint | Service | Description |
+|--------|----------|---------|-------------|
+| POST | `/api/transcribe` | backend-api | Transcribe audio using OpenAI Whisper |
+| POST | `/api/v1/transcripts` | middleware | Validate transcript with backend enrichment |
+| POST | `/api/v1/enrich` | backend | Context enrichment with medical knowledge |
+| GET | `/health` | all | Health check endpoint |
+
+### Transcript Validation Flow
+
+When submitting a transcript via `/api/v1/transcripts`:
+
+1. Middleware receives `PatientID` and `Transcript`
+2. Generates enrichment request using `scn_1.json` template
+3. Forwards to backend at `/api/v1/enrich`
+4. Backend retrieves relevant SOPs, policies, and guidelines
+5. Backend generates clinical warnings
+6. Malpractice agent analyzes for risk/compliance
+7. Combined response returned to frontend
 
 ## Environment Variables
 
-### Backend API (.env)
+### Frontend2 (.env - optional)
+```
+BACKEND_URL=http://127.0.0.1:8000
+MIDDLEWARE_URL=http://127.0.0.1:5001
+TRANSCRIPT_API_URL=http://127.0.0.1:8000
+```
+
+### Backend API (backend-api/.env)
 ```
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-### Middleware (.env)
-```
-POSTGRES_PASSWORD=your_secure_password
-FLASK_SECRET_KEY=your_flask_secret_key
-MINIO_ROOT_USER=minioadmin
-MINIO_ROOT_PASSWORD=your_minio_password
-LLM_API_KEY=your_llm_api_key
-```
+### Middleware (project root .env)
+Middleware loads from project root `.env`. Set `MINIMAX_API_KEY` or `OPENAI_API_KEY`.
 
 ## Data
 

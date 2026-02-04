@@ -1,5 +1,28 @@
 # Getting Started with Audio Recording & Transcription
 
+## Quick Start (All Services)
+
+Use the project launcher for the fastest setup:
+
+```bash
+# 1. Copy .env.example to .env at project root and set MINIMAX_API_KEY or OPENAI_API_KEY
+
+# 2. Start all services (creates .venv and runs npm install if needed)
+python start_all.py
+```
+
+This starts Backend (8000), Middleware (5001), and Frontend (8080). Press Ctrl+C to stop all.
+
+**Preflight:** `.env` must exist—script errors and quits if missing. `.venv` and `frontend/node_modules` are created/installed automatically if missing.
+
+**Fresh install:** Run `python clean_deps.py`, then `python start_all.py` to reinstall.
+
+### Environment Files (.env)
+
+Project root `.env` is used by both middleware and malpractice_agent (including when run standalone). Set `MINIMAX_API_KEY` or `OPENAI_API_KEY`. Copy `.env.example` to `.env`.
+
+Backend uses `backend/.env` for its own config (see `backend/.env.example`).
+
 ## What Was Implemented
 
 ### Frontend
