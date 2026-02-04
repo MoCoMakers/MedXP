@@ -1,0 +1,4 @@
+# MedXP Middleware 2 Dependencies
+
+flask>=3.0.0
+httpx>=0.26.0

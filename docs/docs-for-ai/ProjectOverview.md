@@ -4,90 +4,205 @@
 
 Create an MVP system to reduce medical malpractice and shift-change issues in hospital nursing settings. The system monitors nurse-patient interactions through audio recording, AI-powered transcription, and agentic analysis against medical standards of care.
 
+## Key Clinical Goals (Based on Clinical Input)
+
+The following goals were identified as critical for reducing medical malpractice:
+
+1. **Drug-Drug Interactions** - Detect and alert on potentially dangerous medication combinations
+2. **Allergies** - Ensure allergy information is properly captured and no contraindicated medications are prescribed
+3. **Compliance** - Verify adherence to care standards, protocols, and documentation requirements
+
 ## Problem Statement
 
 Medical malpractice and shift-change communication gaps in hospital nursing settings lead to adverse patient outcomes, legal liability, and reduced care quality. This system provides:
 
 - Real-time monitoring of nurse-patient interactions
 - Automated compliance checking against medical standards of care
-- Proactive risk identification and alerting
+- Proactive risk identification and alerting (drug interactions, allergies, compliance gaps)
 - Comprehensive audit trails for quality improvement
+- Patient-centric timeline view for risk factor visualization
 
 ## System Architecture
 
 ```
 +-----------------------------------------------------------------------------+
-|                         Frontend Layer (React/Lovable)                      |
-|  +----------------------+     +------------------------------------------+  |
-|  |  Nurse Manager       |     |        Notifications Portal              |  |
-|  |  - Nurse oversight   |     |  - Real-time alerts                      |  |
-|  |  - Session review    |     |  - Risk assessments                      |  |
-|  |  - Analytics dashboard|    |  - Action items                          |  |
-|  +----------------------+     +------------------------------------------+  |
+|                         Frontend Layer (React/Lovable)                       |
+|  +----------------------+     +------------------------------------------+    |
+|  |  Nurse Manager       |     |        Notifications Portal              |    |
+|  |  - Nurse oversight   |     |  - Real-time alerts                      |    |
+|  |  - Session review    |     |  - Risk assessments                      |    |
+|  |  - Analytics dashboard|    |  - Action items                          |    |
+|  +----------------------+     +------------------------------------------+    |
+|                                                                             |
+|  +----------------------+     +------------------------------------------+    |
+|  |  Patient View        |     |        Timeline View                     |    |
+|  |  - Patient profile   |     |  - Session timeline                     |    |
+|  |  - Risk summary     |     |  - Risk factor highlights               |    |
+|  |  - Medication list  |     |  - Compliance tracking                 |    |
+|  |  - Allergy alerts   |     |  - Drug interaction markers            |    |
+|  +----------------------+     +------------------------------------------+    |
 +-----------------------------------------------------------------------------+
                                     |
                                     v
 +-----------------------------------------------------------------------------+
-|                      Middleware Layer (Flask)                               |
+|                      Middleware Layer (FastAPI)                               |
 |  +---------------------------------------------------------------------+    |
 |  |  RESTful API Endpoints:                                             |    |
-|  |  - /api/nurses/*           - Nurse management                      |    |
-|  |  - /api/sessions/*         - Session recording management          |    |
-|  |  - /api/transcriptions/*   - Transcription handling               |    |
-|  |  - /api/analysis/*         - AI analysis results                   |    |
-|  |  - /api/notifications/*    - Notification management               |    |
-|  |  - /api/fhir/*             - FHIR integration layer                |    |
+|  |  - /api/transcripts        - Transcript submission/processing        |    |
+|  |  - /api/patients/*        - Patient data management                |    |
+|  |  - /api/sessions/*        - Session management                    |    |
+|  |  - /api/analysis/*        - AI analysis results                   |    |
+|  |  - /api/notifications/*   - Alert and notification management     |    |
+|  |  - /api/drug-checks/*     - Drug interaction checking            |    |
+|  |  - /api/compliance/*     - Compliance verification              |    |
 |  +---------------------------------------------------------------------+    |
 +-----------------------------------------------------------------------------+
                                     |
                                     v
 +-----------------------------------------------------------------------------+
-|                    Agentic Backend Layer (Python)                           |
-|  +---------------+  +---------------+  +-------------------------------+    |
-|  |  Audio        |  |  Transcription|  |  Agentic Monitoring           |    |
-|  |  Recording    |  |  & Tagging    |  |  - Care standard lookup       |    |
-|  |  Service      |  |  Service      |  |  - Patient data compare       |    |
-|  |               |  |               |  |  - Risk assessment            |    |
-|  +---------------+  +---------------+  +-------------------------------+    |
+|                    Agentic Backend Layer (Python)                             |
+|  +---------------+  +---------------+  +-------------------------------+      |
+|  |  Transcription|  |  Classification|  |  Clinical Safety Agent        |      |
+|  |  Service      |  |  Service      |  |  - Drug interaction check     |      |
+|  |               |  |               |  |  - Allergy verification       |      |
+|  |               |  |               |  |  - Compliance assessment     |      |
+|  +---------------+  +---------------+  +-------------------------------+      |
+|                                                                             |
+|  +-------------------------------+  +-------------------------------+      |
+|  |  Risk Assessment Agent        |  |  Warning Generator            |      |
+|  |  - Session risk scoring      |  |  - Severity classification   |      |
+|  |  - Trend analysis           |  |  - Alert generation          |      |
+|  |  - Pattern detection        |  |  - Action recommendations    |      |
+|  +-------------------------------+  +-------------------------------+      |
 +-----------------------------------------------------------------------------+
                                     |
                                     v
 +-----------------------------------------------------------------------------+
 |                         Data Layer                                          |
-|  +---------------+  +---------------+  +-------------------------------+    |
-|  |  PostgreSQL   |  |  FHIR Server  |  |  Medical Standards DB         |    |
-|  |  - Sessions   |  |  - Patient    |  |  - Care protocols             |    |
-|  |  - Nurses     |  |    records    |  |  - Guidelines                 |    |
-|  |  - Alerts     |  |  -Encounters  |  |  - Compliance rules           |    |
-|  +---------------+  +---------------+  +-------------------------------+    |
+|  +---------------+  +---------------+  +-------------------------------+      |
+|  |  Filesystem   |  |  Drug Database|  |  Medical Standards DB         |      |
+|  |  - Transcripts|  |  - Drug list  |  |  - Care protocols             |      |
+|  |  - Sessions   |  |  - Interactions| |  - Guidelines                 |      |
+|  |  - Classifications| - Contraindications| |  - Compliance rules         |      |
+|  +---------------+  +---------------+  +-------------------------------+      |
 +-----------------------------------------------------------------------------+
 ```
+
+## Core Safety Checks
+
+### Drug-Drug Interaction Detection
+
+The system automatically checks for:
+
+| Interaction Type | Severity | Example |
+|-----------------|----------|---------|
+| Major Interaction | Critical | Warfarin + Aspirin (bleeding risk) |
+| Moderate Interaction | High | ACE Inhibitor + Potassium (hyperkalemia) |
+| Minor Interaction | Medium | Multiple CNS depressants |
+| Duplicate Therapy | Medium | Two opioids prescribed |
+
+### Allergy Verification
+
+| Check Type | Description |
+|------------|-------------|
+| Direct Allergy | Patient allergy to medication class |
+| Cross-Reactivity | Related drug class reactions |
+| Ingredient Match | Inactive ingredient conflicts |
+| Pseudoallergy | Documented adverse reactions |
+
+### Compliance Monitoring
+
+| Compliance Area | Check |
+|----------------|-------|
+| Documentation | Complete session notes |
+| Protocol Adherence | Standard of care followed |
+| Medication Reconciliation | Accurate medication list |
+| Allergy Documentation | Allergy information recorded |
+| Code Status | Code status confirmed |
+
+## Patient View with Timeline
+
+### Timeline Features
+
+```
+Patient Timeline View
++------------------------------------------------------------------------------+
+|  Maria Chen (P001)                                                           |
+|  62 y/o Female | Stage IIIB NSCLC | Room 3E-12                            |
++------------------------------------------------------------------------------+
+|                                                                              |
+|  Risk Overview                                                               |
+|  [HIGH RISK] 2 Active Alerts                                                |
+|  - Drug Interaction (Enoxaparin + Aspirin)                                   |
+|  - Allergies (Penicillin documented)                                         |
+|                                                                              |
++------------------------------------------------------------------------------+
+|  Timeline                                                                   |
+|                                                                              |
+|  Jan 30                                                                    |
+|  |-- 14:40 --|  Session with Nurse Priya Nair                             |
+|  |            [RISK: Low] [Compliance: 95%]                              |
+|  |            Tags: medication_review, vital_signs                         |
+|  |                                                                   |
+|  |-- 11:00 --|  Session with Nurse Sofia Martinez                       |
+|  |            [WARNING: Drug Interaction Detected]                      |
+|  |            [RISK: High] [Compliance: 78%]                          |
+|  |            Tags: medication_review, risk_assessment                  |
+|  |            Alerts: 2 (1 Critical, 1 High)                          |
+|  |                                                                   |
+|  |-- 03:00 --|  Session with Nurse Priya Nair                         |
+|  |            [RISK: Medium] [Compliance: 88%]                        |
+|  |            Tags: pain_assessment, medication_review                 |
+|  |                                                                   |
+|  |-- 02:50 --|  Session with Nurse Sofia Martinez                   |
+|  |            [RISK: Low] [Compliance: 92%]                          |
+|  |            Tags: clinical_assessment                                |
+|  |                                                                   |
++------------------------------------------------------------------------------+
+|  Risk Factors Summary                                                       |
+|                                                                              |
+|  [CRITICAL] Bleeding Risk - On anticoagulation with active symptoms         |
+|  [HIGH]    Infection Risk - Neutropenic status                             |
+|  [HIGH]    Respiratory Risk - Hypoxia documented                           |
+|  [MEDIUM]  Pain Management - Regular PRN opioids prescribed                |
+|                                                                              |
++------------------------------------------------------------------------------+
+```
+
+### Risk Factor Highlighting
+
+| Risk Type | Color | Icon | Description |
+|-----------|-------|------|-------------|
+| Critical | Red | ! | Immediate action required |
+| High | Orange | WARNING | Close monitoring needed |
+| Medium | Yellow | INFO | Document and monitor |
+| Low | Green | CHECK | Standard care |
 
 ## Technology Stack
 
 ### Frontend
 - **Framework**: React (built with Lovable)
-- **State Management**: React Context / Redux Toolkit
+- **State Management**: React Context / Zustand
 - **UI Library**: Material-UI or Tailwind CSS
 - **Real-time**: WebSocket for notifications
+- **Visualization**: Recharts for timeline and risk charts
 
 ### Middleware
-- **Framework**: Flask (Python)
+- **Framework**: FastAPI (Python)
 - **API Style**: RESTful
-- **Authentication**: JWT tokens
-- **Documentation**: OpenAPI/Swagger
+- **HTTP Client**: httpx for backend calls
+- **Documentation**: OpenAPI auto-generated
 
 ### Backend (Agentic)
 - **Language**: Python
 - **AI/LLM**: Siloed instance (to be configured)
-- **Framework**: LangChain or custom agent framework
-- **Task Queue**: Celery with Redis
+- **Framework**: Custom agent framework
+- **Task Processing**: Asynchronous with httpx
 
-### Database
-- **Primary**: PostgreSQL (sessions, nurses, notifications)
-- **FHIR**: FHIR-compliant server
-- **Cache**: Redis
-- **Storage**: MinIO (S3-compatible for audio files)
+### Storage
+- **Primary**: Filesystem (JSON files)
+- **Data Source**: Data/scenarios.json format
+- **Patient Data**: Data/patients_ehr.json format
 
 ## Folder Structure
 
@@ -96,329 +211,173 @@ MedXP/
 ├── docs/
 │   └── docs-for-ai/
 │       ├── ProjectOverview.md              # This document
-│       ├── Architecture.md                 # Detailed system architecture
-│       ├── API.md                          # API documentation
-│       └── DatabaseSchema.md               # Database design
-├── frontend/                               # React/Lovable project
-├── middleware/                             # Flask API layer
+│       ├── middleware-conceptual-endpoints.md
+│       └── middleware-plan.md
+├── middleware/                            # FastAPI middleware
 │   ├── app/
-│   │   ├── routes/
-│   │   │   ├── nurses.py
-│   │   │   ├── sessions.py
-│   │   │   ├── transcriptions.py
-│   │   │   ├── analysis.py
-│   │   │   ├── notifications.py
-│   │   │   └── fhir.py
+│   │   ├── main.py                       # FastAPI application
+│   │   ├── config.py                     # Configuration
+│   │   ├── models/
+│   │   │   └── __init__.py              # Pydantic models
 │   │   ├── services/
-│   │   │   ├── audio_service.py
-│   │   │   ├── transcription_service.py
-│   │   │   └── fhir_service.py
-│   │   └── config/
+│   │   │   └── backend_client.py         # Backend API client
+│   │   └── utils/
+│   │       ├── transform.py              # Data transformation
+│   │       └── storage.py               # Filesystem storage
 │   └── tests/
-├── backend/                                # Agentic backend services
+├── backend/                              # Agentic backend services
 │   ├── agents/
-│   │   ├── monitoring_agent.py
-│   │   ├── care_standard_agent.py
-│   │   └── risk_assessment_agent.py
+│   │   └── context_enrichment.py        # Clinical safety agent
 │   ├── services/
-│   │   ├── transcription.py
-│   │   ├── tagging.py
-│   │   └── standards_lookup.py
-│   └── models/
-├── docker/
-│   ├── Dockerfile.frontend
-│   ├── Dockerfile.middleware
-│   ├── Dockerfile.backend
-│   └── docker-compose.yml
-└── README.md
+│   │   ├── llm_client.py               # LLM integration
+│   │   └── knowledge_retriever.py       # Knowledge base
+│   └── data/
+│       ├── sops/                        # Standard operating procedures
+│       ├── policies/                    # Hospital policies
+│       └── medical_guidelines/          # Treatment guidelines
+├── Data/
+│   ├── scenarios.json                  # Session transcripts
+│   └── patients_ehr.json              # Patient EHR data
+└── docker/
+    └── docker-compose.yml
 ```
 
 ## Implementation Phases (3-Month MVP)
 
 ### Phase 1: Foundation (Weeks 1-3)
 - Set up Docker development environment
-- Initialize React frontend with Lovable
-- Create Flask middleware with basic API endpoints
-- Design and implement core database schema
-- Set up PostgreSQL and FHIR-compatible data models
+- Initialize FastAPI middleware
+- Create filesystem storage utilities
+- Implement transcript submission endpoint
+- Connect to backend Context Enrichment Agent
 
 ### Phase 2: Core Features (Weeks 4-7)
-- Implement audio recording service for nurses
-- Build transcription pipeline with AI tagging
-- Create Nurse Manager Portal dashboard
-- Develop basic session management
+- Build Patient View with Timeline
+- Implement drug interaction checking
+- Add allergy verification system
+- Create compliance monitoring
+- Develop risk factor visualization
 
 ### Phase 3: Agentic Intelligence (Weeks 8-10)
-- Implement agentic monitoring system
-- Build medical standards of care lookup
-- Create patient data comparison logic
-- Develop risk assessment algorithms
+- Enhance Clinical Safety Agent
+- Build comprehensive warning system
+- Implement risk trend analysis
+- Create patient risk summaries
 
 ### Phase 4: Notifications and Integration (Weeks 11-12)
-- Build Notifications Portal for nurse managers
-- Implement FHIR integration layer
+- Build Notifications Portal
 - Add real-time alert system
 - Final testing and documentation
 
 ## Core API Endpoints
 
-### Nurse Management
-- `GET /api/nurses` - List all nurses
-- `POST /api/nurses` - Register new nurse
-- `GET /api/nurses/{id}/sessions` - Get nurse session history
-- `PUT /api/nurses/{id}` - Update nurse information
-- `DELETE /api/nurses/{id}` - Deactivate nurse
+### Transcript Processing
+- `POST /api/transcripts` - Submit transcript for processing
+- `GET /api/transcripts/{patient_id}` - List patient transcripts
 
-### Session Recording
-- `POST /api/sessions/start` - Start recording session
-- `POST /api/sessions/{id}/stop` - Stop recording
-- `GET /api/sessions/{id}` - Get session details
-- `GET /api/sessions/{id}/audio` - Download recording
-- `GET /api/sessions` - List all sessions with filtering
+### Patient Data
+- `GET /api/patients/{patient_id}` - Get patient profile
+- `GET /api/patients/{patient_id}/timeline` - Get patient session timeline
+- `GET /api/patients/{patient_id}/risk-factors` - Get patient risk factors
 
-### Transcription and Analysis
-- `POST /api/transcriptions/process` - Submit for transcription
-- `GET /api/transcriptions/{id}` - Get transcription status
-- `GET /api/transcriptions/{id}/tags` - Get AI-generated tags
-- `GET /api/analysis/{sessionId}` - Get analysis results
-- `GET /api/analysis/{sessionId}/risks` - Get specific risk details
+### Drug Safety
+- `GET /api/drug-checks/interactions` - Check drug interactions
+- `GET /api/drug-checks/allergies` - Verify allergy safety
 
-### Notifications
-- `GET /api/notifications` - List all notifications
-- `POST /api/notifications` - Create notification
-- `PUT /api/notifications/{id}/read` - Mark as read
-- `GET /api/notifications/alerts` - Get active alerts
-- `DELETE /api/notifications/{id}` - Delete notification
+### Compliance
+- `GET /api/compliance/{session_id}` - Get compliance assessment
+- `GET /api/compliance/patient/{patient_id}` - Get patient compliance summary
 
-### FHIR Integration
-- `GET /api/fhir/patients/{id}` - Get patient record
-- `GET /api/fhir/encounters/{id}` - Get encounter data
-- `POST /api/fhir/search` - Search patient records
-- `GET /api/fhir/conditions/{patientId}` - Get patient conditions
-- `GET /api/fhir/medications/{patientId}` - Get patient medications
+### Analysis
+- `GET /api/analysis/{session_id}` - Get analysis results
+- `GET /api/analysis/{session_id}/warnings` - Get session warnings
+- `GET /api/analysis/{session_id}/risks` - Get risk details
 
-## Database Schema (Core Tables)
+## Data Format Reference
 
-### nurses
-| Column | Type | Description |
-|--------|------|-------------|
-| id | UUID | Primary key |
-| name | VARCHAR(255) | Full name |
-| email | VARCHAR(255) | Email address |
-| department | VARCHAR(100) | Department identifier |
-| shift_pattern | VARCHAR(50) | Shift schedule |
-| hire_date | DATE | Date of hire |
-| status | VARCHAR(20) | Active/Inactive |
-| created_at | TIMESTAMP | Record creation time |
-| updated_at | TIMESTAMP | Last update time |
+### Input: Transcript Data (from Data/scenarios.json)
 
-### sessions
-| Column | Type | Description |
-|--------|------|-------------|
-| id | UUID | Primary key |
-| nurse_id | UUID | Foreign key to nurses |
-| patient_id | UUID | Patient identifier (FHIR-compatible) |
-| start_time | TIMESTAMP | Session start time |
-| end_time | TIMESTAMP | Session end time |
-| status | VARCHAR(30) | Recording/Transcribed/Analyzed |
-| audio_url | VARCHAR(500) | URL to audio file storage |
-| created_at | TIMESTAMP | Record creation time |
+```json
+{
+  "PatientID": "P001",
+  "PatientName": "Maria Chen",
+  "Room": "3E-12",
+  "Age": 62,
+  "Gender": "Female",
+  "Transcript": "Maria Chen in 3E-12, 62 y/o with Stage IIIB NSCLC...",
+  "RecordedBy": {
+    "StaffID": "N04",
+    "Name": "Nurse Sofia Martinez"
+  },
+  "Timestamp": "02:50:00",
+  "Date": "2026-01-30"
+}
+```
 
-### transcriptions
-| Column | Type | Description |
-|--------|------|-------------|
-| id | UUID | Primary key |
-| session_id | UUID | Foreign key to sessions |
-| text | TEXT | Full transcription text |
-| status | VARCHAR(30) | Pending/Processing/Complete/Error |
-| tags | JSONB | AI-generated tags and classifications |
-| confidence_score | DECIMAL | Transcription confidence |
-| created_at | TIMESTAMP | Record creation time |
-| completed_at | TIMESTAMP | Processing completion time |
+### Input: Patient EHR Data (from Data/patients_ehr.json)
 
-### analysis_results
-| Column | Type | Description |
-|--------|------|-------------|
-| id | UUID | Primary key |
-| session_id | UUID | Foreign key to sessions |
-| risk_score | DECIMAL | Overall risk assessment (0-100) |
-| care_gaps | JSONB | Identified gaps in care |
-| recommendations | JSONB | Suggested actions |
-| compliance_status | VARCHAR(30) | Compliant/Non-Compliant |
-| analyzed_at | TIMESTAMP | Analysis completion time |
+```json
+{
+  "PatientID": "P001",
+  "PatientName": "Maria Chen",
+  "MRN": "MRN100200",
+  "PrimaryDiagnosis": "Stage IIIB NSCLC",
+  "Allergies": ["NKDA"],
+  "ActiveProblems": ["Hemoptysis", "Neutropenia", "Hypoxia"],
+  "Medications": [
+    {"name": "Enoxaparin", "dose": "40 mg SQ daily", "status": "active"}
+  ]
+}
+```
 
-### notifications
-| Column | Type | Description |
-|--------|------|-------------|
-| id | UUID | Primary key |
-| session_id | UUID | Related session (nullable) |
-| type | VARCHAR(50) | Alert/Warning/Info/ActionRequired |
-| severity | VARCHAR(20) | Low/Medium/High/Critical |
-| title | VARCHAR(255) | Notification title |
-| message | TEXT | Detailed message |
-| is_read | BOOLEAN | Read status |
-| created_at | TIMESTAMP | Record creation time |
+## Warning Types Generated
 
-### medical_standards
-| Column | Type | Description |
-|--------|------|-------------|
-| id | UUID | Primary key |
-| category | VARCHAR(100) | Care category |
-| procedure | VARCHAR(255) | Procedure name |
-| standard_text | TEXT | Standard of care description |
-| source | VARCHAR(255) | Guideline source |
-| version | VARCHAR(20) | Guideline version |
-| effective_date | DATE | Effective date |
-
-### patients
-| Column | Type | Description |
-|--------|------|-------------|
-| id | UUID | Primary key (FHIR-compatible) |
-| mrn | VARCHAR(50) | Medical Record Number |
-| first_name | VARCHAR(100) | First name (encrypted) |
-| last_name | VARCHAR(100) | Last name (encrypted) |
-| dob | DATE | Date of birth |
-| gender | VARCHAR(20) | Gender |
-| allergies | JSONB | Known allergies |
-| conditions | JSONB | Active conditions |
-| created_at | TIMESTAMP | Record creation time |
-
-## Docker Development Environment
-
-### Services
-
-| Service | Port | Description |
-|---------|------|-------------|
-| frontend | 3000 | React development server |
-| middleware | 5000 | Flask API server |
-| backend | 8000 | Agentic backend services |
-| postgres | 5432 | Primary database |
-| minio | 9000 | S3-compatible object storage |
-| redis | 6379 | Cache and message broker |
-| minio-console | 9001 | MinIO web console |
-
-### Docker Compose Structure
-
-The docker-compose.yml includes:
-- PostgreSQL with volume persistence
-- MinIO for audio file storage
-- Redis for caching and task queues
-- All application services with hot-reload capabilities
+| Type | Severity | Trigger Example |
+|------|----------|----------------|
+| **Drug-Drug Interaction** | Critical/High | Anticoagulation + bleeding symptoms |
+| **Allergy Alert** | High | Penicillin allergy + beta-lactam prescribed |
+| **Compliance Gap** | Medium | Missing code status documentation |
+| **Protocol Trigger** | Medium | SOP conditions met |
+| **Critical Value** | Critical | Temperature > 38.0C in neutropenic patient |
+| **Contraindication** | High | Medication contraindicated for condition |
 
 ## HIPAA Compliance Considerations
 
 ### Data Security
-- All audio files encrypted at rest (AES-256)
-- TLS 1.3 for all data in transit
-- PHI fields encrypted in database
+- All data encrypted at rest and in transit
+- PHI fields protected
 - Secure key management via environment variables
 
-### Access Control
-- Role-based access control (RBAC)
-- Nurse, Manager, Admin roles with granular permissions
-- Multi-factor authentication support
-- Session timeout and audit logging
-
 ### Audit and Compliance
-- Complete audit trail for all PHI access
-- Data retention policies (configurable, default 7 years)
-- Automated data purging for expired records
+- Complete audit trail for all data access
+- Data retention policies
 - Export capabilities for compliance reporting
 
 ### Patient Privacy
-- Consent tracking and management
-- Opt-out capabilities
-- Anonymization options for analytics
+- Consent tracking
 - Data minimization principles
-
-## Agentic System Design
-
-### Monitoring Agent
-The core agent that:
-1. Receives completed transcriptions
-2. Compares interaction patterns to medical standards
-3. Identifies care gaps and compliance issues
-4. Generates risk assessments
-5. Triggers notifications when thresholds are exceeded
-
-### Care Standard Agent
-Maintains and queries:
-- Medical guidelines database
-- Hospital-specific protocols
-- Specialty-specific standards
-- Evidence-based care practices
-
-### Risk Assessment Agent
-Computes:
-- Overall session risk score (0-100)
-- Specific risk categories
-- Trend analysis across sessions
-- Personalized recommendations
+- Secure data handling
 
 ## Deliverables at End of 3 Months
 
-1. Docker-based development environment fully operational
-2. Nurse Manager Portal with session review capabilities
-3. Notifications Portal with real-time alerts
-4. Audio recording and transcription pipeline with AI tagging
-5. Agentic monitoring system comparing to care standards
-6. FHIR integration layer for patient data
-7. Comprehensive API and system documentation
-
-## Non-Functional Requirements
-
-### Performance
-- API response time: < 500ms for standard queries
-- Transcription processing: < 5 minutes for 30-minute session
-- Real-time notifications: < 5 seconds latency
-- Concurrent users: 100+ simultaneous connections
-
-### Scalability
-- Horizontal scaling for all application services
-- Database replication support
-- CDN integration for static assets
-- Queue-based processing for heavy workloads
-
-### Reliability
-- 99.9% uptime SLA for production
-- Automated health checks
-- Graceful degradation strategies
-- Disaster recovery procedures
-
-### Compatibility
-- Modern web browsers (Chrome, Firefox, Safari, Edge)
-- Mobile-responsive design
-- FHIR R4 compliance
-- HL7 interoperability support
+1. FastAPI middleware with transcript processing
+2. Patient View with interactive timeline
+3. Drug interaction checking system
+4. Allergy verification system
+5. Compliance monitoring
+6. Real-time alert system
+7. Risk factor visualization
+8. Connection to backend Clinical Safety Agent
 
 ## Success Metrics
 
-### Technical Metrics
-- System uptime percentage
-- API response times
-- Transcription accuracy rate
-- False positive rate in risk detection
-
-### Business Metrics
-- Reduction in malpractice incidents
-- Nurse adoption rate
-- Manager time saved in reviews
+### Safety Metrics
+- Drug interactions detected and prevented
+- Allergy documentation completeness
+- Compliance rate across sessions
 - Alert response rate
 
-## Risks and Mitigations
-
-| Risk | Impact | Probability | Mitigation |
-|------|--------|-------------|------------|
-| AI model accuracy issues | High | Medium | Human review queue, continuous training |
-| Integration delays | Medium | Medium | Phased integration approach |
-| HIPAA compliance gaps | Critical | Low | Early compliance review, legal consultation |
-| User adoption resistance | High | Medium | Training programs, UX improvements |
-| Audio quality issues | Medium | High | Multiple recording format support |
-
-## Next Steps
-
-1. Create ProjectOverview.md in docs-for-ai folder
-2. Set up Git repository with branch protection rules
-3. Initialize Docker environment configuration
-4. Create detailed architecture diagram
-5. Begin Phase 1 implementation
+### Technical Metrics
+- API response time: < 500ms
+- Drug check accuracy
+- False positive rate in alerts

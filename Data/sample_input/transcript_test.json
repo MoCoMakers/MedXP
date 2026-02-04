@@ -1,0 +1,11 @@
+{
+  "PatientID": "P001",
+  "PatientName": "Maria Chen",
+  "Transcript": "Patient in room 3E-12, 62 y/o with Stage IIIB NSCLC presenting with hemoptysis and neutropenia. On Enoxaparin 40mg daily for DVT prophylaxis. Vitals: T 37.8C, HR 92, BP 118/76, SpO2 94% RA. Labs: WBC 1.2, Hgb 9.2, Platelets 156. Reports mild dyspnea but no chest pain. Alert and oriented x3. No known drug allergies. Code status: Full Code.",
+  "RecordedBy": {
+    "StaffID": "N04",
+    "Name": "Nurse Sofia Martinez"
+  },
+  "Timestamp": "02:50:00",
+  "Date": "2026-01-30"
+}
