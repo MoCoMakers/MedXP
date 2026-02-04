@@ -1,5 +1,24 @@
 # Getting Started with Audio Recording & Transcription
 
+## Quick Start (All Services)
+
+Use the project launcher for the fastest setup:
+
+```bash
+# 1. Install frontend dependencies (required once)
+cd frontend && npm install && cd ..
+
+# 2. Add API keys to project root .env (see .env.example)
+# MINIMAX_API_KEY or OPENAI_API_KEY for malpractice analysis
+
+# 3. Start all services (creates .venv if needed, installs Python deps)
+python start_all.py
+```
+
+This starts Backend (8000), Middleware (5001), and Frontend (5173). Press Ctrl+C to stop all.
+
+**Preflight checks:** The script verifies `frontend/node_modules` exists and creates a project `.venv` if missing. Python services run inside the venv.
+
 ## What Was Implemented
 
 ### Frontend

@@ -34,9 +34,32 @@ MedXP streamlines clinical handoffs by recording audio notes and automatically t
 - ⚖️ **Risk Assessment**: Malpractice risk and compliance scoring
 - 📋 **SBAR Display**: Structured handoff card visualization
 
-## Quick Start (Modern Audio Recording Setup)
+## Quick Start (All Services – Recommended)
 
-### Frontend Setup
+**One-command launch** using the project venv:
+
+```bash
+# 1. Install frontend deps (once)
+cd frontend && npm install && cd ..
+
+# 2. Copy .env.example to .env and add MINIMAX_API_KEY or OPENAI_API_KEY
+
+# 3. Start all services
+python start_all.py
+```
+
+This creates a project `.venv` (if missing), installs Python deps from root/backend/middleware requirements, and starts:
+- **Backend** http://localhost:8000
+- **Middleware** http://localhost:5001
+- **Frontend** http://localhost:5173
+
+Press Ctrl+C to stop all. Use `python stop_all.py` to kill services by port if needed.
+
+**Preflight:** The script checks for `frontend/node_modules` and `.venv` before starting.
+
+---
+
+### Manual Frontend Setup
 
 1. Navigate to the frontend directory:
 ```bash
@@ -142,33 +165,27 @@ This section describes the complete MedXP system with three interconnected servi
 
 ### Starting All Services
 
+**Option A – Use `start_all.py` (recommended):** See [Quick Start](#quick-start-all-services--recommended) above. Uses a single project `.venv` at repo root.
+
+**Option B – Manual (multiple terminals):**
+
 **Terminal 1 - Backend (Context Enrichment):**
 ```bash
-cd backend
-# Create virtual environment if not exists
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
+# Use project venv at repo root
+python -m venv .venv
+source .venv/bin/activate   # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt -r backend/requirements.txt -r middleware/requirements.txt
 
-# Start the server
+cd backend
 python main.py
 ```
 The backend will be available at http://localhost:8000
 
 **Terminal 2 - Middleware (Validation & Risk Analysis):**
 ```bash
+source .venv/bin/activate   # (from project root)
 cd middleware
-# Create virtual environment if not exists
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-
-# Configure API key (for malpractice agent)
-cp .env.example .env
-# Edit .env and add your MINIMAX_API_KEY or OPENAI_API_KEY
-
-# Start the server
-python app.py
+PYTHONPATH=.. python app.py
 ```
 The middleware will be available at http://localhost:5001
 
@@ -283,6 +300,9 @@ The frontend will be available at http://localhost:8501
 
 ```
 MedXP/
+├── .venv/                   # Project Python venv (created by start_all.py)
+├── start_all.py             # One-command launcher (preflight + venv)
+├── stop_all.py              # Stop services by port
 ├── docs/
 │   └── docs-for-ai/           # Project documentation for AI context
 ├── frontend/                   # React + TypeScript + Vite frontend

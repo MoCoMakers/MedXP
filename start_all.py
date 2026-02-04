@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """MedXP - Start All Services (cross-platform)
 
-Brings up backend, middleware, and frontend.
+Brings up backend, middleware, and frontend using a project venv for Python services.
 Press Ctrl+C to stop all services; child processes are killed when this script exits.
 
 Usage: python start_all.py
@@ -16,12 +16,24 @@ from pathlib import Path
 
 # Project root
 PROJECT_ROOT = Path(__file__).resolve().parent
+VENV_DIR = PROJECT_ROOT / ".venv"
+if sys.platform == "win32":
+    VENV_PYTHON = VENV_DIR / "Scripts" / "python.exe"
+else:
+    VENV_PYTHON = VENV_DIR / "bin" / "python"
+
+# Requirement files to install into venv (order matters for deps)
+REQUIREMENTS_FILES = [
+    PROJECT_ROOT / "requirements.txt",
+    PROJECT_ROOT / "backend" / "requirements.txt",
+    PROJECT_ROOT / "middleware" / "requirements.txt",
+]
 
 # Services: (name, work_dir, shell_command)
-# Commands run via shell so PATH resolution works (e.g. npm.cmd on Windows)
+# Python services use venv; Frontend uses npm
 SERVICES = [
-    ("Backend", PROJECT_ROOT / "backend", "python main.py"),
-    ("Middleware", PROJECT_ROOT / "middleware", "python app.py"),
+    ("Backend", PROJECT_ROOT / "backend", None),   # cmd built from venv + main.py
+    ("Middleware", PROJECT_ROOT / "middleware", None),
     ("Frontend", PROJECT_ROOT / "frontend", "npm run dev"),
 ]
 
@@ -29,12 +41,84 @@ SERVICES = [
 processes: list[tuple[str, subprocess.Popen]] = []
 
 
-def start_service(name: str, work_dir: Path, cmd: str) -> subprocess.Popen:
-    """Start a service via shell (cmd on Windows, bash on macOS/Linux) for PATH resolution."""
+def get_python_cmd(work_dir: Path, script: str) -> str:
+    """Build shell command to run Python script with venv."""
+    py = VENV_PYTHON.resolve()
+    return f'"{py}" {script}'
+
+
+def ensure_npm_deps() -> bool:
+    """Install frontend npm deps if node_modules missing or empty. Returns False on failure."""
+    frontend_dir = PROJECT_ROOT / "frontend"
+    if not frontend_dir.exists() or not (frontend_dir / "package.json").exists():
+        return True
+    node_modules = frontend_dir / "node_modules"
+    if node_modules.is_dir() and any(node_modules.iterdir()):
+        return True
+    print("\033[36mInstalling frontend npm dependencies (streaming to terminal)...\033[0m")
+    result = subprocess.run(
+        ["npm", "install"],
+        cwd=frontend_dir,
+        shell=True,
+    )
+    if result.returncode != 0:
+        print("\033[31m  npm install failed.\033[0m")
+        return False
+    print("\033[32m  npm install done.\033[0m")
+    return True
+
+
+def ensure_venv_and_deps() -> bool:
+    """Create venv if needed and install requirements. Returns False on failure."""
+    if not VENV_DIR.exists():
+        print("\033[36mCreating project venv at .venv...\033[0m")
+        result = subprocess.run(
+            [sys.executable, "-m", "venv", str(VENV_DIR)],
+            cwd=PROJECT_ROOT,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode != 0:
+            print("\033[31mFailed to create venv:\033[0m", result.stderr)
+            return False
+        print("\033[32m  Venv created.\033[0m")
+    for req in REQUIREMENTS_FILES:
+        if not req.exists():
+            continue
+        rel = req.relative_to(PROJECT_ROOT)
+        print(f"\033[36mInstalling {rel} into venv (streaming to terminal)...\033[0m")
+        result = subprocess.run(
+            [str(VENV_PYTHON), "-m", "pip", "install", "-r", str(req)],
+            cwd=PROJECT_ROOT,
+        )
+        if result.returncode != 0:
+            print(f"\033[33m  Warning: pip install -r {rel} had issues (continuing)\033[0m")
+    return True
+
+
+def run_preflight() -> bool:
+    """Install npm deps and venv+requirements. Returns False if any step fails."""
+    print("\033[36mPreflight: ensuring dependencies...\033[0m")
+    if not ensure_npm_deps():
+        return False
+    if not ensure_venv_and_deps():
+        return False
+    return True
+
+
+def start_service(name: str, work_dir: Path, cmd: str | None) -> subprocess.Popen:
+    """Start a service via shell. Python services use venv."""
     print(f"\033[36mStarting {name}...\033[0m")
+    if cmd is None:
+        # Python service: use venv
+        script = "main.py" if "backend" in str(work_dir).replace("\\", "/") else "app.py"
+        cmd = get_python_cmd(work_dir, script)
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(PROJECT_ROOT)
     kwargs: dict = {
         "shell": True,
         "cwd": work_dir,
+        "env": env,
         "stdout": subprocess.DEVNULL,
         "stderr": subprocess.DEVNULL,
     }
@@ -43,10 +127,7 @@ def start_service(name: str, work_dir: Path, cmd: str) -> subprocess.Popen:
     else:
         kwargs["executable"] = "/bin/bash"
         kwargs["start_new_session"] = True
-    proc = subprocess.Popen(
-        cmd,
-        **kwargs,
-    )
+    proc = subprocess.Popen(cmd, **kwargs)
     processes.append((name, proc))
     print(f"\033[32m  {name} started (PID {proc.pid})\033[0m")
     return proc
@@ -59,7 +140,6 @@ def stop_all():
         try:
             if proc.poll() is None and proc.pid:
                 if sys.platform == "win32":
-                    # Kill process tree on Windows
                     subprocess.run(
                         ["taskkill", "/PID", str(proc.pid), "/T", "/F"],
                         capture_output=True,
@@ -75,19 +155,21 @@ def stop_all():
 
 
 def main():
-    # Handle Ctrl+C and normal exit
     def handler(signum, frame):
         stop_all()
         sys.exit(0)
 
     signal.signal(signal.SIGINT, handler)
     signal.signal(signal.SIGTERM, handler)
-    if hasattr(signal, "SIGBREAK"):  # Windows
+    if hasattr(signal, "SIGBREAK"):
         signal.signal(signal.SIGBREAK, handler)
 
     print("\033[35m========================================\033[0m")
     print("\033[35m  MedXP - Starting All Services\033[0m")
     print("\033[35m========================================\033[0m")
+
+    if not run_preflight():
+        sys.exit(1)
 
     for name, work_dir, cmd in SERVICES:
         if not work_dir.exists():
@@ -101,13 +183,11 @@ def main():
     print("\033[35m========================================\033[0m")
     print("\033[90m  Backend:    http://localhost:8000\033[0m")
     print("\033[90m  Middleware: http://localhost:5001\033[0m")
-    print("\033[90m  Frontend:   http://localhost:5173\033[0m")
+    print("\033[90m  Frontend:   http://localhost:8080\033[0m")
     print("\n\033[33mPress Ctrl+C to stop all services.\033[0m\n")
 
-    # Keep running until Ctrl+C
     try:
         while True:
-            # Exit if all processes have died
             if all(p.poll() is not None for _, p in processes):
                 print("\033[33mAll services exited.\033[0m")
                 break
