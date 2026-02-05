@@ -44,7 +44,12 @@ The middleware listens on **http://localhost:5001**.
 | Method | Path | Description |
 |--------|------|-------------|
 | GET | `/health` | Health check; reports backend and malpractice agent availability |
+| POST | `/api/transcribe` | Transcribe audio (Gemini); multipart form: `audio`, `patient_id`, `incoming_role`, `shift_context` |
 | POST | `/api/v1/transcripts` | Submit transcript; body: `{"PatientID": "...", "Transcript": "..."}` |
+
+## Session Logs
+
+Session activity (transcribe requests/results, transcripts requests/responses) is logged to `middleware/logs/session_YYYYMMDD.jsonl` for troubleshooting. See [middleware/logs/README.md](logs/README.md) for log format and usage.
 
 ## Input (HTTP API)
 
@@ -73,7 +78,7 @@ python middleware/simulate.py
 
 - **Backend URL**: `http://127.0.0.1:8000` (edit `BACKEND_URL` in `app.py` if needed)
 - **Template**: Uses `Data/sample_input/scn_1.json` for enrichment request structure
-- **Environment**: Loads `.env` from project root; requires `MINIMAX_API_KEY` or `OPENAI_API_KEY` for malpractice analysis
+- **Environment**: Loads `.env` from project root (see project root `.env.example`). Requires `MINIMAX_API_KEY` or `OPENAI_API_KEY` for malpractice analysis; `GEMINI_API_KEY` for transcription (`POST /api/transcribe`). For the frontend to reach middleware for transcription, set `VITE_TRANSCRIBE_URL=http://localhost:5001` in `frontend/.env` (see `frontend/.env.example`).
 
 ## Testing
 

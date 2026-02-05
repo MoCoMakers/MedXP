@@ -54,11 +54,31 @@ def get_python_cmd(work_dir: Path, script: str) -> str:
     return f'source "{activate}" && python {script}'
 
 
+# Key .env files required for preflight: (path, example file, description)
+# frontend/.env only required if frontend dir exists (start_all starts frontend)
+def _get_required_env_files() -> list[tuple[Path, str, str]]:
+    files = [
+        (PROJECT_ROOT / ".env", ".env.example", "Project root (middleware, malpractice_agent)"),
+    ]
+    if (PROJECT_ROOT / "frontend").exists():
+        files.append((PROJECT_ROOT / "frontend" / ".env", "frontend/.env.example", "Frontend (Vite; required for transcription)"))
+    return files
+
+
 def check_env() -> bool:
-    """Check .env exists. Returns False and quits if missing."""
-    if not (PROJECT_ROOT / ".env").exists():
-        print("\033[31mPreflight failed: .env missing.\033[0m")
-        print("\033[31m  Copy .env.example to .env and set MINIMAX_API_KEY or OPENAI_API_KEY.\033[0m\n")
+    """Check key .env files exist. Returns False and quits if any are missing."""
+    missing = []
+    for path, example, desc in _get_required_env_files():
+        if not path.exists():
+            rel = path.relative_to(PROJECT_ROOT) if path.is_relative_to(PROJECT_ROOT) else path
+            missing.append((rel, example, desc))
+
+    if missing:
+        print("\033[31mPreflight failed: .env file(s) missing.\033[0m")
+        for rel_path, example, desc in missing:
+            print(f"\033[31m  • {rel_path}\033[0m ({desc})")
+            print(f"\033[31m    cp {example} {rel_path}\033[0m")
+        print("\033[31m  Edit each .env with your API keys. See .env.example at project root for notes.\033[0m\n")
         return False
     return True
 

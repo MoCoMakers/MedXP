@@ -7,14 +7,16 @@ and then passing the enriched context to the malpractice agent.
 import json
 import uuid
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import httpx
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, origins=["http://localhost:8080", "http://localhost:5173"])
 
 # Backend API configuration
 BACKEND_URL = "http://127.0.0.1:8000"
@@ -22,7 +24,26 @@ ENRICH_ENDPOINT = f"{BACKEND_URL}/api/v1/enrich"
 
 # Project root (parent of middleware/)
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
+_MIDDLEWARE_DIR = Path(__file__).resolve().parent
+_LOGS_DIR = _MIDDLEWARE_DIR / "logs"
 TEMPLATE_PATH = _PROJECT_ROOT / "Data" / "sample_input" / "scn_1.json"
+
+
+def _log_session_event(event: str, data: dict) -> None:
+    """Append a session event as JSON line to middleware/logs/session_YYYYMMDD.jsonl."""
+    try:
+        _LOGS_DIR.mkdir(parents=True, exist_ok=True)
+        today = datetime.now(timezone.utc).strftime("%Y%m%d")
+        log_path = _LOGS_DIR / f"session_{today}.jsonl"
+        entry = {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "event": event,
+            **data,
+        }
+        with open(log_path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    except OSError as e:
+        print(f"Log write failed: {e}")
 
 # Initialize malpractice agent
 load_dotenv(_PROJECT_ROOT / ".env")
@@ -149,6 +170,116 @@ def call_malpractice_agent(transcript: str, session_id: str, patient_id: str, ba
         }
 
 
+@app.route("/api/transcribe", methods=["POST"])
+def transcribe_audio():
+    """
+    Transcribe audio via Gemini API (one-shot PoC).
+
+    Accepts multipart form: audio (required), patient_id, incoming_role, shift_context.
+    Returns TranscribeResponse shape: { success, transcript, audio_file?, message?, error? }.
+    """
+    if "audio" not in request.files:
+        return jsonify({
+            "success": False,
+            "error": "Missing audio file",
+            "message": "audio is required"
+        }), 400
+
+    file = request.files["audio"]
+    if file.filename == "" or not file.readable():
+        return jsonify({
+            "success": False,
+            "error": "Invalid audio file",
+            "message": "audio file is empty or unreadable"
+        }), 400
+
+    audio_bytes = file.read()
+    mime_type = file.content_type or "audio/webm"
+    if mime_type == "application/octet-stream":
+        mime_type = "audio/webm"
+
+    patient_id = request.form.get("patient_id") or ""
+    incoming_role = request.form.get("incoming_role") or ""
+    shift_context = request.form.get("shift_context") or ""
+
+    _log_session_event("transcribe_request", {
+        "patient_id": patient_id,
+        "incoming_role": incoming_role,
+        "shift_context": shift_context,
+        "audio_size_bytes": len(audio_bytes),
+        "mime_type": mime_type,
+    })
+
+    gemini_key = os.environ.get("GEMINI_API_KEY")
+    if not gemini_key:
+        _log_session_event("transcribe_result", {
+            "success": False,
+            "transcript_preview": None,
+            "transcript_length": None,
+            "error": "GEMINI_API_KEY not configured",
+        })
+        return jsonify({
+            "success": False,
+            "error": "GEMINI_API_KEY not configured",
+            "message": "Transcription service not configured"
+        }), 503
+
+    try:
+        from google import genai
+        from google.genai import types
+
+        client = genai.Client(api_key=gemini_key)
+        response = client.models.generate_content(
+            model="gemini-3-flash-preview",
+            contents=[
+                "Transcribe this medical handoff audio verbatim.",
+                types.Part.from_bytes(data=audio_bytes, mime_type=mime_type),
+            ],
+        )
+
+        transcript_text = response.text or ""
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        audio_filename = f"handoff_{timestamp}.webm"
+
+        _log_session_event("transcribe_result", {
+            "success": True,
+            "transcript_preview": (transcript_text[:200] + "...") if len(transcript_text) > 200 else transcript_text,
+            "transcript_length": len(transcript_text),
+            "error": None,
+        })
+
+        return jsonify({
+            "success": True,
+            "transcript": transcript_text,
+            "audio_file": audio_filename,
+        }), 200
+
+    except Exception as e:
+        print(f"Transcription error: {e}")
+        _log_session_event("transcribe_result", {
+            "success": False,
+            "transcript_preview": None,
+            "transcript_length": None,
+            "error": str(e),
+        })
+        # Detect Google API 5xx/429 - surface user-friendly alert
+        err_str = str(e)
+        if "429" in err_str or "RESOURCE_EXHAUSTED" in err_str or "quota" in err_str.lower():
+            msg = "Transcription service quota exceeded. Please try again in a moment."
+            return jsonify({"success": False, "error": err_str, "message": msg}), 503
+        if "503" in err_str or "UNAVAILABLE" in err_str or "overloaded" in err_str.lower():
+            msg = "Transcription service temporarily unavailable (Google API overloaded). Please try again shortly."
+            return jsonify({"success": False, "error": err_str, "message": msg}), 503
+        if "500" in err_str or "INTERNAL" in err_str:
+            msg = "Transcription service error. Please try again."
+            return jsonify({"success": False, "error": err_str, "message": msg}), 503
+        return jsonify({
+            "success": False,
+            "error": err_str,
+            "message": "Failed to transcribe audio",
+        }), 500
+
+
 @app.route("/health", methods=["GET"])
 def health_check():
     """Health check endpoint."""
@@ -217,7 +348,14 @@ def submit_transcript():
     
     patient_id = data["PatientID"]
     transcript = data["Transcript"]
-    
+
+    preview = (transcript[:200] + "...") if len(transcript) > 200 else transcript
+    _log_session_event("transcripts_request", {
+        "patient_id": patient_id,
+        "transcript_length": len(transcript),
+        "transcript_preview": preview,
+    })
+
     # Log receipt
     print(f"Received transcript for patient: {patient_id}")
     print(f"Transcript length: {len(transcript)} characters")
@@ -238,13 +376,20 @@ def submit_transcript():
         )
         
         if response.status_code != 200:
+            _log_session_event("transcripts_response", {
+                "session_id": session_id,
+                "patient_id": patient_id,
+                "status": "error",
+                "error_code": "BACKEND_ERROR",
+                "message": f"Backend returned status {response.status_code}",
+            })
             return jsonify({
                 "status": "error",
                 "error_code": "BACKEND_ERROR",
                 "message": f"Backend returned status {response.status_code}",
                 "details": response.text
             }), 502
-        
+
         backend_response = response.json()
         
         print(f"Backend enrichment complete. Warnings: {len(backend_response.get('warnings', []))}")
@@ -259,7 +404,20 @@ def submit_transcript():
         )
         
         print(f"Malpractice analysis complete. Risk level: {malpractice_report.get('risk_level', 'unknown')}")
-        
+
+        _log_session_event("transcripts_response", {
+            "session_id": session_id,
+            "patient_id": patient_id,
+            "status": "success",
+            "backend_enrichment_summary": {
+                "warnings_count": len(backend_response.get("warnings", [])),
+            },
+            "malpractice_analysis": {
+                "risk_level": malpractice_report.get("risk_level"),
+                "compliance_score": malpractice_report.get("compliance_score"),
+            },
+        })
+
         # Return combined response
         return jsonify({
             "status": "success",
@@ -279,6 +437,13 @@ def submit_transcript():
         
     except httpx.RequestError as e:
         print(f"Backend request failed: {e}")
+        _log_session_event("transcripts_response", {
+            "session_id": session_id,
+            "patient_id": patient_id,
+            "status": "error",
+            "error_code": "BACKEND_UNAVAILABLE",
+            "message": str(e),
+        })
         return jsonify({
             "status": "error",
             "error_code": "BACKEND_UNAVAILABLE",
@@ -286,6 +451,12 @@ def submit_transcript():
         }), 503
     except Exception as e:
         print(f"Unexpected error: {e}")
+        resp_log = {"patient_id": patient_id, "status": "error", "error_code": "INTERNAL_ERROR", "message": str(e)}
+        try:
+            resp_log["session_id"] = session_id
+        except NameError:
+            pass
+        _log_session_event("transcripts_response", resp_log)
         return jsonify({
             "status": "error",
             "error_code": "INTERNAL_ERROR",

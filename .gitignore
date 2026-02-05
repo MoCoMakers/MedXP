@@ -182,6 +182,9 @@ Thumbs.db
 
 .audio/
 
+# Middleware session logs (troubleshooting)
+middleware/logs/*.jsonl
+
 # npm package (OS Specific)
 package-lock.json
 **/package-lock.json

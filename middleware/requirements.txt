@@ -1,4 +1,6 @@
 # MedXP Middleware 2 Dependencies
 
 flask>=3.0.0
+flask-cors>=4.0.0
 httpx>=0.26.0
+google-genai>=1.0.0
