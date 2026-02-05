@@ -1070,7 +1070,7 @@ For this POC, authentication can be simplified:
 ```bash
 # Server Configuration
 SERVER_HOST=0.0.0.0
-SERVER_PORT=5000
+SERVER_PORT=5001
 DEBUG=false
 
 # Database Configuration

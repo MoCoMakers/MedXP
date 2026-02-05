@@ -289,7 +289,7 @@ The frontend will be available at http://localhost:8501
 
 4. **Access the application**
    - Frontend: http://localhost:3000 (Docker) or http://localhost:8080 (Dev)
-   - API: http://localhost:5000 (Flask) or http://localhost:8000 (FastAPI)
+   - API: http://localhost:5001 (Flask middleware) or http://localhost:8000 (FastAPI backend)
    - MinIO Console: http://localhost:9001
 
 ## Project Structure
