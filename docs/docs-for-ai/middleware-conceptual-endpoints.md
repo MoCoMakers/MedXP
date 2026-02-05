@@ -14,7 +14,7 @@ This document describes a minimal, filesystem-driven middleware API for processi
                                  │
                                  ▼
 ┌─────────────────────────────────────────────────────────────────────┐
-│                      MIDDLEWARE (Port 5000)                         │
+│                      MIDDLEWARE (Port 5001)                         │
 │   POST /transcripts                                                  │
 │   ┌─────────────────────────────────────────────────────────────┐   │
 │   │ 1. Receive transcript from scenarios.json format            │   │
@@ -48,7 +48,7 @@ This document describes a minimal, filesystem-driven middleware API for processi
 ## Base URL
 
 ```
-http://localhost:5000/api/v1
+http://localhost:5001/api/v1
 ```
 
 ## Single Endpoint
@@ -355,7 +355,7 @@ server/data/
 
 ```bash
 # 1. Submit transcript to middleware
-curl -X POST http://localhost:5000/api/v1/transcripts \
+curl -X POST http://localhost:5001/api/v1/transcripts \
   -H "Content-Type: application/json" \
   -d @Data/scenarios.json
 

@@ -50,13 +50,15 @@ The middleware listens on **http://localhost:5001**.
 
 Input is sent via HTTP POST with a JSON body. Any HTTP client works (curl, Postman, fetch, etc.).
 
-### Example: curl
+### Command-line only: curl demo
 
-```bash
-curl -X POST http://localhost:5001/api/v1/transcripts \
-  -H "Content-Type: application/json" \
-  -d '{"PatientID": "P001", "Transcript": "Maria Chen in 3E-12, 62 y/o with Stage IIIB NSCLC. Currently on Enoxaparin 40 mg SQ daily. Vitals: T 38.5C, HR 78, BP 167/79. Allergies: NKDA. Code status: Full Code."}'
-```
+Input is **raw transcript** (natural speech / dictation), not preprocessed. Copy-paste one of these (no files, no editor). For longer or arbitrary text use `python middleware/post_transcript.py P001 -f transcript.txt` or `... P001 < transcript.txt`.
+
+| Shell | One-liner |
+|-------|-----------|
+| **Bash / Git Bash** | `curl -X POST http://localhost:5001/api/v1/transcripts -H "Content-Type: application/json" -d '{"PatientID": "P001", "Transcript": "Rounding on Maria Chen, room 3E-12. She is 62 with stage 3B NSCLC on chemoradiation. Overnight fever 38.5, WBC 1.2, neutropenic. Sats 89% on 3L. Blood in sputum this morning, hold enoxaparin, cultures times two, broad spectrum. Pain 4 out of 10. Family aware."}'` |
+| **Command Prompt (Windows)** | `curl.exe -X POST http://localhost:5001/api/v1/transcripts -H "Content-Type: application/json" -d "{\"PatientID\": \"P001\", \"Transcript\": \"Rounding on Maria Chen, room 3E-12. She is 62 with stage 3B NSCLC on chemoradiation. Overnight fever 38.5, WBC 1.2, neutropenic. Sats 89% on 3L. Blood in sputum this morning, hold enoxaparin, cultures times two, broad spectrum. Pain 4 out of 10. Family aware.\"}"` |
+| **Any (Python)** | `python middleware/simulate.py` |
 
 ### simulate.py
 

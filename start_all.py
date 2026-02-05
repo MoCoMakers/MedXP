@@ -4,9 +4,11 @@
 Brings up backend, middleware, and frontend. Requires .env (errors and quits if missing).
 Creates .venv and installs npm deps if needed. Press Ctrl+C to stop all services.
 
-Usage: python start_all.py
+Usage: python start_all.py [--verbose]
+       --verbose, -v  Show full stdout from services (default: errors/warnings only)
 """
 
+import argparse
 import os
 import shutil
 import signal
@@ -43,9 +45,13 @@ processes: list[tuple[str, subprocess.Popen]] = []
 
 
 def get_python_cmd(work_dir: Path, script: str) -> str:
-    """Build shell command to run Python script with venv."""
-    py = VENV_PYTHON.resolve()
-    return f'"{py}" {script}'
+    """Build shell command to activate venv and run Python script."""
+    venv = VENV_DIR.resolve()
+    if sys.platform == "win32":
+        activate = venv / "Scripts" / "activate.bat"
+        return f'call "{activate}" && python {script}'
+    activate = venv / "bin" / "activate"
+    return f'source "{activate}" && python {script}'
 
 
 def check_env() -> bool:
@@ -116,7 +122,7 @@ def run_preflight() -> bool:
     return True
 
 
-def start_service(name: str, work_dir: Path, cmd: str | None) -> subprocess.Popen:
+def start_service(name: str, work_dir: Path, cmd: str | None, *, verbose: bool = False) -> subprocess.Popen:
     """Start a service via shell. Python services use venv."""
     print(f"\033[36mStarting {name}...\033[0m")
     if cmd is None:
@@ -129,8 +135,8 @@ def start_service(name: str, work_dir: Path, cmd: str | None) -> subprocess.Pope
         "shell": True,
         "cwd": work_dir,
         "env": env,
-        "stdout": subprocess.DEVNULL,
-        "stderr": subprocess.DEVNULL,
+        "stdout": None if verbose else subprocess.DEVNULL,
+        "stderr": None if verbose else subprocess.DEVNULL,
     }
     if sys.platform == "win32":
         kwargs["creationflags"] = subprocess.CREATE_NEW_PROCESS_GROUP
@@ -174,6 +180,10 @@ def main():
     if hasattr(signal, "SIGBREAK"):
         signal.signal(signal.SIGBREAK, handler)
 
+    parser = argparse.ArgumentParser(description="Start MedXP backend, middleware, and frontend")
+    parser.add_argument("-v", "--verbose", action="store_true", help="Show full stdout from services")
+    args = parser.parse_args()
+
     # Preflight first; quit immediately if prerequisites missing
     if not run_preflight():
         sys.exit(1)
@@ -186,7 +196,7 @@ def main():
         if not work_dir.exists():
             print(f"\033[33m  Skipping {name}: {work_dir} not found\033[0m")
             continue
-        start_service(name, work_dir, cmd)
+        start_service(name, work_dir, cmd, verbose=args.verbose)
         time.sleep(2 if name == "Backend" else 1)
 
     print("\n\033[35m========================================\033[0m")

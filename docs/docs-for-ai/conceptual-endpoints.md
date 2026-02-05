@@ -11,7 +11,7 @@ The system processes nurse-patient session transcripts, applies AI-based classif
 All endpoints are relative to the server root. The base URL structure is:
 
 ```
-http://localhost:5000/api/v1
+http://localhost:5001/api/v1
 ```
 
 ## Storage Structure
