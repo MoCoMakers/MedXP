@@ -7,6 +7,16 @@ A modern clinical handoff platform built with React, TypeScript, Vite, and Tailw
 - Node.js (v16 or higher)
 - npm (v7 or higher)
 
+## Environment Variables
+
+For transcription to work, the frontend must point at the middleware transcription endpoint. Copy `frontend/.env.example` to `frontend/.env`:
+
+```bash
+cp .env.example .env
+```
+
+This sets `VITE_TRANSCRIBE_URL=http://localhost:5001`. Restart the dev server after changing `.env`.
+
 ## Installation
 
 Install the dependencies:

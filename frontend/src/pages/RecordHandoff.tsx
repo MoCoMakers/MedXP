@@ -60,17 +60,32 @@ export default function RecordHandoff() {
 
       if (data.success && data.transcript) {
         setTranscript(data.transcript);
-        
+
         toast({
           title: "Success",
           description: `Audio saved as ${data.audio_file}. Transcription complete.`,
         });
       } else {
-        // Silently log error without showing toast
-        console.error("Transcription failed:", data.message || data.error);
+        const msg = data.message || data.error || "Transcription failed.";
+        console.error("Transcription failed:", msg);
+        toast({
+          title: "Transcription Failed",
+          description: msg,
+          variant: "destructive",
+        });
       }
-    } catch (err) {
+    } catch (err: unknown) {
+      const axiosErr = err as { response?: { data?: { message?: string; error?: string } }; message?: string };
+      const msg =
+        axiosErr?.response?.data?.message ||
+        axiosErr?.response?.data?.error ||
+        (err instanceof Error ? err.message : "Transcription service error. Please try again.");
       console.error("Transcription error:", err);
+      toast({
+        title: "Transcription Error",
+        description: msg,
+        variant: "destructive",
+      });
     } finally {
       setIsProcessing(false);
     }

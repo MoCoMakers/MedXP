@@ -39,7 +39,7 @@ MedXP streamlines clinical handoffs by recording audio notes and automatically t
 **Launch:**
 
 ```bash
-# 1. Copy .env.example to .env and add MINIMAX_API_KEY or OPENAI_API_KEY
+# 1. Set up .env files (see Environment Variables below)
 
 # 2. Start all services (creates .venv and runs npm install if needed)
 python start_all.py
@@ -51,7 +51,7 @@ python start_all.py
 
 Press Ctrl+C to stop all. Use `python stop_all.py` to kill services by port if needed.
 
-**Preflight:** `.env` must exist (errors and quits if missing). `.venv` and `frontend/node_modules` are created/installed automatically.
+**Preflight:** Project root `.env` must exist (errors and quits if missing). `.venv` and `frontend/node_modules` are created/installed automatically.
 
 ---
 
@@ -393,6 +393,20 @@ When submitting a transcript via `/api/v1/transcripts`:
 
 ## Environment Variables
 
+| File | Example file | Used by | Key variables |
+|------|--------------|---------|---------------|
+| **`.env`** (project root) | `.env.example` | Middleware, malpractice_agent, start_all preflight | `MINIMAX_API_KEY` or `OPENAI_API_KEY`; `GEMINI_API_KEY` for transcription |
+| **`frontend/.env`** | `frontend/.env.example` | Frontend (Vite) | `VITE_TRANSCRIBE_URL=http://localhost:5001` |
+| **`backend/.env`** | `backend/.env.example` | Backend (context enrichment) | Optional; see backend/.env.example |
+
+**Setup:**
+```bash
+cp .env.example .env                    # Project root (required)
+cp frontend/.env.example frontend/.env  # Frontend (required for transcription PoC)
+cp backend/.env.example backend/.env    # Backend (optional)
+```
+Edit each `.env` with your API keys. See `.env.example` at project root for comments on other `.env` files. Restart the frontend dev server after changing `frontend/.env`.
+
 ### Frontend2 (.env - optional)
 ```
 BACKEND_URL=http://127.0.0.1:8000
@@ -404,9 +418,6 @@ TRANSCRIPT_API_URL=http://127.0.0.1:8000
 ```
 OPENAI_API_KEY=your_openai_api_key_here
 ```
-
-### Middleware (project root .env)
-Middleware loads from project root `.env`. Set `MINIMAX_API_KEY` or `OPENAI_API_KEY`.
 
 ## Data
 

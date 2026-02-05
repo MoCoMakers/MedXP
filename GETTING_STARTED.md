@@ -5,7 +5,7 @@
 Use the project launcher for the fastest setup:
 
 ```bash
-# 1. Copy .env.example to .env at project root and set MINIMAX_API_KEY or OPENAI_API_KEY
+# 1. Set up environment files (see table below)
 
 # 2. Start all services (creates .venv and runs npm install if needed)
 python start_all.py
@@ -13,15 +13,33 @@ python start_all.py
 
 This starts Backend (8000), Middleware (5001), and Frontend (8080). Press Ctrl+C to stop all.
 
-**Preflight:** `.env` must exist—script errors and quits if missing. `.venv` and `frontend/node_modules` are created/installed automatically if missing.
+**Preflight:** Project root `.env` must exist—script errors and quits if missing. `.venv` and `frontend/node_modules` are created/installed automatically if missing.
 
 **Fresh install:** Run `python clean_deps.py`, then `python start_all.py` to reinstall.
 
 ### Environment Files (.env)
 
-Project root `.env` is used by both middleware and malpractice_agent (including when run standalone). Set `MINIMAX_API_KEY` or `OPENAI_API_KEY`. Copy `.env.example` to `.env`.
+| File | Used by | Example file | Required vars |
+|------|---------|--------------|---------------|
+| **`.env`** (project root) | Middleware, malpractice_agent, start_all preflight | `.env.example` | `MINIMAX_API_KEY` or `OPENAI_API_KEY`; `GEMINI_API_KEY` for transcription |
+| **`frontend/.env`** | Frontend (Vite) | `frontend/.env.example` | `VITE_TRANSCRIBE_URL=http://localhost:5001` (for transcription PoC) |
+| **`backend/.env`** | Backend (context enrichment) | `backend/.env.example` | Optional; backend has defaults |
 
-Backend uses `backend/.env` for its own config (see `backend/.env.example`).
+**Setup steps:**
+```bash
+# Project root (required for start_all.py)
+cp .env.example .env
+# Edit .env: set MINIMAX_API_KEY or OPENAI_API_KEY, GEMINI_API_KEY
+
+# Frontend (required for transcription to work)
+cp frontend/.env.example frontend/.env
+# frontend/.env.example already has VITE_TRANSCRIBE_URL=http://localhost:5001
+
+# Backend (optional)
+cp backend/.env.example backend/.env
+```
+
+**Important:** Vite reads `frontend/.env` only at dev-server start. Restart the frontend after changing `frontend/.env`.
 
 ## What Was Implemented
 
@@ -110,10 +128,11 @@ npm run dev
 - Click "Allow" when browser asks for microphone access
 - Check browser settings if permission was denied
 
-### "Transcription Failed"
-- Make sure backend is running on port 8000
-- Verify Minimax API credentials are set in `backend-api/.env`
-- Check backend terminal for error messages
+### "Transcription Failed" / 404
+- Ensure `frontend/.env` has `VITE_TRANSCRIBE_URL=http://localhost:5001` (see `frontend/.env.example`)
+- Restart the frontend dev server after changing `frontend/.env`
+- Ensure middleware is running on port 5001 (`python start_all.py`)
+- Verify `GEMINI_API_KEY` is set in project root `.env`
 
 ### "Failed to fetch"
 - Backend server might not be running
